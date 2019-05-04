@@ -73,7 +73,7 @@
 - belongs_to :item
 - belongs_to :user
 
-## item_commentsテーブル
+## commentsテーブル
 
 | Column  | Type       | Option                         |
 |---------|------------|--------------------------------|
