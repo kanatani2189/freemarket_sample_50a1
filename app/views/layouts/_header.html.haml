@@ -1,0 +1,20 @@
+.header
+  .header--inner-upper
+    %h1.header--inner-upper__logo
+      %a{href: "#"}
+        %img{alt: "mercari", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?4194600336"}/
+    .header--inner-upper--form
+      .header--inner-upper--form__input-box
+        %input.header--inner-upper--form__input-box__text{name: "keyword", placeholder: "何かお探しですか？", type: "text", value: ""}/
+        %i.fa.fa-search.header--inner-upper--form__input-box__icon
+  .header--inner-lower
+    %nav.header--inner-lower--left
+      %a{href: "#"}
+        = fa_icon("list-ul")
+        %span カテゴリーから探す
+      %a{href: "#"}
+        = fa_icon("tags")
+        %span ブランドから探す
+    .header--inner-lower__right
+      %a.btn-red{href: "#"} ログイン
+      %a.header-signup{href: "#"} 新規会員登録
