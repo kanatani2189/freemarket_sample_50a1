@@ -13,8 +13,8 @@
 | birth_month      | integer | null: false                    |
 | birth_date       | integer | null: false                    |
 | city             | string  | null: false                    |
-| address_1        | text    | null: false                    |
-| address_2        | text    | null: false                    |
+| address          | text    | null: false                    |
+| street           | text    | null: false                    |
 | area_id          | references  | null: false, foreign_key: true |
 
 ## Association
@@ -32,18 +32,16 @@
 | description     | text       | null: false                    |
 | price           | integer    | null: false                    |
 | condition       | text       | null: false                    |
-| item_size       | text       |                                |
+| size            | text       |                                |
 | shipping_burden | text       | null: false                    |
 | shipping_method | text       | null: false                    |
 | estimated_date  | text       | null: false                    |
 | area_id         | references | null: false, foreign_key: true |
 | brand_id        | references | null: false, foreign_key: true |
-| user_id         | references | null: false, foreign_key: true |
-| category_id     | references | null: false, foreign_key: true |
-
+　
 ## Association
 - belongs_to :brand
-- belongs_to :category
+- has_one :parent_category
 - belongs_to :area
 - has_many :users, through: :user_items
 - has_many :images
@@ -54,7 +52,6 @@
 |----------|------------|--------------------------------|
 | user_id  | references | null: false, foreign_key: true |
 | item_id  | references | null: false, foreign_key: true |
-|          |            |                                |
 
 ## Association
 - belongs_to :user
@@ -67,7 +64,6 @@
 | name    | text       | null: false                    |
 | user_id | references | null: false, foreign_key: true |
 | item_id | references | null: false, foreign_key: true |
-|         |            |                                |
 
 ## Association
 - belongs_to :item
@@ -80,7 +76,6 @@
 | comment | text       |                                |
 | user_id | references | null: false, foreign_key: true |
 | item_id | references | null: false, foreign_key: true |
-|         |            |                                |
 
 ## Association
 - belongs_to :item
@@ -97,16 +92,47 @@
 - belongs_to :item
 - belongs_to :user
 
-## categoriesテーブル
+## parent_categoriesテーブル
 
-| Column | Type | Option |
-|--------|------|--------|
-| name   | text |        |
-| main   | text |        |
-| sub    | text |        |
+| Column  | Type       | Option                         |
+|---------|------------|--------------------------------|
+| item_id | references | null: false, foreign_key: true |
 
 ## Association
 - belongs_to :item
+- has_one :large_category
+- has_one :midium_category
+- has_one :small_category
+
+## large_categoriesテーブル
+
+| Column             | Type       | Option                         |
+|--------------------|------------|--------------------------------|
+| parent_category_id | references | null: false, foreign_key: true |
+| category_name      | text       | null: false                    |
+
+## Association
+- belongs_to :parent_category
+
+## midium_categoriesテーブル
+
+| Column             | Type       | Option                         |
+|--------------------|------------|--------------------------------|
+| parent_category_id | references | null: false, foreign_key: true |
+| category_name      | text       | null: false                    |
+
+## Association
+- belongs_to :parent_category
+
+## small_categoriesテーブル
+
+| Column             | Type       | Option                         |
+|--------------------|------------|--------------------------------|
+| parent_category_id | references | null: false, foreign_key: true |
+| category_name      | text       | null: false                    |
+
+## Association
+- belongs_to :parent_category
 
 ## brandsテーブル
 
@@ -115,14 +141,13 @@
 | name    | text       |                                |
 
 ## Association
-- belongs_to :item
+- has_many :items
 
 ## areasテーブル
 
 | Column | Type   | Option |
 |--------|--------|--------|
 | name   | string |        |
-|        |        |        |
 
 ## Association
 - has_many :items
