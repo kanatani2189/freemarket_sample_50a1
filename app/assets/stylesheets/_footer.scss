@@ -1,63 +1,3 @@
-.app-banner{
-  background: url("https://www.mercari.com/jp/assets/img/common/jp/top/download_bg_pc.jpg?62593201");
-  background-position: center;
-  background-size: cover;
-  height: 260px;
-  &--inner{
-    width: 750px;
-    height: 260px;
-    margin: 0 auto;
-    color: #fff;
-    position: relative;
-    &--contents{
-      padding-top: 50px;
-      &__text{
-        h2{
-          color: #fff;
-          font-weight: bold;
-          font-size: 16px;
-        }
-        p{
-          color: #fff;
-          margin: 10px 0 0;
-          font-size: 24px;
-        }
-      }
-      &--icons{
-        margin: 20px 0 0;
-        figure{
-          display: flex;
-          margin-left: 0;
-          .download-icon{
-            margin: 0 0 0 24px;
-            line-height: 68px;
-            display: flex;
-            a{
-              display: block;
-              img{
-                vertical-align: middle;
-              }
-              img:hover{
-                opacity: .7;
-              }
-            }
-            a:first-of-type{
-              margin-right: 20px;
-            }
-          }
-        }
-      }
-    }
-    .figure{
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      overflow: hidden;
-      height: 260px;
-    }
-  }
-}
 .footer{
   padding: 0 20px 10px 20px;
   background: #212121;
@@ -84,10 +24,9 @@
             color: #fff;
             font-size: 12px;
             opacity: .7;
-          }
-          a:hover{
-            padding: 0;
-            border-bottom: 1px solid #fff;
+            &:hover{
+              border-bottom: 1px solid #fff;
+            }
           }
         }
         .footer-social{
@@ -134,9 +73,9 @@
     &__logo{
       line-height: 1.5em;
       display: inline-block;
-    }
-    &__logo:hover{
-      opacity: .7;
+      &:hover{
+        opacity: .7;
+      }
     }
     &__copyright{
       width: 745px;

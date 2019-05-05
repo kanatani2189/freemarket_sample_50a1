@@ -1,14 +1,20 @@
+@charset "utf-8";
+
 @import "./reset";
+@import "./config/variable";
+@import "./mixin/mixin";
 @import "./font-awesome";
-@import "./variable";
+
+@import "./header";
+@import "./item_messages";
+@import "./app-banner";
+@import "./footer";
+@import "./footer-sell-btn";
+
 *{
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   text-decoration: none;
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-  color: #333333
+  color: $mainColor
 }
-
-@import "./header";
-@import "./item_messages";
-@import "./footer"
