@@ -1,0 +1,154 @@
+.app-banner{
+  background: url("https://www.mercari.com/jp/assets/img/common/jp/top/download_bg_pc.jpg?62593201");
+  background-position: center;
+  background-size: cover;
+  height: 260px;
+  &--inner{
+    width: 750px;
+    height: 260px;
+    margin: 0 auto;
+    color: #fff;
+    position: relative;
+    &--contents{
+      padding-top: 50px;
+      &__text{
+        h2{
+          color: #fff;
+          font-weight: bold;
+          font-size: 16px;
+        }
+        p{
+          color: #fff;
+          margin: 10px 0 0;
+          font-size: 24px;
+        }
+      }
+      &--icons{
+        margin: 20px 0 0;
+        figure{
+          display: flex;
+          margin-left: 0;
+          .download-icon{
+            margin: 0 0 0 24px;
+            line-height: 68px;
+            display: flex;
+            a{
+              display: block;
+              img{
+                vertical-align: middle;
+              }
+              img:hover{
+                opacity: .7;
+              }
+            }
+            a:first-of-type{
+              margin-right: 20px;
+            }
+          }
+        }
+      }
+    }
+    .figure{
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+      height: 260px;
+    }
+  }
+}
+.footer{
+  padding: 0 20px 10px 20px;
+  background: #212121;
+  color: #fff;
+  &--nav{
+    width: 1020px;
+    margin: 0 auto;
+    display: flex;
+    &--cell:first-child{
+      padding: 0 20px 0 0;
+      width: 20%;
+    }
+    &--cell{
+      margin-top: 18px;
+      width: 23%;
+      padding: 0 40px 0 0;
+      &__head{
+        color: #fff;
+      }
+      ul{
+        li{
+          margin-top: 16px;
+          a{
+            color: #fff;
+            font-size: 12px;
+            opacity: .7;
+          }
+          a:hover{
+            padding: 0;
+            border-bottom: 1px solid #fff;
+          }
+        }
+        .footer-social{
+          margin-top: 14px;
+          display: flex;
+          a{
+            display: block;
+            margin-left: 2px;
+            i{
+              color: #fff;
+              margin: 16px 18px 0 0;
+              font-size: 30px;
+              line-height: 1;
+            }
+          }
+        }
+      }
+    }
+    .long-width{
+      margin-top: 18px;
+      padding: 0 40px 0 0;
+      width: 42%;
+      &__head{
+      }
+      &__inner{
+        display: flex;
+        ul{
+          padding-left: 10px;
+        }
+        ul:first-of-type{
+          padding: 0 10px 0 0;
+        }
+      }
+    }
+    .nav-lang{
+      width: auto;
+    }
+  }
+  &--bottom{
+    margin: 30px auto 20px;
+    width: 1020px;
+    height: 30px;
+    position: relative;
+    &__logo{
+      line-height: 1.5em;
+      display: inline-block;
+    }
+    &__logo:hover{
+      opacity: .7;
+    }
+    &__copyright{
+      width: 745px;
+      text-align: center;
+      display: inline-block;
+      small{
+        font-size: 11px;
+        padding-bottom: 5px;
+        position: absolute;
+        top: 10px;
+        left: 45%;
+      }
+    }
+  }
+}
