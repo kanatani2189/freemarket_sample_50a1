@@ -1,0 +1,7 @@
+@mixin linkHover($color: $linkColor, $solid: 1px) {
+  color: $color;
+  &:hover{
+    opacity: .7;
+    border-bottom: $solid solid $color;
+  }
+}
