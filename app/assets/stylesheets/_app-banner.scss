@@ -1,5 +1,5 @@
 .app-banner{
-  background: url("https://www.mercari.com/jp/assets/img/common/jp/top/download_bg_pc.jpg?62593201");
+  background-image: url("https://www.mercari.com/jp/assets/img/common/jp/top/download_bg_pc.jpg?62593201");
   background-position: center;
   background-size: cover;
   height: 260px;
@@ -7,18 +7,18 @@
     width: 750px;
     height: 260px;
     margin: 0 auto;
-    color: #fff;
+    color: $whiteColor;
     position: relative;
     &--contents{
       padding-top: 50px;
       &__text{
         h2{
-          color: #fff;
+          color: $whiteColor;
           font-weight: bold;
           font-size: 16px;
         }
         p{
-          color: #fff;
+          color: $whiteColor;
           margin: 10px 0 0;
           font-size: 24px;
         }

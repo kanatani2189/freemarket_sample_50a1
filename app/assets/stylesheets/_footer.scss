@@ -1,7 +1,7 @@
 .footer{
   padding: 0 20px 10px 20px;
   background: #212121;
-  color: #fff;
+  color: $whiteColor;
   width: 100%;
   &--nav{
     width: 1020px;
@@ -16,17 +16,17 @@
       width: 23%;
       padding: 0 40px 0 0;
       &__head{
-        color: #fff;
+        color: $whiteColor;
       }
       ul{
         li{
           margin-top: 16px;
           a{
-            color: #fff;
+            color: $whiteColor;
             font-size: 12px;
             opacity: .7;
             &:hover{
-              border-bottom: 1px solid #fff;
+              border-bottom: 1px solid $whiteColor;
             }
           }
         }
@@ -37,7 +37,7 @@
             display: block;
             margin-left: 2px;
             i{
-              color: #fff;
+              color: $whiteColor;
               margin: 16px 18px 0 0;
               font-size: 30px;
               line-height: 1;

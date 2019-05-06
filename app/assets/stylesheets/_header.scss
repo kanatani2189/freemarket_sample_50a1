@@ -79,16 +79,16 @@
       .btn-red{
         background: $baseColor;
         border: 1px solid $baseColor;
-        color: #fff;
+        color: $whiteColor;
       }
       .header-signup{
         border: 1px solid $linkColor;
-        background: #fff;
+        background: $whiteColor;
         color: $linkColor;
         &:hover{
           transition: .5s;
           background: $linkColor;
-          color: #fff;
+          color: $whiteColor;
         }
       }
     }
