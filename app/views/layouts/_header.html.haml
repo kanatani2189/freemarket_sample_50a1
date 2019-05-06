@@ -6,14 +6,14 @@
     .header--inner-upper--form
       .header--inner-upper--form__input-box
         %input.header--inner-upper--form__input-box__text{name: "keyword", placeholder: "何かお探しですか？", type: "text", value: ""}/
-        %i.fa.fa-search.header--inner-upper--form__input-box__icon
+        = icon('fas', 'search')
   .header--inner-lower
     %nav.header--inner-lower--left
       %a{href: "#"}
-        = fa_icon("list-ul")
+        = icon('fas', 'list-ul')
         %span カテゴリーから探す
       %a{href: "#"}
-        = fa_icon("tags")
+        = icon('fas', 'tags')
         %span ブランドから探す
     .header--inner-lower__right
       %a.btn-red{href: "#"} ログイン

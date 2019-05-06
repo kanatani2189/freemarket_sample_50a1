@@ -1,1 +1,12 @@
+%main.main
+  .main--image-slide{style: "width: 100%"}
+    %img{src: "https://www.mercari.com/jp/assets/img/common/jp/top/banner-natsukashi.jpg"}
+    .owl-dots
+      .owl-dot
+  %section.main--pickup-container
+    %h2.main--pickup-container__name ピックアップカテゴリー
+    = render 'item_messages/pickup-category'
+  %section.main--pickup-container
+    %h2.main--pickup-container__name ピックアップブランド
+    = render 'item_messages/pickup-brand'
 = render 'layouts/footer-sell-btn'
