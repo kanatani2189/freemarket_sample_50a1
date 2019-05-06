@@ -5,6 +5,7 @@
 @import "./mixin/mixin";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+@import './common';
 
 @import "./header";
 @import "./item_messages";
@@ -12,12 +13,3 @@
 @import "./footer";
 @import "./footer-sell-btn";
 
-@import "./item_messages.scss";
-
-*{
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  text-decoration: none;
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-  color: $mainColor;
-}
