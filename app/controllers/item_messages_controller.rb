@@ -10,4 +10,5 @@ class ItemMessagesController < ApplicationController
 
   def edit
   end
+
 end
