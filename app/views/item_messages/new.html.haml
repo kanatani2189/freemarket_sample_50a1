@@ -1,0 +1,27 @@
+= render './shared/header';
+
+.main-content
+
+  .center-content__top
+    %h2.center-content__top--text
+      新規会員登録
+    
+  .center-content__bottom
+    .center-content__bottom-box
+      = link_to '#', class: 'center-content__bottom-box-link' do
+        .center-content__bottom-box-link-mail
+          %p.center-content__bottom-box-link-mail--text
+            = icon('far', 'envelope', class: 'icon')
+            メールアドレスで登録
+      = link_to '#', class: 'center-content__bottom-box-link' do
+        .center-content__bottom-box-fb
+          %p.center-content__bottom-box-fb--text
+            = icon('fab', 'facebook', class: 'icon')
+            Facebookで登録
+      = link_to '#', class: 'center-content__bottom-box-link' do
+        .center-content__bottom-box-google
+          %p.center-content__bottom-box-google--text
+            = icon('fab', 'google', class: 'icon')
+            Googleで登録
+
+= render './shared/footer';
