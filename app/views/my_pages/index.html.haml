@@ -1,44 +1,18 @@
-%main.main
-  .main--l-container
-    .main--l-container--l-containt
-      %section.main--l-container--l-containt--l-chapter-container
-        %h2.main--l-container--l-containt--l-chapter-container--l-chapter-head プロフィール
-        .main--l-container--l-containt--l-chapter-container--setting-profile-icon
-          %figure
-            = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png" ,height:"60px",width:"60px"
-          %input{name: "nickname", placeholder: "例)AYA☆セール中", type: "text", value: ""}/
-        .main--l-container--l-containt--l-chapter-container--setting-profile-content
-          %textarea.main--l-container--l-containt--l-chapter-container--setting-profile-content--textarea-default{name: "introduction", placeholder:"例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
-          %button.main--l-container--l-containt--l-chapter-container--setting-profile-content--btn-default 変更する
+= render './shared/profile_header';
+= render './shared/gratel';
+    
 
-    .main--l-container--l-side
-      %nav
-        %ul
-          %li
-            = link_to('マイページ', {})
-          %li
-            = link_to('お知らせ', {})
-          %li
-            = link_to('やることリスト', {})
-          %li
-            = link_to('いいね！一覧', {})
-          %li
-            = link_to('出品する', {})
-          %li
-            = link_to('出品した商品-出品中', {})
-          %li
-            = link_to('出品した商品-取引中', {})
-          %li
-            = link_to('出品した商品-売却済み', {})
-          %li
-            = link_to('購入した商品-取引中', {})
-          %li
-            = link_to('購入した商品-過去の取引', {})
-          %li
-            = link_to('ニュース一覧', {})
-          %li
-            = link_to('評価一覧', {})
-          %li
-            = link_to('ガイド', {})
-          %li 
-            = link_to('お問い合わせ', {})
+.main--l-container
+  .main--l-container--l-containt
+    %section.main--l-container--l-containt--l-chapter-container
+      %h2.main--l-container--l-containt--l-chapter-container--l-chapter-head プロフィール
+      .main--l-container--l-containt--l-chapter-container--setting-profile-icon
+        %figure
+          = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png" ,height:"60px",width:"60px"
+        %input{name: "nickname", placeholder: "例)AYA☆セール中", type: "text", value: ""}/
+      .main--l-container--l-containt--l-chapter-container--setting-profile-content
+        %textarea.main--l-container--l-containt--l-chapter-container--setting-profile-content--textarea-default{name: "introduction", placeholder:"例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
+        %button.main--l-container--l-containt--l-chapter-container--setting-profile-content--btn-default 変更する
+  = render './shared/sidebar';
+= render './layouts/footer';
+= render './layouts/footer-sell-btn';

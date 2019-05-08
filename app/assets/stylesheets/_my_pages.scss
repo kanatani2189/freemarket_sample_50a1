@@ -1,8 +1,37 @@
-.main{
-  display: block;
-  &--l-container{
+  .bread-crumbs{
+    position: relative;
+    border-top: 1px solid #eee;
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+    background: #fff;
+    ul{
+      width: 1020px;
+      overflow: visible;
+      margin: 0 auto;
+      padding: 16px 0;
+      white-space: normal;
+      li{
+        display: inline-block;
+        font-size: 14px;
+        line-height: 1.2;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      i{
+        margin: 0 8px;
+        color: #888;
+        display: inline-block;
+        font-style: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+      }
+    }
+  }
+  .main--l-container{
     width: 1020px;
     margin: 40px auto 0;
+    padding: 0 0 40px;
     display: flex;
     flex-direction: row-reverse;
     &--l-containt{
@@ -17,6 +46,7 @@
         &--l-chapter-head{
           font-size:24px;
           padding: 8px 24px;
+          font-weight: bold;
         }
         &--setting-profile-icon{
           padding: 72px 16px 24px;
@@ -28,8 +58,11 @@
           figure{
             display: inline-block;
             overflow: hidden;
-            border-radius: 50px;
+            border-radius: 50%;
             vertical-align: middle;
+            width: 60px;
+            height: 60px;
+            text-align: center;
           } 
           input{
             width:220px;
@@ -86,8 +119,21 @@
         color: #333;
         touch-action: manipulation;
         border-top: 1px solid #eee;
+        i{
+          position: absolute;
+          top: 50%;
+          right: 16px;
+          color: #ccc;
+          transform: translate(0, -50%);
+          transition: all ease-out .2s;
+        }
+      }
+      h3{
+        margin :40px 0 0 ;
+        font-size: 16px;
+        font-family: メイリオ;
       }
     }
   }
-}
+
 
