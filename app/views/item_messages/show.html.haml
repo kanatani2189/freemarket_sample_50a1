@@ -1,0 +1,38 @@
+= render './shared/header';
+
+.account
+
+  .account-top
+    %p.account-top--text
+      アカウントをお持ちでない方はこちら
+    = link_to "#", class: "account-top--text--link" do
+      .account-top--text--link__box
+        %p.account-top--text--link__box--text
+          新規会員登録
+
+
+  .account-bottom
+    = link_to "#", class: "account-bottom--link" do
+      .account-bottom--link__box1
+        %p.account-bottom--link__box1--fb
+          = icon('fab', 'facebook', class: 'icon')
+          Facebookでログイン
+      .account-bottom--link__box2
+        %p.account-bottom--link__box2--google
+          = icon('fab', 'google', class: 'icon')
+          Googleでログイン
+    
+    %form.form
+      .form-box
+        %label{for: "email"}
+        %input{name: "email", placeholder: "メールアドレス", type: "text", value: "", class: "form-box--input"}
+      .form-box
+        %label{for: "password"}
+        %input{name: "password", placeholder: "パスワード", type: "text", value: "", class: "form-box--input"}
+      %button{type: "submit", class: "form-btn"}
+        ログイン
+      = link_to "#", class: "form-link" do
+        %P.form-link--text
+          パスワードをお忘れの方
+    
+= render './shared/footer';
