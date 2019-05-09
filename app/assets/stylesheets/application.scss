@@ -1,23 +1,18 @@
 @charset "utf-8";
-
 @import "./reset";
 @import "./config/variable";
 @import "./mixin/mixin";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 @import './common';
-
 @import "./header";
 @import "./item_messages";
 @import "./app-banner";
 @import "./footer";
 @import "./footer-sell-btn";
-
 @import "./new-member";
 @import "./member-information";
 @import "./account";
-
-
 // ユーザープロフィール画面
 @import "./my_pages";
 @import "./profile_header"
