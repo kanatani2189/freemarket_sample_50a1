@@ -1,0 +1,106 @@
+= render './shared/profile_header';
+= render './shared/gratel';
+
+%main.my-container.clearfix
+  .my-content
+    %section.my-user-icon
+      %a{href:"https://www.mercari.com/jp/u/686234154/"}
+        %figure
+          %img{alt: "", height: "60", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "60"}/
+        %h2.bold username
+        .mypage-number
+          %div
+            評価
+            %span.bold 0
+          %div
+            出品数
+            %span.bold 0
+            / タブボタン２種
+    %section.mypage-notification-box-todo
+      %ul.mypage-tabs
+        %li.active
+          %h3
+            %a{"data-toggle" => "tab", href: "#mypage-tab-notification"}
+              お知らせ
+              %span.mypage-nav-number.hidden-large
+        %li
+          %h3.todo
+            %a{"data-toggle" => "tab", href: "#mypage-tab-todo"}
+              やることリスト
+              / お知らせ一覧表示
+      .tab-content
+        %ul#tab-notification.mypage-item-list.tab-pane.active
+          %li
+            %a.mypage-item-link{href: "https://www.mercari.com/jp/mypage/news/"}
+              %figure
+                %img.lazyloaded{alt: "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
+              .mypage-item-body
+                .mypage-item-text 事務局から個別メッセージ「Facebookログイン通知」
+                %time
+                  %i.icon-time
+                  %span 11 分前
+              %i.icon-arrow-right
+          %li
+            %a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/news/"}
+              %figure
+                %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
+              .mypage-item-body
+                .mypage-item-text 事務局から個別メッセージ「Facebookログイン通知」
+                %time
+                  %i.icon-time
+                  %span 5 時間前
+              %i.icon-arrow-right
+          %li
+            %a.mypage-item-link{"data-modal" => "banner", "data-open" => "modal", :href => ""}
+              %figure
+                %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
+              .mypage-item-body
+                .mypage-item-text 【出品はじめかたガイド】安心でかんたんに出品する方法をCHECKしてみよう！
+                %time
+                  %i.icon-time
+                  %span 6 時間前
+              %i.icon-arrow-right
+          %li
+            %a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/news/"}
+              %figure
+                %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
+              .mypage-item-body
+                .mypage-item-text 事務局から個別メッセージ「【P300獲得！】欲しかったあの商品をお得にゲットしませんか？」
+                %time
+                  %i.icon-time
+                  %span 6 時間前
+              %i.icon-arrow-right
+          %li
+            %a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/news/"}
+              %figure
+                %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
+                　
+              .mypage-item-body
+                .mypage-item-text 事務局から個別メッセージ「Facebookログイン通知」
+                %time
+                  %i.icon-time
+                  %span 6 時間前
+              %i.icon-arrow-right
+          %li.mypage-go-list
+            %a{:href => "/jp/mypage/notification/"}一覧を見る
+        / %ul#mypage-tab-todo.mypage-item-list.tab-pane
+        /   %li.mypage-item-not-found.bold 現在、やることリストはありません
+
+    %section.mypage-tab-container
+      %h2.mypage-tab-head 購入した商品
+      %ul.mypage-tabs
+        %li.active
+          %h3
+            %a{"data-toggle" => "tab", :href => "#mypage-tab-transaction-now"} 取引中
+        %li.kako
+          %h3.past
+            %a{"data-toggle" => "tab", :href => "#mypage-tab-transaction-old"} 過去の取引
+      .tab-content
+        %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
+          %li.mypage-item-not-found.bold 取引中の商品がありません
+        / %ul#mypage-tab-transaction-old.mypage-item-list.tab-pane
+        /   %li.mypage-item-not-found.bold 過去に取引した商品がありません
+  = render './shared/sidebar';
+= render './shared/footer';        
+= render './shared/footer-sell-btn'
+
