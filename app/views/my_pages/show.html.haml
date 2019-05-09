@@ -4,7 +4,7 @@
 %main.my-container.clearfix
   .my-content
     %section.my-user-icon
-      %a{href:"https://www.mercari.com/jp/u/686234154/"}
+      = link_to "https://www.mercari.com/jp/u/686234154/" do
         %figure
           %img{alt: "", height: "60", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "60"}/
         %h2.bold username
@@ -20,18 +20,18 @@
       %ul.mypage-tabs
         %li.active
           %h3
-            %a{"data-toggle" => "tab", href: "#mypage-tab-notification"}
+            = link_to "#mypage-tab-notification" do
               お知らせ
               %span.mypage-nav-number.hidden-large
         %li
           %h3.todo
-            %a{"data-toggle" => "tab", href: "#mypage-tab-todo"}
+            = link_to "#mypage-tab-todo" do
               やることリスト
               / お知らせ一覧表示
       .tab-content
         %ul#tab-notification.mypage-item-list.tab-pane.active
           %li
-            %a.mypage-item-link{href: "https://www.mercari.com/jp/mypage/news/"}
+            =link_to "https://www.mercari.com/jp/mypage/news/", class: "mypage-item-link" do
               %figure
                 %img.lazyloaded{alt: "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
               .mypage-item-body
@@ -41,7 +41,7 @@
                   %span 11 分前
               %i.icon-arrow-right
           %li
-            %a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/news/"}
+            = link_to "https://www.mercari.com/jp/mypage/news/", class: "mypage-item-link" do
               %figure
                 %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
               .mypage-item-body
@@ -51,7 +51,7 @@
                   %span 5 時間前
               %i.icon-arrow-right
           %li
-            %a.mypage-item-link{"data-modal" => "banner", "data-open" => "modal", :href => ""}
+            = link_to "", class: "mypage-item-link" do
               %figure
                 %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
               .mypage-item-body
@@ -61,7 +61,7 @@
                   %span 6 時間前
               %i.icon-arrow-right
           %li
-            %a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/news/"}
+            = link_to "https://www.mercari.com/jp/mypage/news/", class:"mypage-item-link" do
               %figure
                 %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
               .mypage-item-body
@@ -71,7 +71,7 @@
                   %span 6 時間前
               %i.icon-arrow-right
           %li
-            %a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/news/"}
+            = link_to "https://www.mercari.com/jp/mypage/news/", class: "mypage-item-link" do
               %figure
                 %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
                 　
@@ -82,7 +82,8 @@
                   %span 6 時間前
               %i.icon-arrow-right
           %li.mypage-go-list
-            %a{:href => "/jp/mypage/notification/"}一覧を見る
+            = link_to "/jp/mypage/notification/" do
+              一覧を見る
         / %ul#mypage-tab-todo.mypage-item-list.tab-pane
         /   %li.mypage-item-not-found.bold 現在、やることリストはありません
 
@@ -91,10 +92,12 @@
       %ul.mypage-tabs
         %li.active
           %h3
-            %a{"data-toggle" => "tab", :href => "#mypage-tab-transaction-now"} 取引中
+            = link_to "#mypage-tab-transaction-now" do
+              取引中
         %li.kako
           %h3.past
-            %a{"data-toggle" => "tab", :href => "#mypage-tab-transaction-old"} 過去の取引
+            = link_to "#mypage-tab-transaction-old" do
+              過去の取引
       .tab-content
         %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
           %li.mypage-item-not-found.bold 取引中の商品がありません
