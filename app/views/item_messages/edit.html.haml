@@ -1,0 +1,243 @@
+= render './shared/registration-header';
+
+.form-group
+
+  .form-group__top
+    %h2.form-group__top--text
+      会員情報入力
+
+  .form-group__bottom
+    .form-group__bottom-box
+      %label{for: "nicnkame", class: "form-group__bottom-box--text"}
+        ニックネーム
+      %span.form-group__bottom-box--require
+        必須
+      .form-group__bottom-box--input
+        %input{name: "nickname", placeholder: "例）メルカリ太郎", type: "text", value: "", class: "form-group__bottom-box--input-nickname"}
+
+    .form-group__bottom-box
+      %label{for: "email", class: "form-group__bottom-box--text"}
+        メールアドレス
+      %span.form-group__bottom-box--require
+        必須
+      .form-group__bottom-box--input
+        %input{name: "email", placeholder: "PC・携帯どちらでも可", type: "text", value: "", class: "form-group__bottom-box--input-nickname"}
+
+    .form-group__bottom-box
+      %label{for: "password", class: "form-group__bottom-box--text"}
+        パスワード
+      %span.form-group__bottom-box--require
+        必須
+      .form-group__bottom-box--input
+        %input{name: "password", placeholder: "6文字以上", type: "text", value: "", class: "form-group__bottom-box--input-nickname"}
+
+    .form-group__bottom-box
+      %label{for: "password_confirmation", class: "form-group__bottom-box--text"}
+        パスワード（確認）
+      %span.form-group__bottom-box--require
+        必須
+      .form-group__bottom-box--input
+        %input{name: "password_confirmation", placeholder: "6文字以上", type: "text", value: "", class: "form-group__bottom-box--input-nickname"}
+
+    .form-group__bottom-box
+      %h3.identification
+        本人確認
+      %p.worry
+        安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+
+    .form-group__bottom-box
+      %label{for: "family_name", class: "form-group__bottom-box--text"}
+        性（全角）
+      %span.form-group__bottom-box--require
+        必須
+      .form-group__bottom-box--input
+        %input{name: "family_name", placeholder: "例）山田", type: "text", value: "", class: "form-group__bottom-box--input-nickname"}
+
+    .form-group__bottom-box
+      %label{for: "first_name", class: "form-group__bottom-box--text"}
+        名（全角）
+      %span.form-group__bottom-box--require
+        必須
+      .form-group__bottom-box--input
+        %input{name: "first_name", placeholder: "例）彩", type: "text", value: "", class: "form-group__bottom-box--input-nickname"}
+
+    .form-group__bottom-box
+      %label{for: "family_name_kana", class: "form-group__bottom-box--text"}
+        性カナ（全角）
+      %span.form-group__bottom-box--require
+        必須
+      .form-group__bottom-box--input
+        %input{name: "family_name_kana", placeholder: "ヤマダ", type: "text", value: "", class: "form-group__bottom-box--input-nickname"}
+
+    .form-group__bottom-box
+      %label{for: "first_name_kana", class: "form-group__bottom-box--text"}
+        名カナ
+      %span.form-group__bottom-box--require
+        必須
+      .form-group__bottom-box--input
+        %input{name: "first_name_kana", placeholder: "例）アヤ", type: "text", value: "", class: "form-group__bottom-box--input-nickname"}
+
+    .form-group__bottom-box
+      %label{for: "birth_year", class: "form-group__bottom-box--text"}
+        生年月日
+      %span.form-group__bottom-box--require
+        必須
+      %br
+      .birthday
+        .birthday-select
+          %select{name: "birth_year", class: "birthday-select__year"}
+            %option{value: ""}
+            %option{value: "2000"}
+              2000
+            %option{value: "2001"}
+              2001
+            %option{value: "2002"}
+              2002
+            %option{value: "2003"}
+              2003
+            %option{value: "2004"}
+              2004
+            %option{value: "2005"}
+              2005
+            %option{value: "2006"}
+              2006
+            %option{value: "2007"}
+              2007
+            %option{value: "2008"}
+              2008
+            %option{value: "2009"}
+              2009
+            %option{value: "2010"}
+              2010
+            %option{value: "2011"}
+              2011
+            %option{value: "2012"}
+              2012
+            %option{value: "2013"}
+              2013
+            %option{value: "2014"}
+              2014
+            %option{value: "2015"}
+              2015
+            %option{value: "2016"}
+              2016
+            %option{value: "2017"}
+              2017
+            %option{value: "2018"}
+              2018
+            %option{value: "2019"}
+              2019
+          %span
+            年
+        .birthday-select
+          %select{name: "birth_month", class: "birthday-select__year"}
+            %option{value: ""}
+            %option{value: "1"}
+              1
+            %option{value: "2"}
+              2
+            %option{value: "3"}
+              3
+            %option{value: "4"}
+              4
+            %option{value: "5"}
+              5
+            %option{value: "6"}
+              6
+            %option{value: "7"}
+              7
+            %option{value: "8"}
+              8
+            %option{value: "9"}
+              9
+            %option{value: "10"}
+              10
+            %option{value: "11"}
+              11
+            %option{value: "12"}
+              12
+          %span
+            月
+        .birthday-select
+          %select{name: "birth_date", class: "birthday-select__year"}
+            %option{value: ""}
+            %option{value: "1"}
+              1
+            %option{value: "2"}
+              2
+            %option{value: "3"}
+              3
+            %option{value: "4"}
+              4
+            %option{value: "5"}
+              5
+            %option{value: "6"}
+              6
+            %option{value: "7"}
+              7
+            %option{value: "8"}
+              8
+            %option{value: "9"}
+              9
+            %option{value: "10"}
+              10
+            %option{value: "11"}
+              11
+            %option{value: "12"}
+              12
+            %option{value: "13"}
+              13
+            %option{value: "14"}
+              14
+            %option{value: "15"}
+              15
+            %option{value: "16"}
+              16
+            %option{value: "17"}
+              17
+            %option{value: "18"}
+              18
+            %option{value: "19"}
+              19
+            %option{value: "20"}
+              20
+            %option{value: "21"}
+              21
+            %option{value: "22"}
+              22
+            %option{value: "23"}
+              23
+            %option{value: "24"}
+              24
+            %option{value: "25"}
+              25
+            %option{value: "26"}
+              26
+            %option{value: "27"}
+              27
+            %option{value: "28"}
+              28
+            %option{value: "29"}
+              29
+            %option{value: "30"}
+              30
+            %option{value: "31"}
+              31
+          %span
+            日
+        %p.birthday--text
+          ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間をいただく場合があります。
+
+      %span.terms_of_service
+        次へ進む」のボタンを押すことにより
+        =link_to "#", class: "terms_of_service--link" do
+          利用規約
+      %span.terms_of_service
+        に同意したものとみなします
+      %button{type: "submit", class: "next-btn"}
+        次へ進む
+      %p.person_registration
+        =link_to "#", class: "person_registration--link" do
+          本人情報の登録について
+      
+= render './shared/registration-footer';
