@@ -6,7 +6,7 @@
     %section.my-user-icon
       = link_to "https://www.mercari.com/jp/u/686234154/" do
         %figure
-          %img{alt: "", height: "60", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "60"}/
+          = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png",alt: "", height: "60", width: "60"
         %h2.bold username
         .mypage-number
           %div
@@ -33,7 +33,7 @@
           %li
             =link_to "https://www.mercari.com/jp/mypage/news/", class: "mypage-item-link" do
               %figure
-                %img.lazyloaded{alt: "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
+                = image_tag "//static.mercdn.net/images/mercari_profile.png", src: "//static.mercdn.net/images/mercari_profile.png", class: "lazyloaded",alt: ""
               .mypage-item-body
                 .mypage-item-text 事務局から個別メッセージ「Facebookログイン通知」
                 %time
@@ -43,7 +43,7 @@
           %li
             = link_to "https://www.mercari.com/jp/mypage/news/", class: "mypage-item-link" do
               %figure
-                %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
+                = image_tag "//static.mercdn.net/images/mercari_profile.png", src: "//static.mercdn.net/images/mercari_profile.png", class: "lazyloaded",alt: ""
               .mypage-item-body
                 .mypage-item-text 事務局から個別メッセージ「Facebookログイン通知」
                 %time
@@ -53,7 +53,7 @@
           %li
             = link_to "", class: "mypage-item-link" do
               %figure
-                %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
+                = image_tag "//static.mercdn.net/images/mercari_profile.png", src: "//static.mercdn.net/images/mercari_profile.png", class: "lazyloaded",alt: ""
               .mypage-item-body
                 .mypage-item-text 【出品はじめかたガイド】安心でかんたんに出品する方法をCHECKしてみよう！
                 %time
@@ -63,7 +63,7 @@
           %li
             = link_to "https://www.mercari.com/jp/mypage/news/", class:"mypage-item-link" do
               %figure
-                %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
+                = image_tag "//static.mercdn.net/images/mercari_profile.png", src: "//static.mercdn.net/images/mercari_profile.png", class: "lazyloaded",alt: ""
               .mypage-item-body
                 .mypage-item-text 事務局から個別メッセージ「【P300獲得！】欲しかったあの商品をお得にゲットしませんか？」
                 %time
@@ -73,8 +73,7 @@
           %li
             = link_to "https://www.mercari.com/jp/mypage/news/", class: "mypage-item-link" do
               %figure
-                %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
-                　
+                = image_tag "//static.mercdn.net/images/mercari_profile.png", class: "lazyloaded"
               .mypage-item-body
                 .mypage-item-text 事務局から個別メッセージ「Facebookログイン通知」
                 %time
