@@ -1,0 +1,28 @@
+.logout-main{
+  margin: 40px auto 0;
+  width: 1020px;
+  display: flex;
+  &--container{
+    width: 700px;
+    height: 179px;
+    background-color: $whiteColor;
+    padding: 64px;
+    border-top: 1px solid $backGroundColor;
+    &--content{
+      max-width: 320px;
+      margin: 0 auto;
+      &__btn{
+        margin: 0;
+        background: $baseColor;
+        border: 1px solid $baseColor;
+        color: $whiteColor;
+        display: block;
+        width: 100%;
+        line-height: 44px;
+        font-size: 14px;
+        cursor: pointer;
+        text-align: center;
+      }
+    }
+  }
+}
