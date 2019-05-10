@@ -12,5 +12,5 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
+// require turbolinks jQueryがリロードしないと動かないので削除
 //= require_tree .
