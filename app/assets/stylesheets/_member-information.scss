@@ -15,7 +15,6 @@
     &__bottom {
       width: 300px;
       margin: 0 auto;
-      &-box {
         margin: 15px 0 15px 0;
         .identification {
           font-size: 15px;
@@ -54,6 +53,7 @@
           &__year {
             width: calc(100% - 40px);
             height: 46px;
+            background-color: $whiteColor;
           }
         }
         &--text {
