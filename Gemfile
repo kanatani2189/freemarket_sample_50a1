@@ -77,3 +77,4 @@ group :production do
 end
 
 gem 'devise'
+gem 'erb2haml'
