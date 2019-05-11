@@ -1,129 +1,129 @@
 .form-group {
-    background-color:$whiteColor;
-    width: 700px;
-    margin: 0 auto;
-    &__top {
-      border-bottom: solid 1px #eee;
-      height: 75px;
-      &--text {
-        text-align: center;
-        line-height: 75px;
-        font-size: 22px;
-      }
-    }
-  
-    &__bottom {
-      width: 300px;
-      margin: 0 auto;
-      &-box {
-        margin: 15px 0 15px 0;
-        .identification {
-          font-size: 15px;
-          margin-bottom: 3px;
-          font-weight: bold;
-        }
-        .worry {
-          font-size: 13px;
-        }
-        &--text {
-          font-size: 13px;
-          font-weight: bold;
-        }
-        &--require {
-          background-color: #ea352d;
-          color: $whiteColor;
-          border-radius: 2px;
-          font-size: 13px;
-          padding: 3px 5px;
-        }
-        &--input {
-          &-nickname {
-            width: 100%;
-            height: 46px;
-            margin: 5px 0 5px 0;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            font-size: 15px;
-            padding-left: 10px;
-          }
-        }
-      .birthday {
-        &-select {
-          width: 200px;
-          margin: 5px 0 10px 0;
-          &__year {
-            width: calc(100% - 40px);
-            height: 46px;
-          }
-        }
-        &--text {
-          font-size: 14px;
-          color: #808080;
-        }
-      }
-      .terms_of_service {
-        font-size: 14px;
-        display: block;
-        &--link {
-          text-decoration: none;
-          color: $linkColor;
-        }
-      }
-      .next-btn {
-        width: 100%;
-        background: #ea352d;
-        border: 1px solid #ea352d;
-        color: $whiteColor;
-        height: 50px;
-        font-size: 14px;
-        margin: 20px 0 10px 0;
-      }
-      .person_registration {
-        text-align: right;
-        font-size: 14px;
-        padding: 20px 0 40px 0;
-        &--link {
-          text-decoration: none;
-          color: $linkColor;
-        }
-      }
-      }
-    }
-  
-  }
-
-  .footer-registration {
-    height: 300px;
-    width: 450px;
-    margin: 0 auto;
-    &-box {
-      width: 400px;
-      padding-top: 40px;
-      margin: 0 auto;
-      &__link {
-        text-decoration: none;
-        &--text {
-          font-size: 11px;
-          margin: 0 8px 0 8px;
-          color: #000;
-        }
-      }
-    }
-    &__logo {
-      width: 80px;
-      padding-top: 25px;
-      margin: 0 auto;
-      &--link {
-        .icon_image {
-          width: 85px;
-          height: 85px;
-        }
-      }
-    }
+  background-color:$whiteColor;
+  width: 700px;
+  margin: 0 auto;
+  &__top {
+    border-bottom: solid 1px #eee;
+    height: 75px;
     &--text {
       text-align: center;
-      font-size: 10px;
-      margin-top: -7px;
+      line-height: 75px;
+      font-size: 22px;
     }
   }
-  
+
+  &__bottom {
+    width: 300px;
+    margin: 0 auto;
+    &-box {
+      margin: 15px 0 15px 0;
+      .identification {
+        font-size: 15px;
+        margin-bottom: 3px;
+        font-weight: bold;
+      }
+      .worry {
+        font-size: 13px;
+      }
+      &--text {
+        font-size: 13px;
+        font-weight: bold;
+      }
+      &--require {
+        background-color: #ea352d;
+        color: $whiteColor;
+        border-radius: 2px;
+        font-size: 13px;
+        padding: 3px 5px;
+      }
+      &--input {
+        &-nickname {
+          width: 100%;
+          height: 46px;
+          margin: 5px 0 5px 0;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          font-size: 15px;
+          padding-left: 10px;
+        }
+      }
+    .birthday {
+      &-select {
+        width: 200px;
+        margin: 5px 0 10px 0;
+        &__year {
+          width: calc(100% - 40px);
+          height: 46px;
+          background-color: $whiteColor;
+        }
+      }
+      &--text {
+        font-size: 14px;
+        color: #808080;
+      }
+    }
+    .terms_of_service {
+      font-size: 14px;
+      display: block;
+      &--link {
+        text-decoration: none;
+        color: $linkColor;
+      }
+    }
+    .next-btn {
+      width: 100%;
+      background: #ea352d;
+      border: 1px solid #ea352d;
+      color: $whiteColor;
+      height: 50px;
+      font-size: 14px;
+      margin: 20px 0 10px 0;
+    }
+    .person_registration {
+      text-align: right;
+      font-size: 14px;
+      padding: 20px 0 40px 0;
+      &--link {
+        text-decoration: none;
+        color: $linkColor;
+      }
+    }
+    }
+  }
+
+}
+
+.footer-registration {
+  height: 300px;
+  width: 450px;
+  margin: 0 auto;
+  &-box {
+    width: 400px;
+    padding-top: 40px;
+    margin: 0 auto;
+    &__link {
+      text-decoration: none;
+      &--text {
+        font-size: 11px;
+        margin: 0 8px 0 8px;
+        color: #000;
+      }
+    }
+  }
+  &__logo {
+    width: 80px;
+    padding-top: 25px;
+    margin: 0 auto;
+    &--link {
+      .icon_image {
+        width: 85px;
+        height: 85px;
+      }
+    }
+  }
+  &--text {
+    text-align: center;
+    font-size: 10px;
+    margin-top: -7px;
+  }
+}
