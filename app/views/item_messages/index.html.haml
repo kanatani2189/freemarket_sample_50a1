@@ -1,9 +1,30 @@
 = render './shared/header'
 %main.main
-  .main--image-slide{style: "width: 100%"}
-    = image_tag "https://www.mercari.com/jp/assets/img/common/jp/top/banner-natsukashi.jpg"
-    .owl-dots
-      .owl-dot
+  .swiper-container
+    .swiper-wrapper
+      .swiper-slide.natukashi
+        = link_to ""
+      .swiper-slide.camp
+        = link_to ""
+      .swiper-slide.app-download
+        .app-download--content
+          %h2.app-download--content__h2
+            スマホでかんたん
+            %br
+            フリマアプリ
+          %p.app-download--content__p
+            メルカリはスマホカメラからすぐに出品できる
+            %br
+            購入時も安心な独自システムのアプリです
+          .app-download--content__app-btns
+            = link_to "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", class: "app-download--content__app-btns__link" do
+              = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?4194600336"
+            = link_to "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", class: "app-download--content__app-btns__link" do
+              = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?4194600336"
+          = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/jp/top/main_content_pc.png?376951604", class: "app-download--content__app-btns__phone"
+    .swiper-button-prev.swiper-button-white
+    .swiper-button-next.swiper-button-white
+    .swiper-pagination.swiper-button-white
   %section.main--pickup-container
     %h2.main--pickup-container__name ピックアップカテゴリー
     = render 'item_messages/pickup-category'
@@ -14,3 +35,4 @@
 = render './shared/app-banner'
 = render './shared/footer'
 = link_to "ログアウト", destroy_user_session_path, method: :delete
+= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"
