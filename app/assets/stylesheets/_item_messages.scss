@@ -1,9 +1,33 @@
 .main{
   background: $backGroundColor;
-  &--image-slide{
-    img{
-      width: 100%;
-      vertical-align: bottom;
+  .swiper-container{
+    .swiper-wrapper{
+      .swiper-slide{
+        height: 390px;
+        background-size: cover;
+        a{
+          display: block;
+          width: 100%;
+          height: 100%;
+          .app-download--content{
+            h2{
+            }
+            p{
+            }
+            &__app-btn{
+            }
+          }
+        }
+      }
+      .natukashi{
+        background-image: url("https://www.mercari.com/jp/assets/img/common/jp/top/banner-camp.jpg");
+      }
+      .camp{
+        background-image: url("https://www.mercari.com/jp/assets/img/common/jp/top/banner-natsukashi.jpg");
+      }
+      .app-download{
+        background-image: url("https://www.mercari.com/jp/assets/img/common/jp/top/main_bg_pc.jpg");
+      }
     }
   }
   &--pickup-container{
