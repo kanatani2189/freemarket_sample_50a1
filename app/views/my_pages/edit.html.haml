@@ -19,32 +19,32 @@
                 本人確認書類のアップロードについて＞
 
           .form-group
-            %label
+            %label.form-group--label
               お名前
-            %p
+            %p.form-group--p
               メルカリ太郎
 
           .form-group
-            %label
+            %label.form-group--label
               お名前カナ
-            %p
+            %p.form-group--p
               メルカリタロウ
 
           .form-group
-            %label{for: "birthday"}
+            %label.form-group--label{for: "birthday"}
               生年月日
-            %p 
+            %p.form-group--p
               219/05/11
 
           .form-group
-            %label{for: "zip_code"}
+            %label.form-group--label{for: "zip_code"}
               郵便番号
             %span.form-arbitrary
               任意
             %input.input-default{type: "text", value:"", name: "zip_code", placeholder: "例）1234567"}
 
           .form-group
-            %label{for: "prefecture"}
+            %label.form-group--label{for: "prefecture"}
               都道府県
             %span.form-arbitrary
               任意
@@ -101,21 +101,21 @@
               %i.icon-arrow-bottom
 
           .form-group
-            %label{for: "city"}
+            %label.form-group--label{for: "city"}
               市区町村
             %span.form-arbitrary
               任意
             %input.input-default{type: "text", value: "", name: "city", placeholder: "例) 横浜市緑区"}
 
           .form-group
-            %label{for: "address1_label"}
+            %label.form-group--label{for: "address1_label"}
               番地
             %span.form-arbitrary
               任意
             %input.input-default{type: "text", value: "", name: "address1", placeholder: "例) 青山1−1−1"}
 
           .form-group
-            %label{for: "address2_label"}
+            %label.form-group--label{for: "address2_label"}
               建物名
             %span.form-arbitrary
               任意
@@ -125,7 +125,7 @@
             登録する
 
           .form-group-text-right
-            %p
+            %p.form-group--p
               =link_to "#", class: "upload" do
                 本人情報の登録について＞
                 
