@@ -1,0 +1,115 @@
+= render './shared/registration-header';
+
+.form-group
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = devise_error_messages!
+    .form-group__top
+      %h2.form-group__top--text
+        会員情報入力
+
+    .form-group__bottom
+      .form-group__bottom-box
+        = f.label :nicnkame, class: "form-group__bottom-box--text" do
+          ニックネーム
+        %span.form-group__bottom-box--require
+          必須
+        .form-group__bottom-box--input
+          = f.text_field :nickname, placeholder: "例）メルカリ太郎", type: "text", class: "form-group__bottom-box--input-nickname"
+
+      .form-group__bottom-box
+        = f.label :email, class: "form-group__bottom-box--text" do
+          メールアドレス
+        %span.form-group__bottom-box--require
+          必須
+        .form-group__bottom-box--input
+          = f.email_field :email, placeholder: "PC・携帯どちらでも可", type: "text", class: "form-group__bottom-box--input-nickname"
+
+      .form-group__bottom-box
+        = f.label :password, class: "form-group__bottom-box--text" do
+          パスワード
+        %span.form-group__bottom-box--require
+          必須
+        .form-group__bottom-box--input
+          = f.password_field :password, placeholder: "6文字以上", type: "text", class: "form-group__bottom-box--input-nickname"
+
+      .form-group__bottom-box
+        = f.label :password, class: "form-group__bottom-box--text" do
+          パスワード（確認）
+        %span.form-group__bottom-box--require
+          必須
+        .form-group__bottom-box--input
+          = f.password_field :password_confirmation, placeholder: "6文字以上", type: "text", class: "form-group__bottom-box--input-nickname"
+
+      .form-group__bottom-box
+        %h3.identification
+          本人確認
+        %p.worry
+          安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+
+      .form-group__bottom-box
+        = f.label :family_name, class: "form-group__bottom-box--text" do
+          性（全角）
+        %span.form-group__bottom-box--require
+          必須
+        .form-group__bottom-box--input
+          = f.text_field :family_name, placeholder: "例）山田", type: "text", class: "form-group__bottom-box--input-nickname"
+
+      .form-group__bottom-box
+        = f.label :first_name, class: "form-group__bottom-box--text" do
+          名（全角）
+        %span.form-group__bottom-box--require
+          必須
+        .form-group__bottom-box--input
+          = f.text_field :first_name, placeholder: "例）彩", type: "text", class: "form-group__bottom-box--input-nickname"
+
+      .form-group__bottom-box
+        = f.label :family_name_kana, class: "form-group__bottom-box--text" do
+          性カナ（全角）
+        %span.form-group__bottom-box--require
+          必須
+        .form-group__bottom-box--input
+          = f.text_field :family_name_kana, placeholder: "ヤマダ", type: "text", class: "form-group__bottom-box--input-nickname"
+
+      .form-group__bottom-box
+        = f.label :first_name_kana, class: "form-group__bottom-box--text" do
+          名カナ
+        %span.form-group__bottom-box--require
+          必須
+        .form-group__bottom-box--input
+          = f.text_field :first_name_kana, placeholder: "例）アヤ", type: "text", class: "form-group__bottom-box--input-nickname"
+
+      .form-group__bottom-box
+        = f.label :birth_year, class: "form-group__bottom-box--text" do
+          生年月日
+        %span.form-group__bottom-box--require
+          必須
+        %br
+        .birthday
+          .birthday-select
+            = f.select :birth_year, options_for_select(1900..2019), {}, { autofocus: 'true', class: 'birthday-select__year'}
+            %span
+              年
+          .birthday-select
+            = f.select :birth_month, options_for_select(1..12), {}, { autofocus: 'true', class: 'birthday-select__year'}
+            %span
+              月
+          .birthday-select
+            = f.select :birth_date,  options_for_select(1..31), {}, { autofocus: 'true', class: 'birthday-select__year'}
+            %span
+              日
+          %p.birthday--text
+            ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間をいただく場合があります。
+
+        %span.terms_of_service
+          次へ進む」のボタンを押すことにより
+          =link_to "#", class: "terms_of_service--link" do
+            利用規約
+        %span.terms_of_service
+          に同意したものとみなします
+        %button{type: "submit", class: "next-btn"}
+          次へ進む
+        %p.person_registration
+          =link_to "#", class: "person_registration--link" do
+            本人情報の登録について
+
+= render './shared/registration-footer';
