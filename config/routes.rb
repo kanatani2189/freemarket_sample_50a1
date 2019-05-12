@@ -9,5 +9,4 @@ Rails.application.routes.draw do
 
   # 商品購入画面（石川）
   get 'items/buy/123456789'       => 'items#buy'
-
 end
