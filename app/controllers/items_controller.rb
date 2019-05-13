@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
   def new
   end
 
- # ？？
+ # 商品出品編集機能を追加する予定
   def edit
   end
 
