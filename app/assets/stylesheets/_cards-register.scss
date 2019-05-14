@@ -1,17 +1,17 @@
-.content{
+.container-content{
   float: none;
   width: 700px;
   height:770px;
   background-color: #fff;
-}
 
-.form-box{
-  padding: 64px;
-  border-top: 1px solid #f5f5f5;
+  .form-box{
+    padding: 64px;
+    border-top: 1px solid #f5f5f5;
 
-  &-content{
-    max-width: 320px;
-      margin: 0 auto;      
+    &-content{
+      max-width: 320px;
+        margin: 0 auto;      
+    }
   }
 }
 
@@ -19,12 +19,12 @@
   margin: 0 auto;
   width: 320px;
   
-  label{
+  &-label{
     font-weight: 600;
     display: inline-block;
   }
 
-  .input-default {
+  &-input {
     width: 100%;
     margin: 8px 0 0;
     height: 48px;
@@ -36,7 +36,7 @@
     font-size: 16px;
   }
 
-  .signup-card-list{
+  &-card-list{
     margin: 8px 0 0;
 
     li{
@@ -65,6 +65,7 @@
 .group{
   margin: 40px 0 0;
   width: 100%;
+  
   label {
     font-weight: 600;
   }
@@ -115,7 +116,7 @@
   }  
 }
 
-.group .input-default {
+.group-input {
   width: 100%;
   margin: 8px 0 0;
   height: 48px;

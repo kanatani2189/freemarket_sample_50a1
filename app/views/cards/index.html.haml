@@ -1,15 +1,15 @@
 = render './shared/profile_header';
 = render './shared/gratel';
 .main-container
-  .main-content    
+  .main-container-content    
     %section.chapter-container
       %h2.chapter-head 支払い方法    
       .single-inner
-        .single-content
-          %h3.chapter-sub-head クレジットカード一覧
+        .single-inner-content
+          %h3.single-inner-content-sub-head クレジットカード一覧
           .settings-payment-list
             .settings-add-card
-              .single-content
+              .settings-add-card-content
                 = link_to "https://www.mercari.com/jp/mypage/card/create/", class: "btn-default btn-red" do
                   = icon('fas', 'credit-card')
                   %span クレジットカードを追加する
