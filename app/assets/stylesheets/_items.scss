@@ -49,9 +49,15 @@
       }
       .natukashi{
         background-image: url("https://www.mercari.com/jp/assets/img/common/jp/top/banner-camp.jpg");
+        background-position: center center; 
+        background-size:contain;
+        background-repeat: repeat-x;
       }
       .camp{
         background-image: url("https://www.mercari.com/jp/assets/img/common/jp/top/banner-natsukashi.jpg");
+        background-position: center center; 
+        background-size:contain;
+        background-repeat: repeat-x;
       }
       .app-download{
         background-image: url("https://www.mercari.com/jp/assets/img/common/jp/top/main_bg_pc.jpg");

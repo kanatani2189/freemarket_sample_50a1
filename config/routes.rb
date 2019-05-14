@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'item_messages#index'
-  resources :item_messages, only: [:index, :new, :show, :edit]
-  resources :my_pages, only: [:index, :show,:new,:edit]
+  root 'items#index'
+  resources :items, only: [:index, :new]
+  resources :users, only: [:index, :show, :new, :edit]
   resources :cards, only: [:index, :new]
 
+  # ログアウトページ（内田）
+  get 'users/logout/123456789'       => 'users#logout'
+
+  # 商品購入画面（石川）
+  get 'items/buy/123456789'       => 'items#buy'
 end
