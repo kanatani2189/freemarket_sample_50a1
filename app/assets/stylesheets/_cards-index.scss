@@ -1,0 +1,95 @@
+@media screen and (min-width: 768px){ 
+  .main-container {
+      width: 1020px;
+      margin: 24px auto 0;
+      padding: 0 0 40px;
+      display: flex;
+      flex-direction: row-reverse;
+      
+      &-content {
+        float: none;
+        width: 700px;
+        background-color: #fff;
+        height: 360px;
+      }
+
+      .chapter-head {
+        font-size: 24px;
+        padding: 8px 24px;
+        border-bottom: 1px solid #f5f5f5;
+        text-align: center;
+
+        h2{
+          line-height: 1.4;
+        }
+      }
+
+      .single-inner {
+        padding: 64px;
+        border-top: 1px solid #f5f5f5;
+
+        &-content {
+          max-width: 320px;
+          margin: 0 auto;
+  
+          h3{
+            font-weight: bold;
+          }
+
+          &-sub-head {
+            font-size: 16px;
+          }
+        }
+      }
+
+      .settings-add-card {
+        padding: 24px 0;
+        border-bottom: 1px solid #eee;
+              
+        a i, span {
+          margin-right: 16px;
+          color: #fff;
+          font-style: normal;
+          font-weight: 400;
+          display: inline-block;
+        } 
+        
+        &-content {
+          max-width: 320px;
+          margin: 0 auto;
+        }
+      }
+
+      .btn-red {
+        background: #ea352d;
+        border: 1px solid #ea352d;
+        color: #fff;
+      }
+
+      .btn-default {
+        display: block;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        transition: all ease-out .3s;
+        cursor: pointer;
+        text-align: center;
+      }
+
+      .settings-not-regist a{
+        display: block;
+        margin: 40px 0 0;
+        text-align: right;
+        color: #0099e8;
+        text-decoration: none;
+
+        span{
+          color: #0099e8;
+        }
+
+        i {
+          color: #0099e8;
+        }
+      }
+  }
+}
