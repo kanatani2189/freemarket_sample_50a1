@@ -79,4 +79,5 @@ end
 gem 'devise'
 gem 'active_hash'
 gem 'jquery-rails'
+gem 'payjp'
 
