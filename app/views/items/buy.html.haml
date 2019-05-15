@@ -1,0 +1,77 @@
+= render './shared/registration-header';
+
+%main.single-main
+
+  %section.l-single-container-buy-item-container
+    %h2.l-single-head
+      購入を確定しますか？
+
+    %section.buy-content-buy-item
+      .buy-content-inner
+        %h3.buy-item-image
+          %img.is-higher-width-lazyloaded{ date:{ src: ""}, alt:{ src: ""}}
+
+        %p.buy-item-name-bold
+          CHANEL ラクレームドゥース
+
+        %form.buy-form{ action: "", method: "POST", novalidate: "novalidate"}
+
+          %p.buy-price-ja-bold
+            ¥ 1,620
+            %span.item-shipping-fee-f14-bold
+              送料込み
+
+          %ul.buy-accordion-not-have
+            %li.accordion-parent
+              .accordion-toggle
+                ポイントはありません
+      
+          %ul.buy-price-table
+            %li.buy-price-row-buy-you-pay-bold
+              .buy-price-cell-left
+                支払い金額
+              .buy-price-cell-right
+                %span{ data:{ buy:{ pay: ""}}}
+                  ¥ 1,620
+
+          %p.has-error-text
+            配送先と支払い方法の入力を完了してください。
+          %button.btn-default-btn-red-bold{ type: "submit",  disabled: ""}
+            購入する
+          %input#user_info_is_not_complete{ type: "hidden"}
+
+    %section.buy-content-buy-user-info
+      .buy-content-inner
+        %h3.shipping-payment
+          配送先
+        %p.buy-user-info-text
+          〒123-4567
+          %p.buy-user-info-text-br1
+            横浜市緑区 青山1−1−1 柳ビル103
+          %p.buy-user-info-text-br2
+            メルカリ太郎
+
+        %p.buy-user-info-text
+        %p.buy-user-info-fix
+          =link_to "#" do
+            %span.change-btn
+              変更する  ＞
+        
+    %section.buy-content-buy-user-info-payment{ data:{ buy: "pay-method"}}
+      .buy-content-inner
+        %h3.shipping-payment
+          支払い方法
+        %p.buy-user-info-text
+        
+          %br
+            /
+
+        %figure
+          %img{src: "", width: "", height: "", alt: ""}
+        %p.buy-user-info-fix
+          =link_to "#" do
+            %span.change-btn
+              変更する  ＞
+            %i.icon-arrow-right
+
+= render './shared/registration-footer';
