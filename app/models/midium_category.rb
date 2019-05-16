@@ -1,0 +1,2 @@
+class MidiumCategory < ApplicationRecord
+end
