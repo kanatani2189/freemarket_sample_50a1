@@ -9,10 +9,9 @@
           %h3.single-inner-content-sub-head クレジットカード一覧
           .settings-payment-list
             .settings-add-card
-              .settings-add-card-content
-                = link_to "https://www.mercari.com/jp/mypage/card/create/", class: "btn-default btn-red settings-add-card-btn" do
-                  = icon('fas', 'credit-card')
-                  %span クレジットカードを追加する
+              .settings-add-card--list
+                = form_with model: @cards, method: :delete, id: "card-delete-form", class: "settings-add-card--list--form" do |form|
+                  = form.submit "削除する", id: "card-delete_submit", class: "settings-add-card--list--form__btn"
             .settings-not-regist
               = link_to "https://www.mercari.com/jp/help_center/category/6/", target: "_blank" do
                 %span 支払い方法について   

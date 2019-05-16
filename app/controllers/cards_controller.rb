@@ -8,13 +8,13 @@ class CardsController < ApplicationController
     card = Card.where(user_id: current_user.id) #Cardsテーブルに同じユーザーのカラムを出す
     redirect_to action: "show" if card.exists? #もしもあれば、showにリダイレクト
   end
-  
+
   def pay #payjpとCardのデータベース作成を実施します。
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else
-      customer = Payjp::Customer.create(
+      customer = Payjp::Customer.create( #createする
       description: '登録テスト', #なくてもOK
       email: current_user.email, #なくてもOK
       card: params['payjp-token'],
@@ -42,13 +42,13 @@ class CardsController < ApplicationController
   end
 
   def show #Cardのデータpayjpに送り情報を取り出します
-    card = Card.where(user_id: current_user.id).first #Cardsテーブルに同じユーザーのカラムを出す
-    if card.blank?
-      redirect_to action: "new" 
-    else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.cards.retrieve(card.card_id)
-    end
+    # card = Card.where(user_id: current_user.id).first #Cardsテーブルに同じユーザーのカラムを出す
+    # if card.blank?
+    #   redirect_to action: "new" 
+    # else
+    #   Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    #   customer = Payjp::Customer.retrieve(card.customer_id)
+    #   @default_card_information = customer.cards.retrieve(card.card_id)
+    # end
   end
 end
