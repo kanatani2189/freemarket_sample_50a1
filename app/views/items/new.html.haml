@@ -5,188 +5,159 @@
     %h2.item-main-title--text
       商品の情報を入力
 
-  .item-main-image
-    .item-main-image__box
-      %h3.item-main-image__box--sell
-        出品画像
-        %span.item-main-image__box--sell--required
-          必須
-      %p.item-main-image__box--upload
-        最大10枚までアップロードできます
-    .item-main-image__file
-      %p.item-main-image__file--text
-        ドラッグアンドドロップ
-        %br
-        またはクリックしてファイルをアップロード
-
-  .item-main-detail
-    .item-main-detail__namebox
-      %label{for: "name", class: "item-main-detail__namebox__label"}
-        商品名
-        %span.item-main-detail__namebox__label--required
-          必須
-      %input{name: "name", placeholder: "商品名（必須40文字まで）", type: "text", value: "", class: "item-main-detail__namebox__name"}
-    .item-main-detail__description
-      %label{for: "name", class: "item-main-detail__description__label"}
-        商品の説明
-        %span.item-main-detail__description__label--required
-          必須
-      %textarea{name: "description", placeholder: "商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", type: "text", value: "", class: "item-main-detail__description__textarea"}
-
-  .item-main-state
-    .item-main-state__box
-      %h3.item-main-state__box--text
-        商品の詳細
-      .item-main-state__box__category
-        %label{for: "name", class: "item-main-state__box__category--label"}
-          カテゴリー
-          %span.item-main-state__box__category--label--required
+  = form_for @item do |f|
+    .item-main-image
+      .item-main-image__box
+        %h3.item-main-image__box--sell
+          出品画像
+          %span.item-main-image__box--sell--required
             必須
-        .item-main-state__box__category__select
-          %select{name: "condition", class: "item-main-state__box__category__select__name"}
-            %option{value: ""}
-            %option{value: "レディース"}
-              レディース
-            %option{value: "メンズ"}
-              メンズ
-            %option{value: "ベビー・キッズ"}
-              ベビー・キッズ
-            %option{value: "インテリア・住まい・小物"}
-              インテリア・住まい・小物
-            %option{value: "本・音楽・ゲーム"}
-              本・小物・ゲーム
-            %option{value: "おもちゃ・ホビー・グッズ"}
-              おもちゃ・ホビー・グッズ
-            %option{value: "コスメ・香水・美容"}
-              コスメ・香水・美容
-            %option{value: "家電・スマホ・カメラ"}
-              家電・スマホ・カメラ
-            %option{value: "スポーツ・レジャー"}
-              スポーツ・レジャー
-            %option{value: "ハンドメイド"}
-              ハンドメイド
-            %option{value: "チケット"}
-              チケット
-            %option{value: "自転車・オートバイ"}
-              自転車・オートバイ
-            %option{value: "その他"}
-              その他
-      .item-main-state__box__category
-        %label{for: "name", class: "item-main-state__box__category--label"}
-          商品の状態
-          %span.item-main-state__box__category--label--required
+        %p.item-main-image__box--upload
+          最大10枚までアップロードできます
+      .item-main-image__box
+        = f.fields_for @image do |m|
+          = m.file_field :name, class: "item-main-image__file", type: "file", accept: "image/*" do
+            -# %p.item-main-image__file--text
+            -#   ドラッグアンドドロップ
+            -#   %br
+            -#   またはクリックしてファイルをアップロード
+
+    .item-main-detail
+      .item-main-detail__namebox
+        = f.label :name, class: "item-main-detail__namebox__label" do
+          商品名
+          %span.item-main-detail__namebox__label--required
             必須
-        .item-main-state__box__category__select
-          %select{name: "condition", class: "item-main-state__box__category__select__name"}
-            %option{value: ""}
-            %option{value: "新品、未使用"}
-              新品、未使用
-            %option{value: "未使用に近い"}
-              未使用に近い
-            %option{value: "目立った傷や汚れなし"}
-              目立った傷や汚れなし
-            %option{value: "やや傷や汚れあり"}
-              やや傷や汚れあり
-            %option{value: "傷や汚れあり"}
-              傷や汚れあり
-            %option{value: "全体的に状態が悪い"}
-              全体的に状態が悪い
-  .item-main-state
-    .item-main-state__box
-      %span.item-main-state__box--text
-        配送について
+        = f.text_field :name, placeholder: "商品名（必須40文字まで）", type: "text", value: "", class: "item-main-detail__namebox__name"
+      .item-main-detail__description
+        = f.label :description, class: "item-main-detail__description__label" do
+          商品の説明
+          %span.item-main-detail__description__label--required
+            必須
+        = f.text_area :description, placeholder: "商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", type: "text", value: "", class: "item-main-detail__description__textarea"
+
+    .item-main-state
+      .item-main-state__box
+        %h3.item-main-state__box--text
+          商品の詳細
+        -# .item-main-state__box__first_category
+        -#   = f.label :name, class: "item-main-state__box__first_category-label" do
+        -#     カテゴリー
+        -#     %span.item-main-state__box__first_category--label--required
+        -#       必須
+        -#   .item-main-state__box__first_category__select
+        -#     = f.select :name, options_for_select(["---", "レディース", "メンズ"]), {}, { autofocus: 'true', class: "item-main-state__box__category__select__name", id: "first_category"}
+        .item-main-state__box__category
+          = f.label :size, class: "item-main-state__box__category--label" do
+            サイズ
+            %span.item-main-state__box__category--label--required
+              必須
+          .item-main-state__box__first_category__select
+            = f.select :size, options_for_select(["XXS以下"]), {}, { autofocus: 'true', class: "item-main-state__box__category__select__name", id: "first_category"}
+        .item-main-state__box__category
+          = f.label :size, class: "item-main-state__box__category--label" do
+            ブランド
+            %span.item-main-state__box__category--label--required
+              任意
+          .item-main-state__box__first_category__select
+            = f.collection_select :brand_id, Brand.all, :id, :name, {}, class: "item-main-state__box__category__select__name"
+        .item-main-state__box__category
+          = f.label :condition, class: "item-main-state__box__category--label" do
+            商品の状態
+            %span.item-main-state__box__category--label--required
+              必須
+          .item-main-state__box__category__select
+            = f.select :condition, options_for_select(["新品、未使用", "未使用に近い", "目立った傷や汚れなし", "やや傷や汚れあり", "傷や汚れあり", "全体的に状態が悪い" ]), {}, { autofocus: 'true', class: "item-main-state__box__category__select__name"}
+
+    .item-main-state
+      .item-main-state__box
+        %span.item-main-state__box--text
+          配送について
+          = link_to "#", target: "_blank", class: "link_icon" do
+            %span.link_icon--text
+              ?
+        .item-main-state__box__category
+          = f.label :shipping_burden, class: "item-main-state__box__category--label" do
+            配送料の負担
+            %span.item-main-state__box__category--label--required
+              必須
+          .item-main-state__box__category__select
+            = f.select :shipping_burden, options_for_select(["送料込み（出品者負担）", "着払い（購入者負担）" ]), {}, { autofocus: 'true', class: "item-main-state__box__category__select__name"}
+
+        .item-main-state__box__category
+          = f.label :shipping_method, class: "item-main-state__box__category--label" do
+            配送の方法
+            %span.item-main-state__box__category--label--required
+              必須
+          .item-main-state__box__category__select
+            = f.select :shipping_method, options_for_select(["らくらくメルカリ便" ]), {}, { autofocus: 'true', class: "item-main-state__box__category__select__name"}
+
+        .item-main-state__box__category
+          %label{for: "area_id", class: "item-main-state__box__category--label"}
+            発送元の地域
+            %span.item-main-state__box__category--label--required
+              必須
+          .item-main-state__box__category__select
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {}, class: "item-main-state__box__category__select__name"
+
+        .item-main-state__box__category
+          = f.label :estimated_date, class: "item-main-state__box__category--label" do
+            発送までの日数
+            %span.item-main-state__box__category--label--required
+              必須
+          .item-main-state__box__category__select
+            = f.select :estimated_date, options_for_select(["1〜2日で発送", "2〜3日で発送", "4〜7日で発送" ]), {}, { autofocus: 'true', class: "item-main-state__box__category__select__name"}
+
+    .item-main-price
+      .item-main-price__box
+        %span.item-main-price__box--text
+          販売価格(300〜9,999,999)
         = link_to "#", target: "_blank", class: "link_icon" do
           %span.link_icon--text
             ?
-      .item-main-state__box__category
-        %label{for: "name", class: "item-main-state__box__category--label"}
-          配送料の負担
-          %span.item-main-state__box__category--label--required
+      .item-main-price__top
+        .item-main-price__top--text
+          %span.item-main-price__top--text--price
+            価格
+          %span.item-main-price__top--text--required
             必須
-        .item-main-state__box__category__select
-          %select{name: "condition", class: "item-main-state__box__category__select__name"}
-            %option{value: ""}
-            %option{value: "送料込み（出品者負担）"}
-              送料込み（出品者負担）
-            %option{value: "着払い（購入者負担）"}
-              着払い（購入者負担）
-      .item-main-state__box__category
-        %label{for: "name", class: "item-main-state__box__category--label"}
-          発送元の地域
-          %span.item-main-state__box__category--label--required
-            必須
-        .item-main-state__box__category__select
-          %select{name: "condition", class: "item-main-state__box__category__select__name"}
-            %option{value: ""}
-            - Prefecture.all.each do |prefecture|
-              %option{value: Prefecture.all}
-                = prefecture.name
-        .item-main-state__box__category__select
-      .item-main-state__box__category
-        %label{for: "name", class: "item-main-state__box__category--label"}
-          発送までの日数
-          %span.item-main-state__box__category--label--required
-            必須
-        .item-main-state__box__category__select
-          %select{name: "condition", class: "item-main-state__box__category__select__name"}
-            %option{value: ""}
-            %option{value: "１〜２日で発送"}
-              １〜２日で発送
-            %option{value: "２〜３日で発送"}
-              ２〜３日で発送
-            %option{value: "４〜７日で発送"}
-              ４〜７日で発送
+        .item-main-price__top--input
+          %span.item-yen
+            ¥
+          = f.number_field :price, placeholder: "例)", type: "text", value: "", class: "item_example"
+      .item-main-price__center
+        %p.item-main-price__center--fee
+          販売手数料(10%)
+        %p.item-main-price__center--minus
+          ー
+      .item-main-price__bottom
+        %p.item-main-price__bottom--fee
+          販売利益
+        %p.item-main-price__bottom--minus
+          ー
 
-  .item-main-price
-    .item-main-price__box
-      %span.item-main-price__box--text
-        販売価格(300〜9,999,999)
-      = link_to "#", target: "_blank", class: "link_icon" do
-        %span.link_icon--text
-          ?
-    .item-main-price__top
-      .item-main-price__top--text
-        %span.item-main-price__top--text--price
-          価格
-        %span.item-main-price__top--text--required
-          必須
-      .item-main-price__top--input
-        %span.item-yen
-          ¥
-        %input{name: "price", placeholder: "例)", type: "text", value: "", class: "item_example"}
-    .item-main-price__center
-      %p.item-main-price__center--fee
-        販売手数料(10%)
-      %p.item-main-price__center--minus
-        ー
-    .item-main-price__bottom
-      %p.item-main-price__bottom--fee
-        販売利益
-      %p.item-main-price__bottom--minus
-        ー
+    .item-main-product
+      .item-main-product__box
+        %p.item-main-product__box--text
+          = link_to "#", class: "item-main-product__box--text--link" do
+            禁止されている出品
+          、
+          = link_to "#", class: "item-main-product__box--text--link" do
+            行為
+          を必ずご確認ください。
+        %p.item-main-product__box--text
+          またブランド品でシリアルナンバー等がある場合はご記載ください。
+          = link_to "#", class: "item-main-product__box--text--link" do
+            偽ブランドの販売
+        %p.item-main-product__box--text
+          は犯罪であり処罰される可能性があります。また、出品をもちまして
+          = link_to "#", class: "item-main-product__box--text--link" do
+            加盟店規約
+          に同意したことになります。
+        = f.submit "出品する", class: "item-main-product__box--btn"
 
-  .item-main-product
-    .item-main-product__box
-      %p.item-main-product__box--text
-        = link_to "#", class: "item-main-product__box--text--link" do
-          禁止されている出品
-        、
-        = link_to "#", class: "item-main-product__box--text--link" do
-          行為
-        を必ずご確認ください。
-      %p.item-main-product__box--text
-        またブランド品でシリアルナンバー等がある場合はご記載ください。
-        = link_to "#", class: "item-main-product__box--text--link" do
-          偽ブランドの販売
-      %p.item-main-product__box--text
-        は犯罪であり処罰される可能性があります。また、出品をもちまして
-        = link_to "#", class: "item-main-product__box--text--link" do
-          加盟店規約
-        に同意したことになります。
-      %button{type: "submit", class: "item-main-product__box--btn"}
-        出品する
-      .item-main-product__box__return
-        %button{type: "submit", class: "item-main-product__box__return--btn"}
-          もどる
+        .item-main-product__box__return
+          %button{type: "submit", class: "item-main-product__box__return--btn"}
+            もどる
 
 = render './shared/registration-footer';
