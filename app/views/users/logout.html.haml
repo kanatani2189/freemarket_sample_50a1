@@ -1,5 +1,11 @@
 = render './shared/profile_header'
-= render './shared/gratel'
+-# = render './shared/gratel'
+.bread-crumbs
+  %ul
+    %li
+      - breadcrumb :logout_user
+      = breadcrumbs separator: " &rsaquo; "
+
 .logout-main
   = render './shared/sidebar'
   .logout-main--container

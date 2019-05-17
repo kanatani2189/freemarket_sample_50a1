@@ -1,6 +1,10 @@
 = render './shared/profile_header';
-= render './shared/gratel';
-
+.bread-crumbs
+  %ul
+    %li
+      - breadcrumb :users
+      = breadcrumbs separator: " &rsaquo; "
+    
 %main.my-container.clearfix
   .my-content
     %section.my-user-icon
@@ -105,4 +109,3 @@
   = render './shared/sidebar';
 = render './shared/footer';        
 = render './shared/footer-sell-btn'
-

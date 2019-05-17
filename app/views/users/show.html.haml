@@ -1,5 +1,9 @@
 = render './shared/profile_header';
-= render './shared/gratel';
+.bread-crumbs
+  %ul
+    %li
+      - breadcrumb :show_user
+      = breadcrumbs separator: " &rsaquo; "
     
 
 .main--l-container

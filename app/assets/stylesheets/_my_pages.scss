@@ -15,6 +15,11 @@
         line-height: 1.2;
         text-overflow: ellipsis;
         white-space: nowrap;
+        .breadcrumbs{
+          span{
+            font-weight: 600;
+          }
+        }
       }
       i{
         margin: 0 8px;
