@@ -13,9 +13,7 @@ Rails.application.routes.draw do
   #pay.jp
   resources :cards, only: [:index, :new, :show] do
     collection do
-      post 'show', to: 'card#show'
-      post 'pay', to: 'card#pay'
-      post 'delete', to: 'card#delete'
+      post 'purchase'
     end
   end
 end
