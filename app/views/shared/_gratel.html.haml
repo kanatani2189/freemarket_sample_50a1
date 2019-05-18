@@ -1,9 +1,18 @@
 .bread-crumbs
-  %ul
-    %li
-      = link_to('メルカリ',{})
-      %i.fas.fa-angle-right
-    %li
-      = link_to('マイページ',{})
-      %i.fas.fa-angle-right
-    %li{style:'font-weight: 600;'} プロフィール
+  %ul.bread-crumbs-ul
+    - if controller.controller_name == "users"  && controller.action_name == "index"
+      - breadcrumb :users
+      = breadcrumbs separator: " &rsaquo; "
+
+    - elsif controller.controller_name == "users"  && controller.action_name == "show"
+      - breadcrumb :show_user
+      = breadcrumbs separator: " &rsaquo; "   
+
+    - elsif controller.controller_name == "users"  && controller.action_name == "edit"
+      - breadcrumb :edit_user
+      = breadcrumbs separator: " &rsaquo; " 
+
+    - elsif controller.controller_name == "users"  && controller.action_name == "logout"
+      - breadcrumb :logout_user
+      = breadcrumbs separator: " &rsaquo; " 
+
