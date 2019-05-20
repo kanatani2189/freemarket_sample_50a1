@@ -9,10 +9,24 @@
           %h3.single-inner-content-sub-head クレジットカード一覧
           .settings-payment-list
             .settings-add-card
-              .settings-add-card-content
-                = link_to "https://www.mercari.com/jp/mypage/card/create/", class: "btn-default btn-red settings-add-card-btn" do
-                  = icon('fas', 'credit-card')
-                  %span クレジットカードを追加する
+              - if @default_card_information.blank?
+                .settings-add-card-content
+                  = link_to "cards/new", class: "btn-default btn-red settings-add-card-btn" do
+                    = icon('fas', 'credit-card')
+                    %span クレジットカードを追加する
+              - else
+                -#以下カード情報を表示
+                = form_with url: "/cards/@card.user_id", method: :delete, local: true, id: "card-delete-form", class: "settings-add-card--list--form" do |form|
+                  .settings-add-card--left
+                    = image_tag "#{@card_src}",height: '15px', alt: @card_brand, id: "card_image"
+                    %br
+                    = "**** **** **** " + @default_card_information.last4
+                    - exp_month = @default_card_information.exp_month.to_s
+                    - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                    %br
+                    = exp_month + " / " + exp_year
+                  .settings-add-card--right
+                    = form.submit "削除する", id: "card-delete_submit", class: "settings-add-card--list--form__btn"
             .settings-not-regist
               = link_to "https://www.mercari.com/jp/help_center/category/6/", target: "_blank" do
                 %span 支払い方法について   

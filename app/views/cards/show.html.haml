@@ -1,9 +1,9 @@
 = render './shared/profile_header';
 = render './shared/gratel';
 .main-container
-  .main-container-content    
+  .main-container-content
     %section.chapter-container
-      %h2.chapter-head 支払い方法    
+      %h2.chapter-head 支払い方法
       .single-inner
         .single-inner-content
           %h3.single-inner-content-sub-head クレジットカード一覧
@@ -11,11 +11,12 @@
             .settings-add-card
               .settings-add-card--list
                 = form_with model: @cards, method: :delete, id: "card-delete-form", class: "settings-add-card--list--form" do |form|
+                  = image_tag "https://www.soccer-king.jp/wp-content/uploads/2018/07/GettyImages-992988910.jpg", width: '26', height: '20', alt: @card_brand, id: "card_image"
                   = form.submit "削除する", id: "card-delete_submit", class: "settings-add-card--list--form__btn"
-            .settings-not-regist
-              = link_to "https://www.mercari.com/jp/help_center/category/6/", target: "_blank" do
-                %span 支払い方法について   
-                = icon('fas', 'angle-right')          
+              .settings-not-regist
+                = link_to "https://www.mercari.com/jp/help_center/category/6/", target: "_blank" do
+                  %span 支払い方法について
+                  = icon('fas', 'angle-right')
   = render './shared/sidebar';
-= render './shared/footer';        
+= render './shared/footer';
 = render './shared/footer-sell-btn';

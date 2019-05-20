@@ -1,7 +1,7 @@
 = render './shared/profile_header';
 = render './shared/gratel';
 .main-container
-  .container-content    
+  .container-content
     %section.chapter-container
       %h2.chapter-head クレジットカード情報入力
       -# = form_with url: cards_purchase_path do
@@ -70,7 +70,7 @@
               .signup-seqcode-text
                 %span.form-question ?
                 カード裏面の番号とは？
-          = submit_tag "追加する", id: "token_submit", class: "btn-default btn-red"
+          = form.submit "追加する", id: "token_submit", class: "btn-default btn-red"
   = render './shared/sidebar';
 = render './shared/footer';        
 = render './shared/footer-sell-btn';

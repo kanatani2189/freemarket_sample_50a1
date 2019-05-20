@@ -33,31 +33,29 @@
     }
     .settings-add-card {
       padding: 24px 0;
-      border-bottom: 1px solid #eee;
-      &-btn {
-        margin: 0;
-      }
-      &-btn i, span {
-        margin-right: 16px;
-        color: #fff;
-        font-style: normal;
-        font-weight: 400;
-        display: inline-block;
-      }
-      &-content {
-        max-width: 320px;
-        margin: 0 auto;
-      }
-      
-      &--list{
-        &--form{
-          &__btn{
-            padding: 4px 6px;
-            background: #fff;
-            border-radius: 3px;
-            border: 1px solid #ea352d;
-            color: #ea352d;
+      width: 320px;
+      margin: 0 auto;
+      &-content{
+        a{
+          i{
+            color: white;
           }
+          span{
+            color: white;
+          }
+        }
+      }
+      &--list--form {
+        display: flex;
+        justify-content: space-between;
+        &__btn{
+          background: #fff;
+          border-radius: 3px;
+          border: 1px solid #ea352d;
+          color: #ea352d;
+          height: 24px;
+          width: 70px;
+          font-size: 14px;
         }
       }
 
@@ -80,8 +78,9 @@
     }
     .settings-not-regist a{
       display: block;
-      margin: 40px 0 0;
+      padding: 40px 0 0;
       text-align: right;
+      border-top: 1px solid #eee;
       &:hover{
         opacity: .7;
       }

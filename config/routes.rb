@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'items/buy/123456789'       => 'items#buy'
 
   #pay.jp
-  resources :cards, only: [:index, :new, :show] do
+  resources :cards, only: [:index, :new, :show, :destroy] do
     collection do
       post 'purchase'
     end

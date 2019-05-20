@@ -8,7 +8,7 @@ document.addEventListener(
           exp_month = form.find('select[name="exp_month"]'),
           exp_year = form.find('select[name="exp_year"]')
 
-      form.on("click", "#token_submit", function(e) {
+      form.on("click", '#token_submit', function(e) {
         e.preventDefault();
       
         form.find("input[type=submit]").prop("disabled", true);
@@ -19,20 +19,33 @@ document.addEventListener(
           exp_month: parseInt($('#exp_month').val()),
           exp_year: parseInt($('#exp_year').val()),
         };
-        console.log(card);
+        $("#card_number").val("");
+        $("#cvc").val("");
+        $("#exp_month").val("");
+        $("#exp_year").val("");
+        $("#token_submit").disabled = "disabled";
+        $("#token_submit").css("background", "gray")
+
         Payjp.createToken(card, (status, response) => {
           if (status === 200) { //成功した場合
             $("#card_number").removeAttr("name");
             $("#cvc").removeAttr("name");
             $("#exp_month").removeAttr("name");
             $("#exp_year").removeAttr("name"); //データを自サーバにpostしないように削除
-            
+
             form.append(
               $('<input type="hidden" name="payjp-token">').val(response.id)
             ); //取得したトークンを送信できる状態にします
-            console.log("aaaxxx");
-            document.charge-form.submit();
-            alert("登録が完了しました"); //確認用
+            form.submit();
+
+            function sleep(waitMsec) {
+              var startMsec = new Date();
+              // 指定ミリ秒間だけループさせる（CPUは常にビジー状態）
+              while (new Date() - startMsec < waitMsec);
+            }
+             
+            sleep(1000);
+            window.location.href = '/cards'
           } else {
             alert("カード情報が正しくありません。"); //確認用
           }
