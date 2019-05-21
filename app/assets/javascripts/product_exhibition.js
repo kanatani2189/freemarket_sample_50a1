@@ -1,19 +1,19 @@
 $(function(){
 
-    function appendHtml(){
-      var html = `<div class="item-main-state__box__category__select">
-                    <select autofocus="autofocus" class="item-main-state__box__category__select__name">
-                      <option value="---">---</option>
-                      <option value="レディース">レディース</option>
-                      <option value="メンズ">メンズ</option>
-                    </select>`
-      return html;
+// 価格表示
+  $('.item_example').on('keyup', function(){
+    var $price = $(this).val();
+    if ($price >= 300 && $price < 10000000) {
+        var $fee = Math.floor($price / 10);
+        var $fee_comma = $fee.toLocaleString();
+        $('.item-main-price__center--minus').text('¥' + $fee_comma);
+        var $profit = Math.ceil(($price - ($price / 10)));
+        var $profit_comma = $profit.toLocaleString();
+        $('.item-main-price__bottom--minus').text('¥' + $profit_comma); 
+    } else {
+        $('.item-main-price__center--minus').text('ー');
+        $('.item-main-price__bottom--minus').text('ー');
     }
-  
-  $('#first_category').change(function() {
-      var html = $('option:selected').val();
-      html = appendHtml();
-      $('.item-main-state__box__first_category').append(html);
+    
   })
-  
-  });
+});

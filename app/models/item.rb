@@ -9,11 +9,13 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
 
   validates :name, presence: true, length: { maximum: 40}
-  validates :description, presence: true
-  validates :condition, presence: true
-  validates :shipping_burden, presence: true
-  validates :shipping_method, presence: true
-  validates :prefecture_id, presence: true
-  validates :estimated_date, presence: true
+  with_options presence: true do
+    validates :description
+    validates :condition
+    validates :shipping_burden
+    validates :shipping_method
+    validates :prefecture_id
+    validates :estimated_date
+  end
   validates :price, presence: true, :numericality => { :greater_than_or_equal_to => 300, :less_than_or_equal_to => 99999999 }
 end
