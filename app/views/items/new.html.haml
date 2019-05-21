@@ -15,12 +15,11 @@
         %p.item-main-image__box--upload
           最大10枚までアップロードできます
       .item-main-image__box
-        = f.fields_for @image do |m|
-          = m.file_field :name, class: "item-main-image__file", type: "file", accept: "image/*" do
-            -# %p.item-main-image__file--text
-            -#   ドラッグアンドドロップ
-            -#   %br
-            -#   またはクリックしてファイルをアップロード
+        = f.file_field :images, multiple: true, class: "item-main-image__file" do
+          %p.item-main-image__file--text
+            ドラッグアンドドロップ
+            %br
+            またはクリックしてファイルをアップロード
 
     .item-main-detail
       .item-main-detail__namebox
@@ -40,13 +39,22 @@
       .item-main-state__box
         %h3.item-main-state__box--text
           商品の詳細
-        -# .item-main-state__box__first_category
-        -#   = f.label :name, class: "item-main-state__box__first_category-label" do
-        -#     カテゴリー
-        -#     %span.item-main-state__box__first_category--label--required
-        -#       必須
-        -#   .item-main-state__box__first_category__select
-        -#     = f.select :name, options_for_select(["---", "レディース", "メンズ"]), {}, { autofocus: 'true', class: "item-main-state__box__category__select__name", id: "first_category"}
+        .item-main-state__box__first_category
+          = f.label :name, class: "item-main-state__box__first_category-label" do
+            カテゴリー
+            %span.item-main-state__box__first_category--label--required
+              必須
+          .item-main-state__box__first_category__select
+            = f.fields_for :parent_categories do |p|
+              .item-main-state__box__first_category__select
+                = p.collection_select :large, Large.all, :name, :name, {}, class: "item-main-state__box__category__select__name"
+              .item-main-state__box__first_category__select
+                = p.collection_select :midium, Midium.all, :name, :name, {}, class: "item-main-state__box__category__select__name"
+              .item-main-state__box__first_category__select
+                = p.collection_select :small, Small.all, :name, :name, {}, class: "item-main-state__box__category__select__name"
+
+              = p.text_field :item_id, type: "hidden"
+              
         .item-main-state__box__category
           = f.label :size, class: "item-main-state__box__category--label" do
             サイズ
@@ -107,6 +115,7 @@
               必須
           .item-main-state__box__category__select
             = f.select :estimated_date, options_for_select(["1〜2日で発送", "2〜3日で発送", "4〜7日で発送" ]), {}, { autofocus: 'true', class: "item-main-state__box__category__select__name"}
+          .item-main-state__box__category__select
 
     .item-main-price
       .item-main-price__box
