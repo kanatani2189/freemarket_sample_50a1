@@ -5,7 +5,7 @@
   .account-top
     %p.account-top--text
       アカウントをお持ちでない方はこちら
-    = link_to "/users/sign_up", class: "account-top--text--link" do
+    = link_to new_user_path, class: "account-top--text--link" do
       .account-top--text--link__box
         %p.account-top--text--link__box--text
           新規会員登録
@@ -25,10 +25,8 @@
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .form
         .form-box
-          = f.label :email
           = f.email_field :email, placeholder: "メールアドレス", type: "text", value: "", class: "form-box--input"
         .form-box
-          = f.label :password
           = f.password_field :password, placeholder: "パスワード", type: "text", value: "", class: "form-box--input"
         = f.submit "ログイン", class: "form-btn" do
           ログイン
