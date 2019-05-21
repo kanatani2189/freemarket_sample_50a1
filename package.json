@@ -1,5 +1,6 @@
 {
   "name": "freemarket_sample_50a1",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "version": "0.0.0"
 }
