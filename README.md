@@ -15,10 +15,10 @@
 | city             | string  | null: false                    |
 | address          | text    | null: false                    |
 | street           | text    | null: false                    |
-| area_id          | references  | null: false, foreign_key: true |
+
 
 ## Association
-- belongs_to :area
+- belongs_to :prefecture
 - has_many :items, through: :user_items
 - has_many :images
 - has_many :item_comments
@@ -36,13 +36,13 @@
 | shipping_burden | text       | null: false                    |
 | shipping_method | text       | null: false                    |
 | estimated_date  | text       | null: false                    |
-| area_id         | references | null: false, foreign_key: true |
-| brand_id        | references | null: false, foreign_key: true |
+| prefecture_id   | integer    | null: false,                   |
+| brand_id        | integer    | null: false,                   |
 　
 ## Association
 - belongs_to :brand
 - has_one :parent_category
-- belongs_to :area
+- belongs_to :prefecture
 - has_many :users, through: :user_items
 - has_many :images
 - has_many :likes
@@ -136,18 +136,18 @@
 
 ## brandsテーブル
 
-| Column  | Type       | Option                         |
+<!-- | Column  | Type       | Option                         |
 |---------|------------|--------------------------------|
-| name    | text       |                                |
+| name    | text       |                                | -->
 
 ## Association
 - has_many :items
 
 ## areasテーブル
 
-| Column | Type   | Option |
+<!-- | Column | Type   | Option |
 |--------|--------|--------|
-| name   | string |        |
+| name   | string |        | -->
 
 ## Association
 - has_many :items

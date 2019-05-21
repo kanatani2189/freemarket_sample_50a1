@@ -1,0 +1,2 @@
+class SmallCategory < ApplicationRecord
+end

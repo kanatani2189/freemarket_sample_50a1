@@ -1,0 +1,2 @@
+class ParentCategory < ApplicationRecord
+end

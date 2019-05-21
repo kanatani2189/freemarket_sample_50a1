@@ -1,0 +1,2 @@
+class LargeCategory < ApplicationRecord
+end
