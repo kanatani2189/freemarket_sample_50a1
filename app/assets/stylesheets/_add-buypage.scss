@@ -53,9 +53,11 @@
         margin: 0 auto;
 
         .buy-item-image{
-          width: 148px;
+          text-align: center;
 
           .is-higher-width-lazyloaded{
+            width: auto;
+            max-height: 148px;
           }
         }
 
