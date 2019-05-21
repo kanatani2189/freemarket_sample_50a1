@@ -79,4 +79,7 @@ end
 gem 'devise'
 gem 'active_hash'
 gem 'jquery-rails'
+gem 'pry-rails'
+gem 'mini_magick'
 gem 'gretel'
+
