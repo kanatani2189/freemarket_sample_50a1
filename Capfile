@@ -1,4 +1,4 @@
-require "capistrano/yarn"
+
 require "capistrano/setup"
 require "capistrano/deploy"
 
