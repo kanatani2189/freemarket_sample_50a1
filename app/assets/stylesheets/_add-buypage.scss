@@ -5,6 +5,7 @@
   
 .shipping-payment{
   margin-bottom: 8px;
+
   font-weight: bold;
 }
 
@@ -17,6 +18,7 @@
   text-align: right;
   margin: 8px 0 0;
   width: 320px;
+
   a:hover{
     @include linkHover
   }
@@ -131,14 +133,18 @@
           .has-error-text{
             margin: 8px 0 0;
             line-height: 1.5;
+
             color: $baseColor;
+
             font-size: 14px;
           }
 
           .btn-default-btn-red-bold{
             margin: 16px 0 0;
+
             border: 1px solid $baseColor;
             background: $baseColor;
+
             color: #fff;
             display: block;
             width: 100%;
@@ -147,6 +153,7 @@
             font-weight: 600;
             font-size: 14px;
             padding: 0;
+
             cursor: pointer;
           }
         }
