@@ -10,11 +10,12 @@ class ItemsController < ApplicationController
  # 商品出品ページ（西田）
   def new
     @item = Item.new
-    @image = @item.images.build
+    @item.users << current_user
+    @item.parent_categories.build
   end
   
   def create
-    @item = Item.new(item_params)   
+    @item = Item.new(item_params)
     if @item.save
       redirect_to root_path
     else
@@ -32,7 +33,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :description, :price, :condition, :size, :shipping_burden, :shipping_method, :estimated_date, :prefecture_id, :brand_id, images_attributes: [:name, :user_id, :item_id])
+    params.require(:item).permit(:name, :description, :price, :condition, :size, :shipping_burden, :shipping_method, :estimated_date, :prefecture_id, :brand_id, {:user_ids => []}, images: [], parent_categories_attributes: [:large, :midium, :small, :item_id])
   end
 
 end
