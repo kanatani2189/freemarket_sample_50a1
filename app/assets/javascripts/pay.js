@@ -19,12 +19,10 @@ document.addEventListener(
           exp_month: parseInt($('#exp_month').val()),
           exp_year: parseInt($('#exp_year').val()),
         };
-        $("#card_number").val("");
-        $("#cvc").val("");
-        $("#exp_month").val("");
-        $("#exp_year").val("");
+        form[0].reset()
         $("#token_submit").disabled = "disabled";
         $("#token_submit").css("background", "gray")
+        $("#token_submit").css("border", "1px solid gray")
 
         Payjp.createToken(card, (status, response) => {
           if (status === 200) { //成功した場合

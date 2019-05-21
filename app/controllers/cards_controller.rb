@@ -1,8 +1,8 @@
 class CardsController < ApplicationController
+  before_action :card_get, only: [:index, :buy]
   require 'payjp'
 
   def index
-    card_get
   end
 
   def new
@@ -30,7 +30,6 @@ class CardsController < ApplicationController
   end
 
   def buy #商品購入ページ(get)
-    card_get
   end
 
   def pay #商品購入(post)
