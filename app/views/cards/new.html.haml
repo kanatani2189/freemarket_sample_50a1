@@ -1,15 +1,18 @@
 = render './shared/profile_header';
 = render './shared/gratel';
 .main-container
-  .container-content    
+  .container-content
     %section.chapter-container
       %h2.chapter-head クレジットカード情報入力
-      %form.form-box
+      -# = form_with url: cards_purchase_path do
+      -#   :plain
+      -#     <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_32a8ad5981f1cff6c8ae1525"></script>
+      = form_with url: purchase_cards_path, name: "charge-form", id: "charge-form", class: "form-box" do |form|
         .form-box-content
           .form-group
             %label.form-group-label カード番号
-            %span.form-require 必須  
-            %input.form-group-input{type: "text", placeholder: "半角数字のみ"}/ 
+            %span.form-require 必須
+            = form.text_field :number, value: "", class: "form-group-input number", placeholder: "半角数字のみ", maxlength: "16", type: "text", id: "card_number"
             %ul.form-group-card-list
               %li 
                 = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?21530554"
@@ -29,7 +32,7 @@
             %label 有効期限
             %span.form-require 必須
             .select-wrap
-              %select.select-default
+              %select.select-default.exp_month#exp_month{name: "exp_month", type: "text"}
                 %option{value: "01"} 01
                 %option{value: "02"} 02
                 %option{value: "03"} 03
@@ -45,30 +48,29 @@
               = icon('fas', 'chevron-down')  
               %span 月
             .select-wrap
-              %select.select-default
-                %option{value: "19"} 19
-                %option{value: "20"} 20
-                %option{value: "21"} 21
-                %option{value: "22"} 22
-                %option{value: "23"} 23
-                %option{value: "24"} 24
-                %option{value: "25"} 25
-                %option{value: "26"} 26
-                %option{value: "27"} 27
-                %option{value: "28"} 28
-                %option{value: "29"} 29  
+              %select.select-default.exp_year#exp_year{name: "exp_year", type: "text"}
+                %option{value: "2019"} 19
+                %option{value: "2020"} 20
+                %option{value: "2021"} 21
+                %option{value: "2022"} 22
+                %option{value: "2023"} 23
+                %option{value: "2024"} 24
+                %option{value: "2025"} 25
+                %option{value: "2026"} 26
+                %option{value: "2027"} 27
+                %option{value: "2028"} 28
+                %option{value: "2029"} 29  
               = icon('fas', 'chevron-down')                
               %span 年
           .group
             %label セキュリティコード
             %span.form-require 必須
-            %input.group-input{type: "number", placeholder: "カード背面4桁もしくは3桁の番号"}/   
+            = form.text_field :cvc, class: "group-input cvc", value: "", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4"
             .signup-seqcode
               .signup-seqcode-text
                 %span.form-question ?
                 カード裏面の番号とは？
-          %button{type: "button", class: "btn-default btn-red"}
-            追加する
+          = form.submit "追加する", id: "token_submit", class: "btn-default btn-red"
   = render './shared/sidebar';
 = render './shared/footer';        
 = render './shared/footer-sell-btn';
