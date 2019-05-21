@@ -22,17 +22,18 @@
           = icon('fab', 'google', class: 'icon')
           Googleでログイン
     
-    %form.form
-      .form-box
-        %label{for: "email"}
-        %input{name: "email", placeholder: "メールアドレス", type: "text", value: "", class: "form-box--input"}
-      .form-box
-        %label{for: "password"}
-        %input{name: "password", placeholder: "パスワード", type: "text", value: "", class: "form-box--input"}
-      %button{type: "submit", class: "form-btn"}
-        ログイン
-      = link_to "#", class: "form-link" do
-        %P.form-link--text
-          パスワードをお忘れの方
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .form
+        .form-box
+          = f.label :email
+          = f.email_field :email, placeholder: "メールアドレス", type: "text", value: "", class: "form-box--input"
+        .form-box
+          = f.label :password
+          = f.password_field :password, placeholder: "パスワード", type: "text", value: "", class: "form-box--input"
+        = f.submit "ログイン", class: "form-btn" do
+          ログイン
+        = link_to "#", class: "form-link" do
+          %P.form-link--text
+            パスワードをお忘れの方
     
 = render './shared/registration-footer';
