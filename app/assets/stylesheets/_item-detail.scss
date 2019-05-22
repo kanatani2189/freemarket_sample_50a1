@@ -61,28 +61,29 @@
         }
       }
     }
-    &__sold-out-badge{
-      border-width: 120px 120px 0 0;
-      border-color: #ea352d transparent transparent transparent;
-      display: block;
-      content: '';
-      position: absolute;
-      z-index: 1;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      &__font{
-        top: -95px;
-        font-size: 28px;
-        position: absolute;
-        left: 0;
-        z-index: 2;
-        color: #fff;
-        transform: rotate(-45deg);
-        letter-spacing: 2px;
-        font-weight: 600;
-      }
-    }
+    // sold out時に使用
+    // &__sold-out-badge{
+    //   border-width: 120px 120px 0 0;
+    //   border-color: #ea352d transparent transparent transparent;
+    //   display: block;
+    //   content: '';
+    //   position: absolute;
+    //   z-index: 1;
+    //   width: 0;
+    //   height: 0;
+    //   border-style: solid;
+    //   &__font{
+    //     top: -95px;
+    //     font-size: 28px;
+    //     position: absolute;
+    //     left: 0;
+    //     z-index: 2;
+    //     color: #fff;
+    //     transform: rotate(-45deg);
+    //     letter-spacing: 2px;
+    //     font-weight: 600;
+    //   }
+    // }
     &__item-detail-table{
       display: table;
       height: 375px;
@@ -165,7 +166,7 @@
     }
   }
   &__item-buy-btn{
-    background: #888;
+    background: #ea352d;
     height: 60px;
     line-height: 60px;
     display: block;
