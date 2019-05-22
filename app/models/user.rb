@@ -3,6 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_many :images
+  has_many :user_items
+  has_many :items, through: :user_items
+
   validates :nickname, presence: true, length: { maximum: 20 }
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, length: { minimum: 6 }, format: { with: /\A(?=.*?[a-z])(?=.*?[!-~&&[^a-z\d]])[!-~]{6,100}+\z/i }, format: { with: /\A(?=.*?[!-~&&[^a-z\d]])[!-~]{6,100}+\z/i }

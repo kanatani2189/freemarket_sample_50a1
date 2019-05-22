@@ -1,10 +1,12 @@
 = render './shared/profile_header'
 = render './shared/gratel'
+
 .logout-main
   = render './shared/sidebar'
   .logout-main--container
     .logout-main--container--content
-      %button.logout-main--container--content__btn{type: "submit"}
-        ログアウト
+      = link_to destroy_user_session_path, method: :delete do
+        %button.logout-main--container--content__btn{type: "submit"}
+          ログアウト
 = render './shared/app-banner'
 = render './shared/footer'
