@@ -51,28 +51,15 @@
       justify-content: space-between;
       &--left{
         margin-top: 3px;
-        a{
-          padding-right:22px;
-          height: 44px;
-          line-height: 32px;
-          i{
-            color: $baseColor;
-            padding-right: 2px; 
-          }
-          span{
-            font-size: 14px;
-            font-weight: bold;
-            color: #000;
-            letter-spacing: 1px;
-            &:hover{
-              color: $linkColor;
-            }
-          }
-        }
+        height: 44px;
+        line-height: 32px;
+        width: 100%;
       }
       &__right{
         height: 44px;
         line-height: 32px;
+        width: 100%;
+        text-align: right;
         .header-btn{
         padding: 7px 10px;
         margin-left: 7px;

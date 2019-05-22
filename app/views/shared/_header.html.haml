@@ -10,12 +10,8 @@
           = icon('fas', 'search')
     .header--inner-lower
       %nav.header--inner-lower--left
-        = link_to "#" do
-          = icon('fas', 'list-ul')
-          %span カテゴリーから探す
-        = link_to "#" do
-          = icon('fas', 'tags')
-          %span ブランドから探す
+        = render "./shared/category-list"
+
       .header--inner-lower__right
         = link_to "#", class: "btn-red header-btn" do
           ログイン
