@@ -17,6 +17,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
+      UserItem.create(user_id: current_user.id, item_id: @item.id)
       redirect_to root_path
     else
       redirect_to new_card_path
