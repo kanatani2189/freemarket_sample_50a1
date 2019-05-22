@@ -13,7 +13,8 @@
         = render "./shared/category-list"
 
       .header--inner-lower__right
-        = link_to "#", class: "btn-red header-btn" do
+        = link_to new_user_session_path, class: "btn-red header-btn" do
           ログイン
-        = link_to "#", class: "header-signup header-btn" do
+
+        = link_to new_user_path, class: "header-signup header-btn" do
           新規会員登録

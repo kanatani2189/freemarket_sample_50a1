@@ -4,7 +4,8 @@
 }
   
 .shipping-payment{
-  margin: 0;
+  margin-bottom: 8px;
+
   font-weight: bold;
 }
 
@@ -17,6 +18,13 @@
   text-align: right;
   margin: 8px 0 0;
   width: 320px;
+
+  a:hover{
+    @include linkHover
+  }
+  i{
+    color: $linkColor;
+  }
 }
 .change-btn{ 
   color: $linkColor;
@@ -127,14 +135,18 @@
           .has-error-text{
             margin: 8px 0 0;
             line-height: 1.5;
-            color: #ea352d;
+
+            color: $baseColor;
+
             font-size: 14px;
           }
 
           .btn-default-btn-red-bold{
             margin: 16px 0 0;
-            border: 1px solid #888;
-            background: #888;
+
+            border: 1px solid $baseColor;
+            background: $baseColor;
+
             color: #fff;
             display: block;
             width: 100%;
@@ -143,6 +155,8 @@
             font-weight: 600;
             font-size: 14px;
             padding: 0;
+
+            cursor: pointer;
           }
         }
       }
