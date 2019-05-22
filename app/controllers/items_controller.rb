@@ -2,11 +2,6 @@ class ItemsController < ApplicationController
   # トップページ（内田）
   def index
     @item = Item.last(4)
-
-    
-    # binding.pry
-
-    
   end
 
  # 商品詳細ページ（山本）
