@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
 
  # 商品詳細ページ（山本）
   def show
+    @item = Item.find(params[:id])
   end
 
  # 商品出品ページ（西田）
