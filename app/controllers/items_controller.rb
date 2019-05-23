@@ -26,8 +26,19 @@ class ItemsController < ApplicationController
     end
   end
 
- # 商品出品編集機能を追加する予定
+ # 商品出品編集機能
   def edit
+    set_item
+  end
+
+  def update
+    set_item
+    @item.images.detach
+    if @item.update(update_item_params)
+      redirect_to root_path
+    else
+      redirect_to new_card_path
+    end
   end
 
 #  商品購入確認ページ（石川）
@@ -37,6 +48,14 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(:name, :description, :price, :condition, :size, :shipping_burden, :shipping_method, :estimated_date, :prefecture_id, :brand_id, {:user_ids => []}, images: [], parent_categories_attributes: [:large, :midium, :small, :item_id])
+  end
+
+  def update_item_params
+    params.require(:item).permit(:name, :description, :price, :condition, :size, :shipping_burden, :shipping_method, :estimated_date, :prefecture_id, :brand_id, {:user_ids => []}, images: [], parent_categories_attributes: [:large, :midium, :small, :item_id, :_destroy, :id])
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 
 end

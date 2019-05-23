@@ -52,19 +52,18 @@
           %td 
             = link_to "#" do 
               %span.linkcolor
-                =@item.parent_categories[0].large
-                -# - @item.parent_categories.each do |category|
-                -#   =category.large
+                - @item.parent_categories.each do |category|
+                  = category.large
               %br
               =icon('fas', 'chevron-right')
               %span.linkcolor 
                 - @item.parent_categories.each do |category|
-                  =category.midium
+                  = category.midium
               %br
               =icon('fas', 'chevron-right')
               %span.linkcolor 
                 - @item.parent_categories.each do |category|
-                  =category.small
+                  = category.small
         %tr 
           %th ブランド
           %td 
@@ -106,8 +105,8 @@
     %span 円
     %span.item-box-container__item-price-box__item-tax （税込）
     %span.item-box-container__item-price-box__item-shipping-fee 送料込み
-    = link_to "#" do
-      %span.item-box-container__item-buy-btn 購入画面に進む
+    = link_to edit_item_path do
+      %span.item-box-container__item-buy-btn 商品を編集する
   .item-box-container__item-description
     %p.item-box-container__item-description__item-description-inner
       =@item.description

@@ -49,6 +49,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'pry-doc'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -87,4 +88,3 @@ gem 'mini_magick'
 gem 'gretel'
 gem 'payjp'
 gem 'dotenv-rails'
-gem 'rails-controller-testing'
