@@ -5,7 +5,7 @@
   .main--pickup-container--items-container--items
     - @item.each do |item|
       %section.main--pickup-container--items-container--items__item
-        = link_to "#" do
+        = link_to "/items/#{item.id}, method: :get" do
           %figure.item-photo
             - item.images.each do |image|
               = image_tag image
