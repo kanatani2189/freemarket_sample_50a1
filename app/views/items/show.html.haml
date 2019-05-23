@@ -52,7 +52,6 @@
           %td 
             = link_to "#" do 
               %span.linkcolor
-                -# =@item.parent_categories[0].large
                 - @item.parent_categories.each do |category|
                   = category.large
               %br
