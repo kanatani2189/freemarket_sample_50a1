@@ -125,6 +125,7 @@
             .item-body{
               padding: 16px;
               height: 110px;
+              width: 100%;
               position: absolute;
               bottom: 0;
               &__name{
@@ -153,6 +154,7 @@
                   font-weight: 600;
                 }
                 &__favorite{
+                  
                   i{
                     color: #d3d3d3;
                   }

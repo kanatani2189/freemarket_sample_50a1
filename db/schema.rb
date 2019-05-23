@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 2019_05_18_025005) do
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
-ActiveRecord::Schema.define(version: 2019_05_15_093824) do
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false

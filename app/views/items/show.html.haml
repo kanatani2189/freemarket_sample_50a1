@@ -2,33 +2,40 @@
 = render './shared/gratel';
 .item-box-container
   %h1.item-box-container__item-name
-    正規品！COACH【コーチ】★★大きめミニシグネチャーショルダーバッグ
+    = @item.name
   .item-box-container__item-main-containt
     .item-box-container__item-main-containt__item-photo
       .item-box-container__item-main-containt__item-photo__owlcasual
-        = image_tag"https://static.mercdn.net/item/detail/orig/photos/m70068440240_1.jpg?1539045823", class: "item-box-container__item-main-containt__item-photo__owlcasual__owl-lazy"
+        - @item.images.each do |image|
+          = image_tag image ,class:"item-box-container__item-main-containt__item-photo__owlcasual__owl-lazy" 
       .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots
         .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot
           .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out
-            = image_tag"https://static.mercdn.net/item/detail/orig/photos/m70068440240_1.jpg?1539045823", class: "item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out__dot-image"
+            - @item.images.each do |image|
+              = image_tag image ,class:"item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out__dot-image"
         .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot
           .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out
-            = image_tag"https://static.mercdn.net/item/detail/orig/photos/m70068440240_2.jpg?1539045823", class: "item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out__dot-image"
+            - @item.images.each do |image|
+              = image_tag image ,class:"item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out__dot-image"
         .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot
           .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out
-            = image_tag"https://static.mercdn.net/item/detail/orig/photos/m70068440240_3.jpg?1539045823", class: "item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out__dot-image"
+            - @item.images.each do |image|
+              = image_tag image ,class:"item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out__dot-image"
         .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot
           .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out
-            = image_tag"https://static.mercdn.net/item/detail/orig/photos/m70068440240_4.jpg?1539045823", class: "item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out__dot-image"
-    .item-box-container__item-main-containt__sold-out-badge
-      .item-box-container__item-main-containt__sold-out-badge__font SOLD
+            - @item.images.each do |image|
+              = image_tag image ,class:"item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out__dot-image"
+    -# .item-box-container__item-main-containt__sold-out-badge
+      -# .item-box-container__item-main-containt__sold-out-badge__font SOLD
     %table.item-box-container__item-main-containt__item-detail-table
       %tbody
         %tr 
           %th 出品者
           %td
             = link_to "#" do
-              %span.linkcolor BOON90sリバイバル@フォロー割
+              %span.linkcolor 
+                - @item.users.each do |user|
+                  =user.nickname
             .grin
               .item-user-rating1
                 =icon('fas', 'grin')
@@ -44,115 +51,65 @@
           %th カテゴリー
           %td 
             = link_to "#" do 
-              %span.linkcolor レディース
+              %span.linkcolor
+                - @item.parent_categories.each do |category|
+                  = category.large
               %br
               =icon('fas', 'chevron-right')
-              %span.linkcolor バッグ
+              %span.linkcolor 
+                - @item.parent_categories.each do |category|
+                  = category.midium
               %br
               =icon('fas', 'chevron-right')
-              %span.linkcolor ショルダーバッグ
+              %span.linkcolor 
+                - @item.parent_categories.each do |category|
+                  = category.small
         %tr 
           %th ブランド
           %td 
             = link_to "#" do 
-              %span.linkcolor コーチ
+              %span.linkcolor 
+                =@item.brand.name
+        %tr 
+          %th サイズ
+          %td 
+            =@item.size
         %tr 
           %th 商品の状態
-          %td やや傷や汚れがあり
+          %td 
+            =@item.condition
               
         %tr 
           %th 配送料の負担
-          %td 送料込み（出品者負担）
+          %td 
+            =@item.shipping_burden
 
         %tr 
           %th 配送の方法
-          %td らくらくメルカリ便
+          %td
+            =@item.shipping_method
         %tr 
           %th 配送元地域
           %td 
             = link_to "#" do 
-              %span.linkcolor 兵庫県
+              %span.linkcolor 
+                =@item.prefecture.name
         %tr 
           %th 発送日の目安
-          %td 1~2日で発送
+          %td
+            =@item.estimated_date
   .item-box-container__item-price-box
-    %span.item-box-container__item-price-box__item-price ¥ 3,380
+    %span.item-box-container__item-price-box__item-price ¥
+    %span.item-box-container__item-price-box__item-price 
+      = @item.price 
+    %span 円
     %span.item-box-container__item-price-box__item-tax （税込）
     %span.item-box-container__item-price-box__item-shipping-fee 送料込み
-  .item-box-container__item-buy-btn 売り切れました
+    = link_to edit_item_path do
+      %span.item-box-container__item-buy-btn 商品を編集する
   .item-box-container__item-description
     %p.item-box-container__item-description__item-description-inner
-      ■商品ご覧頂き、誠にありがとうございます。
-      ※今だけ、フォロワーになって下さった方に、300円のお値引きサービス中！！
-      %br
-      %br
-      私の商品検索は、
-      %br
-      ＃Boon・バッグ
-      %br
-      検索してください。
-      %br
-      %br
-      質問がありましたらコメントでよろしくお願いします！
-      %br
-      ■ 商品説明 ■
-      %br
-      まずはプロフを確認してください☆
-      %br
-      %br
-      ■ 商品詳細 ■
-      %br
-      シンプルな落ち着いたお色味でどんな場面にも合い、
-      %br
-      どんな服にも合わせやすいお鞄です。使用感有！角擦れはございませんが
-      %br
-      多少の汚れはあります。内側はとても綺麗です☆
-      %br
-      使わなくなったのでどなたか使っていただける方お願いします。
-      %br
-      製造番号 H2K-9294
-      %br
-      %br
-      【ブランド】
-      %br
-      COACH コーチ
-      %br
-      %br
-      【商品名】
-      %br
-      コーチ大き目シンプル
-      %br
-      %br
-      【仕様】
-      %br
-      外ポケット１ 内ポケット４
-      %br
-      %br
-      【サイズ】
-      %br
-      縦：32
-      %br
-      横：31
-      %br
-      幅：7
-      %br
-      紐：130 多少調節可能
-      %br
-      %br
-      ＊他にも数多くの商品を出品しているので、ぜひご覧ください。
-      %br
-      ＊複数購入、お取り置き(５日まで)もできるので、お気軽にお声がけくださいませ。
-      %br
-      ＊中古品になりますので、予めご理解いただきますよう、お願い致します^_^
-      %br
-      ※自宅保管、素人検品、素人寸法の誤差などにご理解がない方、神経質な方、完璧な物が欲しい方は購入お控えください。
-      %br
-      、お願い致します^_^
-      %br
-      ※自宅保管、素人検品、素人寸法の誤差などにご理解がない方、神経質な方、完璧な物が欲しい方は購入お控えください。
-      %br
-      %br
-      ＃シンプル ＃かわいい ＃大きめ ＃かばん ＃バッグ
+      =@item.description
   .item-box-container__item-button-container
     .item-box-container__item-button-container__item-button-left
       .item-box-container__item-button-container__item-button-left__like
