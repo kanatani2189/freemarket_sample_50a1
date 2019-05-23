@@ -7,7 +7,7 @@
       %section.main--pickup-container--items-container--items__item
         = link_to "#" do
           %figure.item-photo
-            - item.images.each do |image|
+            - item.images.find(1) do |image|
               = image_tag image
           .item-body
             %h3.item-body__name 
@@ -33,7 +33,7 @@
       %section.main--pickup-container--items-container--items__item
         = link_to "#" do
           %figure.item-photo
-            - item.images.each do |image|
+            - item.images.find(1) do |image|
               = image_tag image
           .item-body
             %h3.item-body__name 
@@ -58,7 +58,7 @@
       %section.main--pickup-container--items-container--items__item
         = link_to "#" do
           %figure.item-photo
-            - item.images.each do |image|
+            - item.images.find(1) do |image|
               = image_tag image
           .item-body
             %h3.item-body__name 
@@ -83,7 +83,7 @@
       %section.main--pickup-container--items-container--items__item
         = link_to "#" do
           %figure.item-photo
-            - item.images.each do |image|
+            - item.images.find(1) do |image|
               = image_tag image
           .item-body
             %h3.item-body__name 
