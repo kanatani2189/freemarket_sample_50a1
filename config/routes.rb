@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
-  resources :items, only: [:index, :new, :show, :create]
+  resources :items, only: [:index, :new, :show, :create, :edit, :update]
   resources :users, only: [:index, :show, :new, :edit]
 
   # ログアウトページ（内田）
