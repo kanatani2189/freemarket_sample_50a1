@@ -5,7 +5,7 @@ describe ItemsController do
     it "renders the :index template" do
     end
   end
-
+  
   describe "GET #show" do
     it "renders the :show template" do
       get :show, params:{ id: 1}

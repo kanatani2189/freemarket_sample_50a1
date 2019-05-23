@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'items#index'
   resources :items, only: [:index, :new, :show, :create, :edit, :update]
   resources :users, only: [:index, :show, :new, :edit]
-
+  get "items/buy/123456789" =>"items#buy"
   # ログアウトページ（内田）
   get 'users/logout/123456789'       => 'users#logout'
 
