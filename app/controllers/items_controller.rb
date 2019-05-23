@@ -28,11 +28,11 @@ class ItemsController < ApplicationController
 
  # 商品出品編集機能
   def edit
-    @item = Item.find(params[:id])
+    set_item
   end
 
   def update
-    @item = Item.find(params[:id])
+    set_item
     @item.images.detach
     if @item.update(update_item_params)
       redirect_to root_path
@@ -52,6 +52,10 @@ class ItemsController < ApplicationController
 
   def update_item_params
     params.require(:item).permit(:name, :description, :price, :condition, :size, :shipping_burden, :shipping_method, :estimated_date, :prefecture_id, :brand_id, {:user_ids => []}, images: [], parent_categories_attributes: [:large, :midium, :small, :item_id, :_destroy, :id])
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 
 end
