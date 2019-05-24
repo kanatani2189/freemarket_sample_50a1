@@ -1,4 +1,3 @@
-
 .header--inner-lower--left-content{
   margin-top: 3px;
   text-align: left;
@@ -30,34 +29,36 @@
   }
 
   li ul{
-    width: 200px;
+    width: 220px;
     background:$whiteColor;
     position: left;
-    visibility: hidden;
+    // visibility: hidden;
     text-align:left;
     // height: 0;
     // padding: 0;
-    // overflow: hidden;
     // opacity: 0;
+    
     
     
     a {
       display:block;
     }
   }
-  &-category:hover &-first {
+  &-category :hover &-first {
     top: 50px;
     visibility: visible;
+    padding: 0;
+    height: auto;
     opacity: 1;
-    width: 220px;
     
   }
   
-  &-brand:hover &-first {
+  &-brand :hover &-first {
     top: 50px;
     visibility: visible;
+    padding: 0;
+    height: auto;
     opacity: 1;
-    
   }
   
   li ul li{
@@ -82,3 +83,37 @@
     color: #fff;
   }
 }  
+h2{
+  width: 800px;
+
+
+  .header--inner-lower--left-content-second{
+    // height: 0;
+    // padding: 0;
+    // opacity: 0;
+    
+    
+    &-list{
+      width: 100%;
+      height: ;
+      display: inline;
+      font-size: 12px;
+      font-weight: bold;
+
+      a{
+      padding-left: 15px;
+      // padding-top: 5px;
+      display:block;
+
+        &:hover{
+          color: #fff;
+          background:$baseColor;
+          display: block;
+          // padding: 0;
+          // height: auto;
+          // opacity: 1;
+        }
+      }
+    }
+  }
+}

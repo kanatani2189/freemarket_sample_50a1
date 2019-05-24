@@ -15,16 +15,17 @@ $('category3').val('2').change();
  */
 function setHierarchySelectEvent(parentSelect, childSelect){
     var initCategorySmallHtml = $(childSelect).html();
-    $(parentSelect).change(function(){
-        if( 1 < $(this).find('option:selected').length ){
-            $(childSelect).find("option").each(function(index, element){
+    $(parentSelect).hover(function(){
+      console.log("成功")
+        if( 1 < $(this).hover('li:selected').length ){
+            $(childSelect).hover("li").each(function(index, element){
                 $(element).remove();
             });
         }else{
-            var subgroup =  $(this).find('option:selected').attr('data-subgroup');
+            var subgroup =  $(this).find('li:selected').attr('subgroup');
             $(childSelect).html(initCategorySmallHtml);
-            $(childSelect).find("option").each(function(index, element){
-                var group = $(element).attr('data-group');
+            $(childSelect).hover("li").each(function(index, element){
+                var group = $(element).attr('group');
                 if( group ){
                     if( subgroup == group ){
                         //$(element).css('display', 'block');//IEではoptionタグに対してdisplayは効かないため
@@ -39,4 +40,3 @@ function setHierarchySelectEvent(parentSelect, childSelect){
     });
 }
 
-Resources
