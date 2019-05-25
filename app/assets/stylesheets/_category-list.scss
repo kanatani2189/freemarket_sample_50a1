@@ -32,11 +32,11 @@
     width: 220px;
     background:$whiteColor;
     position: left;
-    // visibility: hidden;
+    visibility: hidden;
     text-align:left;
-    // height: 0;
-    // padding: 0;
-    // opacity: 0;
+    height: 0;
+    padding: 0;
+    opacity: 0;
     
     
     
@@ -88,30 +88,30 @@ h2{
 
 
   .header--inner-lower--left-content-second{
-    // height: 0;
-    // padding: 0;
-    // opacity: 0;
+    height: 0;
+    padding: 0;
+    opacity: 0;
     
     
     &-list{
       width: 100%;
-      height: ;
+      height: 44px;
       display: inline;
       font-size: 12px;
       font-weight: bold;
 
       a{
       padding-left: 15px;
-      // padding-top: 5px;
+      padding-top: 5px;
       display:block;
 
         &:hover{
           color: #fff;
           background:$baseColor;
           display: block;
-          // padding: 0;
-          // height: auto;
-          // opacity: 1;
+          padding: 0;
+          height: auto;
+          opacity: 1;
         }
       }
     }
