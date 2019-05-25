@@ -1,11 +1,7 @@
 class ItemsController < ApplicationController
   # トップページ（内田）
   def index
-    @items = Item.last(12)
-
-    # @items = Item.last(4)
-    
-
+    @item = Item.last(4)
   end
 
  # 商品詳細ページ（山本）
