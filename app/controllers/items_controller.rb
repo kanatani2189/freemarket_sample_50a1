@@ -45,6 +45,10 @@ class ItemsController < ApplicationController
   def buy
   end
 
+#  商品検索後ページ（山本）
+  def search
+  end
+
   private
   def item_params
     params.require(:item).permit(:name, :description, :price, :condition, :size, :shipping_burden, :shipping_method, :estimated_date, :prefecture_id, :brand_id, {:user_ids => []}, images: [], parent_categories_attributes: [:large, :midium, :small, :item_id])
