@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:edit, :update, :destroy]
+
   # トップページ（内田）
   def index
     @item = Item.last(4)
@@ -28,17 +30,20 @@ class ItemsController < ApplicationController
 
  # 商品出品編集機能
   def edit
-    set_item
   end
 
   def update
-    set_item
     @item.images.detach
     if @item.update(update_item_params)
       redirect_to root_path
     else
       redirect_to new_card_path
     end
+  end
+
+  def destroy
+    @item.destroy
+    redirect_to items_path
   end
 
 #  商品購入確認ページ（石川）

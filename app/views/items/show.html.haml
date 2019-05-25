@@ -1,5 +1,10 @@
 = render './shared/profile_header';
 = render './shared/gratel';
+
+= form_with url: "/items/#{@item.id}", method: :delete, local: true, id: "item-delete-form", class: "item-delete-form" do |form|
+  .item-delete-form--container
+    = form.submit "削除する", id: "item-delete_submit", class: "item-delete-form--container__btn"
+
 .item-box-container
   %h1.item-box-container__item-name
     = @item.name
