@@ -47,6 +47,7 @@ class ItemsController < ApplicationController
 
 #  商品検索後ページ（山本）
   def search
+    @items = Item.where("name LIKE(?)", "%#{params[:keyword]}%").limit(8)
   end
 
   private

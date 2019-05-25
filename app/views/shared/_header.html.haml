@@ -2,13 +2,14 @@
   .header
     .header--inner-upper
       %h1.header--inner-upper__logo
-        = link_to "#" do
+        = link_to root_path do
           = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?4194600336", alt: "merucari"
       .header--inner-upper--form
         .header--inner-upper--form__input-box
-          %input.header--inner-upper--form__input-box__text{name: "keyword", placeholder: "何かお探しですか？", type: "text", value: ""}/
-          = link_to "#" do
-            = icon('fas', 'search')
+          =form_tag("/items/search/123", method: :get) do
+            %input.header--inner-upper--form__input-box__text{name: "keyword", placeholder: "何かお探しですか？", type: "text", value: ""}
+            %button{title: "検索",type: "submit"}
+              = icon('fas', 'search')
     .header--inner-lower
       %nav.header--inner-lower--left
         = link_to "#" do
@@ -22,3 +23,9 @@
           ログイン
         = link_to new_user_path, class: "header-signup header-btn" do
           新規会員登録
+
+          -# <%= form_tag('/products/search', method: :get) do %>
+          -#       <input class="search__query" name="keyword" placeholder="作品名で検索" type="text" value=""><button class="btn-search" title="検索" type="submit"><i class="icon-search"></i></button></input>
+          -# <% end %>
+          -# <form accept-charset="utf-8" action="/" class="js-search-submit" method="get">
+          -# </form>
