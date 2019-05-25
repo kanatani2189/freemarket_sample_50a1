@@ -1,0 +1,119 @@
+.header--inner-lower--left-content{
+  margin-top: 3px;
+  text-align: left;
+  width: 100%;
+  display: flex;
+  position:relative;
+  z-index:9;
+  
+  li {
+    padding-right:10px;
+    height: 44px;
+    line-height: 37px;
+    display: block;
+    width: 170px;
+    position: relative; 
+    i{
+      color: $baseColor;
+      padding-right: 2px; 
+    }
+    span{
+      font-size: 14px;
+      font-weight: bold;
+      color: #000;
+      letter-spacing: 1px;
+      &:hover{
+        color: $linkColor;
+      }
+    }
+  }
+
+  li ul{
+    width: 220px;
+    background:$whiteColor;
+    position: left;
+    visibility: hidden;
+    text-align:left;
+    height: 0;
+    padding: 0;
+    opacity: 0;
+    
+    
+    
+    a {
+      display:block;
+    }
+  }
+  &-category :hover &-first {
+    top: 50px;
+    visibility: visible;
+    padding: 0;
+    height: auto;
+    opacity: 1;
+    
+  }
+  
+  &-brand :hover &-first {
+    top: 50px;
+    visibility: visible;
+    padding: 0;
+    height: auto;
+    opacity: 1;
+  }
+  
+  li ul li{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: block;  
+  }
+  
+  &-first-list{
+    display: block;
+    width: 100%;
+    a{
+    padding-left: 15px;
+    padding-top: 5px;
+    }
+  }
+  
+  &-first-list :hover{
+    background:$baseColor;
+    display: block;
+    color: #fff;
+  }
+}  
+h2{
+  width: 800px;
+
+
+  .header--inner-lower--left-content-second{
+    height: 0;
+    padding: 0;
+    opacity: 0;
+    
+    
+    &-list{
+      width: 100%;
+      height: 44px;
+      display: inline;
+      font-size: 12px;
+      font-weight: bold;
+
+      a{
+      padding-left: 15px;
+      padding-top: 5px;
+      display:block;
+
+        &:hover{
+          color: #fff;
+          background:$baseColor;
+          display: block;
+          padding: 0;
+          height: auto;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
