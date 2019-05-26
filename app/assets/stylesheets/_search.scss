@@ -10,7 +10,6 @@
   }
   &__content{
     width: 700px;
-
     float: right;
     &__items-box-container{
       .search-result-head{
@@ -84,5 +83,10 @@
         }
       }
     }
+  }
+  &__page{
+    width: 700px;
+    float: right;
+    height: 30px;
   }
 }
