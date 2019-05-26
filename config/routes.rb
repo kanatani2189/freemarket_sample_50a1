@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "items/buy/123456789" =>"items#buy"
   # ログアウトページ（内田）
   get 'users/logout/123456789'       => 'users#logout'
+  get "items/search/123" => "items#search"
 
   #pay.jp
   resources :cards, only: [:index, :new, :destroy] do
