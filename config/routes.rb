@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   # ログアウトページ（内田）
   get 'users/logout/123456789'       => 'users#logout'
 
+  # カテゴリーページ
+  get 'items/category/123456789'                => 'items#category'
+
   #pay.jp
   resources :cards, only: [:index, :new, :destroy] do
     collection do

@@ -1,0 +1,107 @@
+= render './shared/header'
+-# = render './shared/gratel';
+
+%section.category-container
+  .category-container-nav
+  %h3.category-container__name
+    - Large.all.drop(1).find(1) do |category| 
+      = category.name 
+      の商品一覧
+  .category-container--items-container--items
+    - num = 0
+    - @items.each do |item|
+      - item.parent_categories.each do |category|
+        - Large.all.drop(1).each do |large| 
+          - if category.large == large.name
+            - num = num + 1
+    - @items.each do |item|
+      - item.parent_categories.each do |category|
+        - Large.all.drop(1).each do |large|
+          - if (category.large == large.name) && (num <= 5) && (num >= 1)
+            - num = num -1   
+            %section.category-container--items-container--items__item
+              = link_to "#" do
+                %figure.item-photo
+                  - item.images.find do |images| 
+                    = image_tag images 
+                .item-body
+                  %h3.item-body__name 
+                    = item.name
+                  .item-body--num
+                    .item-body--num__price 
+                      = item.price
+                    .item-body--num__favorite
+                      = icon('far', 'heart')
+                      %span 1000
+                  %p (税込)
+
+          - elsif (category.large == large.name) && (num >= 6)
+            - num = num - 1
+
+%section.category-container
+  .category-container--items-container--items
+    - num = 0
+    - @items.each do |item|
+      - item.parent_categories.each do |category|
+        - Large.all.drop(1).each do |large| 
+          - if category.large == large.name
+            - num = num + 1
+    - @items.each do |item|
+      - item.parent_categories.each do |category|
+        - Large.all.drop(1).each do |large|
+          - if (category.large == large.name) && (num <= 10) && (num >= 6)
+            - num = num -1   
+            %section.category-container--items-container--items__item
+              = link_to "#" do
+                %figure.item-photo
+                  - item.images.find do |images| 
+                    = image_tag images 
+                .item-body
+                  %h3.item-body__name 
+                    = item.name
+                  .item-body--num
+                    .item-body--num__price 
+                      = item.price
+                    .item-body--num__favorite
+                      = icon('far', 'heart')
+                      %span 1000
+                  %p (税込)
+
+          - elsif (category.large == large.name) && (num >= 11)
+            - num = num - 1
+
+
+%section.category-container
+  .category-container--items-container--items
+    - num = 0
+    - @items.each do |item|
+      - item.parent_categories.each do |category|
+        - Large.all.drop(1).each do |large| 
+          - if category.large == large.name
+            - num = num + 1
+    - @items.each do |item|
+      - item.parent_categories.each do |category|
+        - Large.all.drop(1).each do |large|
+          - if (category.large == large.name) && (num <= 15) && (num >= 11)
+            - num = num -1   
+            %section.category-container--items-container--items__item
+              = link_to "#" do
+                %figure.item-photo
+                  - item.images.find do |images| 
+                    = image_tag images 
+                .item-body
+                  %h3.item-body__name 
+                    = item.name
+                  .item-body--num
+                    .item-body--num__price 
+                      = item.price
+                    .item-body--num__favorite
+                      = icon('far', 'heart')
+                      %span 1000
+                  %p (税込)
+
+          - elsif (category.large == large.name) && (num >= 16)
+            - num = num - 1
+
+
+= render './shared/registration-footer';

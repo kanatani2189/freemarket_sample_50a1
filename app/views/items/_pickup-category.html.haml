@@ -13,7 +13,7 @@
         - if (category.large == "レディース") && (num <= 4) && (num >= 1)
           - num = num -1   
           %section.main--pickup-container--items-container--items__item
-            = link_to "#" do
+            = link_to "/items/#{item.id}", metood: :get do
               %figure.item-photo
                 - item.images.find do |images| 
                   = image_tag images 

@@ -41,9 +41,11 @@ class ItemsController < ApplicationController
     end
   end
 
-#  商品購入確認ページ（石川）
-  def buy
+  def category
+    @items = Item.all
   end
+
+
 
   private
   def item_params

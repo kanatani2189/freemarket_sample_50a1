@@ -25,3 +25,9 @@ crumb :logout_user do
   link "ログアウト", users_logout_123456789_path
   parent :users
 end
+
+# items#category
+crumb :item_category do 
+  link "", item_category_path
+  parent :root
+end

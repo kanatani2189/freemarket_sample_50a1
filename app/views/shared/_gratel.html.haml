@@ -16,3 +16,6 @@
       - breadcrumb :logout_user
       = breadcrumbs separator: " &rsaquo; " 
 
+    - elsif controller.controller_name == "items"  && controller.action_name == "category"
+      - breadcrumb :items
+      = breadcrumbs separator: " &rsaquo; "
