@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
 
   # トップページ（内田）
   def index
-    @item = Item.last(4)
+    @items = Item.all
   end
 
  # 商品詳細ページ（山本）
