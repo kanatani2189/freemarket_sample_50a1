@@ -9,7 +9,7 @@
       .items-box-content
       -@items.each do |item|
         .items-box-content__items-box
-          = link_to "/items/#{item.id}", method: :get do
+          = link_to item_path(item), method: :get do
             .items-box-photo
               -item.images.each do |image|
                 =image_tag image
