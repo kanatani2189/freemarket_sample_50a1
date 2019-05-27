@@ -23,7 +23,7 @@
       }
     }
     &--items{
-      width: auto;
+      width: 184px;
       height: 300px;
       display: flex;
       &__item{
@@ -35,6 +35,7 @@
           display: block;
           height: 300px;
           position: relative;
+          width: 184px;
           .item-photo{
             padding: 0;
             margin: 0;
@@ -101,4 +102,7 @@
       }
     }
   }
+}
+.pagenation{
+  height: 40px;
 }
