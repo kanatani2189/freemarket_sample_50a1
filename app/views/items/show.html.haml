@@ -1,4 +1,7 @@
-= render './shared/profile_header';
+- if user_signed_in?
+  = render './shared/profile_header'
+- else
+  = render './shared/header'
 = render './shared/gratel';
 
 = form_with url: "/items/#{@item.id}", method: :delete, local: true, id: "item-delete-form", class: "item-delete-form" do |form|

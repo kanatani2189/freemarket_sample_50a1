@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'items#index'
   resources :items, only: [:index, :new, :show, :create, :edit, :update, :destroy]
   resources :users, only: [:index, :show, :new, :edit]
-  get "items/buy/123456789" =>"items#buy"
+  # get "items/buy/123456789" =>"items#buy" /cards/buyに変更
   # ログアウトページ（内田）
   get 'users/logout/123456789'       => 'users#logout'
   get "items/search/123" => "items#search"

@@ -2,7 +2,7 @@
   %nav
     %ul
       %li
-        = link_to('マイページ', {})
+        = link_to('マイページ', "/users/#{current_user.id}")
         %i.fas.fa-angle-right
       %li
         = link_to('お知らせ', {})
@@ -14,7 +14,7 @@
         = link_to('いいね！一覧', {})
         %i.fas.fa-angle-right
       %li
-        = link_to('出品する', {})
+        = link_to('出品する', "/items/new")
         %i.fas.fa-angle-right
       %li
         = link_to('出品した商品-出品中', {})
@@ -53,14 +53,14 @@
         %i.fas.fa-angle-right
     %h3 設定
     %ul
-      %li{style: "background: #c0c0c0; font-weight: 600;"}
+      %li
         = link_to('プロフィール')
         %i.fas.fa-angle-right
       %li
         = link_to('発送元・お届け先住所変更', {})
         %i.fas.fa-angle-right
       %li
-        = link_to('支払い変更', {})
+        = link_to('支払い変更', "/cards")
         %i.fas.fa-angle-right
       %li
         = link_to('メール/パスワード', {})
@@ -72,5 +72,5 @@
         = link_to('電話番号の確認', {})
         %i.fas.fa-angle-right
       %li
-        = link_to('ログアウト', {})
+        = link_to('ログアウト', '/users/logout/123456789')
         %i.fas.fa-angle-right
