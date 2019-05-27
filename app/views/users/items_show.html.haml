@@ -3,11 +3,9 @@
 - else
   = render './shared/header'
 = render './shared/gratel';
-
-= form_with url: "/items/#{@item.id}", method: :delete, local: true, id: "item-delete-form", class: "item-delete-form" do |form|
-  .item-delete-form--container
-    = form.submit "削除する", id: "item-delete_submit", class: "item-delete-form--container__btn"
-
+-# = form_with url: "users/items/#{@item.id}", method: :delete, local: true, id: "item-delete-form", class: "item-delete-form" do |form|
+-#   .item-delete-form--container
+-#     = form.submit "削除する", id: "item-delete_submit", class: "item-delete-form--container__btn"
 .item-box-container
   %h1.item-box-container__item-name
     = @item.name
@@ -113,9 +111,8 @@
     %span 円
     %span.item-box-container__item-price-box__item-tax （税込）
     %span.item-box-container__item-price-box__item-shipping-fee 送料込み
-    = link_to "/items/buy/#{@item.id}" do
-      %span.item-box-container__item-buy-btn 
-        購入画面へ進む
+    = link_to edit_item_path do
+      %span.item-box-container__item-buy-btn 商品を編集する
   .item-box-container__item-description
     %p.item-box-container__item-description__item-description-inner
       =@item.description

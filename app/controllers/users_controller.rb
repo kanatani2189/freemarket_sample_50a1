@@ -18,4 +18,9 @@ class UsersController < ApplicationController
   # ログアウト（内田）
   def logout
   end
+
+  # マイページ出品一覧（内田）
+  def items_show
+    @item = User.item..find(params[:id])
+  end
 end

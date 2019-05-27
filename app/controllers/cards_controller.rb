@@ -36,7 +36,7 @@ class CardsController < ApplicationController
     card = Card.where(user_id: current_user.id).first
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     Payjp::Charge.create(
-      :amount => 500, #itemテーブルに紐付ける
+      :amount => Item.find(params["item_id"]).price, #itemテーブルに紐付ける
       :customer => card.customer_id, #顧客ID
       :currency => 'jpy', #日本円
     )
@@ -83,5 +83,3 @@ class CardsController < ApplicationController
     end
   end
 end
-
-
