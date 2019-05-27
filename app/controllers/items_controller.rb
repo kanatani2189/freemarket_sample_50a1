@@ -57,6 +57,11 @@ class ItemsController < ApplicationController
   def search
     @items = Item.where("name LIKE(?)", "%#{params[:keyword]}%").order("created_at DESC").page(params[:page]).per(8)
   end
+  
+  # category-page "items/category/123" (石川)
+  def category
+    @items = Item.all
+  end
 
   private
   def item_params

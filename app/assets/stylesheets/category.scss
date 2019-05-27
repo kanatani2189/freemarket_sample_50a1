@@ -1,0 +1,108 @@
+.category-container{
+  margin: 40px auto 0;
+  width: 1020px;
+  &-nav{
+    height: 30px;
+  }
+  &__name{
+    font-size: 28px;
+    line-height: 1.4;
+    font-weight: bold;
+    margin: 24px 0 8px;
+  }
+  &--items-container{
+    width: 940px;
+    margin: 0 auto;
+    &__name{
+      margin: 26px 11px;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      a{
+        @include linkHover($solid: 2px);
+      }
+    }
+    &--items{
+      width: 184px;
+      height: 300px;
+      display: flex;
+      &__item{
+        margin: 0 0 0 20px;
+        width: 213px;
+        height: 300px;
+        background: $whiteColor;
+        a{
+          display: block;
+          height: 300px;
+          position: relative;
+          width: 184px;
+          .item-photo{
+            padding: 0;
+            margin: 0;
+            img{
+              width: 100%;
+              height: 200px;
+              object-fit: cover;
+              vertical-align: bottom;
+            }
+          }
+          .item-body{
+            padding: 16px;
+            height: 110px;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            &__name{
+              position: relative;
+              overflow: hidden;
+              font-weight: normal;
+              margin: 0 0 5px;
+              height: 3em;
+              line-height: 1.5;
+              font-size: 16px;
+              &:after{
+                display: block;
+                content: '';
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: 50%;
+                height: 1.5em;
+                background: linear-gradient(to right, rgba(255,255,255,0), $whiteColor 72%);
+              }
+            }
+            &--num{
+              display: flex;
+              justify-content: space-between;
+              &__price{
+                font-weight: 600;
+              }
+              &__favorite{
+                
+                i{
+                  color: #d3d3d3;
+                }
+              }
+            }
+            p{
+              font-size: 10px;
+            }
+          }
+        }
+      }
+    }
+    &__view-all{
+      padding: 20px 0 30px;
+      width: 99.5%;
+      text-align: right;
+      a{
+        color: $linkColor;
+        font-size: 14px;
+        @include linkHover
+      }
+    }
+  }
+}
+.pagenation{
+  height: 40px;
+}
