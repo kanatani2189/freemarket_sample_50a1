@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:edit, :update, :destroy]
+
   # トップページ（内田）
   def index
     @item = Item.last(4)
@@ -28,11 +30,9 @@ class ItemsController < ApplicationController
 
  # 商品出品編集機能
   def edit
-    set_item
   end
 
   def update
-    set_item
     @item.images.detach
     if @item.update(update_item_params)
       redirect_to root_path
@@ -41,8 +41,21 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    if @item.destroy
+      redirect_to items_path
+    else
+      redirect_to  item_path
+    end
+  end
+
 #  商品購入確認ページ（石川）
   def buy
+  end
+
+#  商品検索後ページ（山本）
+  def search
+    @items = Item.where("name LIKE(?)", "%#{params[:keyword]}%").order("created_at DESC").page(params[:page]).per(8)
   end
 
   private

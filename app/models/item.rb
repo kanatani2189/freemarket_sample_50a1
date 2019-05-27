@@ -1,8 +1,8 @@
 class Item < ApplicationRecord
-  has_many :user_items
+  has_many :user_items, dependent: :destroy
   has_many :users, through: :user_items
   has_many_attached :images
-  has_many :parent_categories
+  has_many :parent_categories, dependent: :destroy
   accepts_nested_attributes_for :parent_categories
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :brand
