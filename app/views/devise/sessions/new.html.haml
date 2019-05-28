@@ -12,11 +12,12 @@
 
 
   .account-bottom
-    = link_to "#", class: "account-bottom--link" do
+    = link_to user_facebook_omniauth_authorize_path, class: "account-bottom--link" do
       .account-bottom--link__box1
         %p.account-bottom--link__box1--fb
           = icon('fab', 'facebook', class: 'icon')
           Facebookでログイン
+    = link_to user_google_oauth2_omniauth_authorize_path, class: "account-bottom--link" do
       .account-bottom--link__box2
         %p.account-bottom--link__box2--google
           = icon('fab', 'google', class: 'icon')
