@@ -33,6 +33,10 @@ class CardsController < ApplicationController
   end
 
   def pay #商品購入(post)
+    item = Item.find(params["item_id"])
+    item.status = 1
+    item.save
+    # Item.find(params["item_id"]).update("status = 1")
     card = Card.where(user_id: current_user.id).first
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     Payjp::Charge.create(
@@ -40,6 +44,7 @@ class CardsController < ApplicationController
       :customer => card.customer_id, #顧客ID
       :currency => 'jpy', #日本円
     )
+    redirect_to items_path
   end
 
   def destroy #PayjpとCardのデータベースを削除

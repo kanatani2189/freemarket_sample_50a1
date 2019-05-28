@@ -1,358 +1,52 @@
-- if user_signed_in?
-  = render './shared/profile_header'
-- else
-  = render './shared/header'
-= render './shared/gratel';
--# = form_with url: "users/items/#{@item.id}", method: :delete, local: true, id: "item-delete-form", class: "item-delete-form" do |form|
--#   .item-delete-form--container
--#     = form.submit "削除する", id: "item-delete_submit", class: "item-delete-form--container__btn"
-.item-box-container
-  %h1.item-box-container__item-name
-    = @item.name
-  .item-box-container__item-main-containt
-    .item-box-container__item-main-containt__item-photo
-      .item-box-container__item-main-containt__item-photo__owlcasual
-        - @item.images.each do |image|
-          = image_tag image ,class:"item-box-container__item-main-containt__item-photo__owlcasual__owl-lazy" 
-      .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots
-        .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot
-          .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out
-            - @item.images.each do |image|
-              = image_tag image ,class:"item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out__dot-image"
-        .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot
-          .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out
-            - @item.images.each do |image|
-              = image_tag image ,class:"item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out__dot-image"
-        .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot
-          .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out
-            - @item.images.each do |image|
-              = image_tag image ,class:"item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out__dot-image"
-        .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot
-          .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out
-            - @item.images.each do |image|
-              = image_tag image ,class:"item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out__dot-image"
-    -# .item-box-container__item-main-containt__sold-out-badge
-      -# .item-box-container__item-main-containt__sold-out-badge__font SOLD
-    %table.item-box-container__item-main-containt__item-detail-table
-      %tbody
-        %tr 
-          %th 出品者
-          %td
-            = link_to "#" do
-              %span.linkcolor 
-                - @item.users.each do |user|
-                  =user.nickname
-            .grin
-              .item-user-rating1
-                =icon('fas', 'grin')
-                .span 918
-              .item-user-rating2
-                =icon('far', 'meh')
-                .span 27
-              .item-user-rating3
-                =icon('fas', 'frown-open')
-                .span 4
+= render './shared/profile_header'
+= render './shared/gratel'
 
-        %tr 
-          %th カテゴリー
-          %td 
-            = link_to "#" do 
-              %span.linkcolor
-                - @item.parent_categories.each do |category|
-                  = category.large
-              %br
-              =icon('fas', 'chevron-right')
-              %span.linkcolor 
-                - @item.parent_categories.each do |category|
-                  = category.midium
-              %br
-              =icon('fas', 'chevron-right')
-              %span.linkcolor 
-                - @item.parent_categories.each do |category|
-                  = category.small
-        %tr 
-          %th ブランド
-          %td 
-            = link_to "#" do 
-              %span.linkcolor 
-                =@item.brand.name
-        %tr 
-          %th サイズ
-          %td 
-            =@item.size
-        %tr 
-          %th 商品の状態
-          %td 
-            =@item.condition
-              
-        %tr 
-          %th 配送料の負担
-          %td 
-            =@item.shipping_burden
-
-        %tr 
-          %th 配送の方法
-          %td
-            =@item.shipping_method
-        %tr 
-          %th 配送元地域
-          %td 
-            = link_to "#" do 
-              %span.linkcolor 
-                =@item.prefecture.name
-        %tr 
-          %th 発送日の目安
-          %td
-            =@item.estimated_date
-  .item-box-container__item-price-box
-    %span.item-box-container__item-price-box__item-price ¥
-    %span.item-box-container__item-price-box__item-price 
-      = @item.price 
-    %span 円
-    %span.item-box-container__item-price-box__item-tax （税込）
-    %span.item-box-container__item-price-box__item-shipping-fee 送料込み
-    = link_to edit_item_path do
-      %span.item-box-container__item-buy-btn 商品を編集する
-  .item-box-container__item-description
-    %p.item-box-container__item-description__item-description-inner
-      =@item.description
-  .item-box-container__item-button-container
-    .item-box-container__item-button-container__item-button-left
-      .item-box-container__item-button-container__item-button-left__like
-        =icon('fas', 'heart')
-        %span いいね！ 7
-      .item-box-container__item-button-container__item-button-left__illegal
-        =icon('fas', 'flag-checkered')
-        %span 不適切な商品の報告
-      .item-box-container__item-button-container__item-button-left__safety
-        = link_to "#" do
-          =icon('fas', 'lock')
-          %span.safe あんしん・あんぜんへの取り組み
-.item-detail-message
-  .item-detail-message__message-containt
-    %ul.item-detail-message__message-containt__message-items
-      %li.item-detail-message__message-containt__message-items__message
-        .item-detail-message__message-containt__message-items__message__message-user
-          .item-detail-message__message-containt__message-items__message__message-user__unknown
-            =image_tag"//www-mercari-jp.akamaized.net/assets/img/common/common/user-icon.svg?392987640", class:"item-detail-message__message-containt__message-items__message__message-user__unknown__image"
-        .item-detail-message__message-containt__message-items__message__message-body
-          .item-detail-message__message-containt__message-items__message__message-body__text 出品者がコメントを削除しました
-          .item-detail-message__message-containt__message-items__message__message-body__icons
-            %span.item-detail-message__message-containt__message-items__message__message-body__icons__time 199日前
-          =icon('fas', 'play')
-      %li.item-detail-message__message-containt__message-items__message
-        .item-detail-message__message-containt__message-items__message__message-user
-          .item-detail-message__message-containt__message-items__message__message-user__unknown
-            =image_tag"//www-mercari-jp.akamaized.net/assets/img/common/common/user-icon.svg?392987640", class:"item-detail-message__message-containt__message-items__message__message-user__unknown__image"
-        .item-detail-message__message-containt__message-items__message__message-body
-          .item-detail-message__message-containt__message-items__message__message-body__text 出品者がコメントを削除しました
-          .item-detail-message__message-containt__message-items__message__message-body__icons
-            %span.item-detail-message__message-containt__message-items__message__message-body__icons__time 199日前
-          =icon('fas', 'play')
-      %li.item-detail-message__message-containt__message-items__message
-        .item-detail-message__message-containt__message-items__message__message-user
-          .item-detail-message__message-containt__message-items__message__message-user__unknown
-            =image_tag"//www-mercari-jp.akamaized.net/assets/img/common/common/user-icon.svg?392987640", class:"item-detail-message__message-containt__message-items__message__message-user__unknown__image"
-        .item-detail-message__message-containt__message-items__message__message-body
-          .item-detail-message__message-containt__message-items__message__message-body__text 出品者がコメントを削除しました
-          .item-detail-message__message-containt__message-items__message__message-body__icons
-            %span.item-detail-message__message-containt__message-items__message__message-body__icons__time 199日前
-          =icon('fas', 'play')
-      %li.item-detail-message__message-containt__message-items__message
-        .item-detail-message__message-containt__message-items__message__message-user
-          .item-detail-message__message-containt__message-items__message__message-user__unknown
-            =image_tag"//static.mercdn.net/images/member_photo_noimage_thumb.png", class:"item-detail-message__message-containt__message-items__message__message-user__unknown__image"
-        .item-detail-message__message-containt__message-items__message__message-body
-          .item-detail-message__message-containt__message-items__message__message-body__text はじめまして。ずっと、気になっているのですが・・・こちらのバッグの『多少の汚れ』とは、パッと見る限り、目立たない程度なのですか？皮の白いところは画像でわかるのですが、全体の感じがわからなかったので、質問してみました。
-          .item-detail-message__message-containt__message-items__message__message-body__icons
-            %span.item-detail-message__message-containt__message-items__message__message-body__icons__time 179日前
-          =icon('fas', 'play')
-      %li.item-detail-message__message-containt__message-items__message
-        .item-detail-message__message-containt__message-items__message__message-user
-          .item-detail-message__message-containt__message-items__message__message-user__unknown
-            =image_tag"//static.mercdn.net/thumb/members/387561164.jpg?1553790005", class:"item-detail-message__message-containt__message-items__message__message-user__unknown__image"
-        .item-detail-message__message-containt__message-items__message__message-body
-          .item-detail-message__message-containt__message-items__message__message-body__text 
-          おまたせしました。
-          %br
-          先ほど確認しましたところ、画像にある底部に若干の汚れが見られる程度で、後はそれといって汚れはございませんでした。
-          %br
-          よろしくお願いします。
-          .item-detail-message__message-containt__message-items__message__message-body__icons
-            %span.item-detail-message__message-containt__message-items__message__message-body__icons__time 177日前
-          =icon('fas', 'play')
-      %li.item-detail-message__message-containt__message-items__message
-        .item-detail-message__message-containt__message-items__message__message-user
-          .item-detail-message__message-containt__message-items__message__message-user__unknown
-            =image_tag"//static.mercdn.net/images/member_photo_noimage_thumb.png", class:"item-detail-message__message-containt__message-items__message__message-user__unknown__image"
-        .item-detail-message__message-containt__message-items__message__message-body
-          .item-detail-message__message-containt__message-items__message__message-body__text 
-          ありがとうございます。
-          %br
-          購入したいなと思います。
-          .item-detail-message__message-containt__message-items__message__message-body__icons
-            %span.item-detail-message__message-containt__message-items__message__message-body__icons__time 177日前
-          =icon('fas', 'play')
-  .item-detail-message__message-containt
-    .item-detail-message__message-containt__message-form
-      %p.item-detail-message__message-containt__message-form__message
-        相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      %text_area.item-detail-message__message-containt__message-form__form-default
-      %button.item-detail-message__message-containt__message-form__button-default 
-        %span.item-detail-message__message-containt__message-form__button-default__font
-          売り切れのためコメントできません
-.item-link
-  .item-link__prev
-    = link_to "#" do
-      =icon('fas', 'angle-left')
-      %span.item-link__prev__dv ディズニーヴィランズ 2個セット バッジ バッチ Villains 2018
-  .item-link__next
-    = link_to "#" do
-      %span.item-link__next__rp 楽天パンダ ノート&amp;マスキングテープセット
-      =icon('fas', 'angle-right')
-.item-social-media-box
-  %ul.item-social-media-box__social-media-box
-    %li.item-social-media-box__social-media-box__share-btn1
-      =icon('fab', 'facebook')
-    %li.item-social-media-box__social-media-box__share-btn2
-      =icon('fab', 'twitter')
-    %li.item-social-media-box__social-media-box__share-btn3
-      =icon('fab', 'line')
-    %li.item-social-media-box__social-media-box__share-btn4
-      =icon('fab', 'pinterest')
-.items-in-user-profile
-  .items-in-user-profile__items-box-container
-    %h2.items-in-user-profile__items-box-container__items-box-head
-      = link_to "#" do
-        %span.items-in-user-profile__items-box-container__items-box-head__title BOON90sリバイバル@フォロー割さんのその他の出品
-    .items-in-user-profile__items-box-container__items-box-containt
-      %section.items-in-user-profile__items-box-container__items-box-containt__item-box
-        =image_tag"https://static.mercdn.net/thumb/photos/m34192865182_1.jpg?1546583182", class:"items-in-user-profile__items-box-container__items-box-containt__item-box__item-image"
-        .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body
-          %h3.items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__name 古着90sエディーバウアー 中綿ジャケット
-          .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num
-            .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num__price ¥4,500
-            .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num__like
-              =icon('fas', 'heart')
-              %span 14
-          %p.items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__tax (税込)
-      %section.items-in-user-profile__items-box-container__items-box-containt__item-box
-        =image_tag"https://static.mercdn.net/thumb/photos/m34192865182_1.jpg?1546583182", class:"items-in-user-profile__items-box-container__items-box-containt__item-box__item-image"
-        .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body
-          %h3.items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__name 古着90sエディーバウアー 中綿ジャケット
-          .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num
-            .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num__price ¥4,500
-            .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num__like
-              =icon('fas', 'heart')
-              %span 14
-          %p.items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__tax (税込)
-      %section.items-in-user-profile__items-box-container__items-box-containt__item-box
-        =image_tag"https://static.mercdn.net/thumb/photos/m34192865182_1.jpg?1546583182", class:"items-in-user-profile__items-box-container__items-box-containt__item-box__item-image"
-        .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body
-          %h3.items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__name 古着90sエディーバウアー 中綿ジャケット
-          .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num
-            .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num__price ¥4,500
-            .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num__like
-              =icon('fas', 'heart')
-              %span 14
-          %p.items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__tax (税込)
-      %section.items-in-user-profile__items-box-container__items-box-containt__item-box
-        =image_tag"https://static.mercdn.net/thumb/photos/m34192865182_1.jpg?1546583182", class:"items-in-user-profile__items-box-container__items-box-containt__item-box__item-image"
-        .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body
-          %h3.items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__name 古着90sエディーバウアー 中綿ジャケット
-          .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num
-            .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num__price ¥4,500
-            .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num__like
-              =icon('fas', 'heart')
-              %span 14
-          %p.items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__tax (税込)
-      %section.items-in-user-profile__items-box-container__items-box-containt__item-box
-        =image_tag"https://static.mercdn.net/thumb/photos/m34192865182_1.jpg?1546583182", class:"items-in-user-profile__items-box-container__items-box-containt__item-box__item-image"
-        .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body
-          %h3.items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__name 古着90sエディーバウアー 中綿ジャケット
-          .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num
-            .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num__price ¥4,500
-            .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num__like
-              =icon('fas', 'heart')
-              %span 14
-          %p.items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__tax (税込)
-      %section.items-in-user-profile__items-box-container__items-box-containt__item-box
-        =image_tag"https://static.mercdn.net/thumb/photos/m34192865182_1.jpg?1546583182", class:"items-in-user-profile__items-box-container__items-box-containt__item-box__item-image"
-        .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body
-          %h3.items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__name 古着90sエディーバウアー 中綿ジャケット
-          .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num
-            .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num__price ¥4,500
-            .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num__like
-              =icon('fas', 'heart')
-              %span 14
-          %p.items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__tax (税込)
-  .items-in-user-profile__items-box-container
-    %h2.items-in-user-profile__items-box-container__items-box-head
-      = link_to "#" do
-        %span.items-in-user-profile__items-box-container__items-box-head__title コーチのショルダーバッグ その他の商品
-    .items-in-user-profile__items-box-container__items-box-containt
-      %section.items-in-user-profile__items-box-container__items-box-containt__item-box
-        =image_tag"https://static.mercdn.net/thumb/photos/m61971722031_1.jpg?1548297010", class:"items-in-user-profile__items-box-container__items-box-containt__item-box__item-image"
-        .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body
-          %h3.items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__name coach 60's ショルダーバッグ 黒
-          .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num
-            .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num__price ¥17,000
-            .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num__like
-              =icon('fas', 'heart')
-              %span 6
-          %p.items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__tax (税込)
-      %section.items-in-user-profile__items-box-container__items-box-containt__item-box
-        =image_tag"https://static.mercdn.net/thumb/photos/m61971722031_1.jpg?1548297010", class:"items-in-user-profile__items-box-container__items-box-containt__item-box__item-image"
-        .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body
-          %h3.items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__name coach 60's ショルダーバッグ 黒
-          .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num
-            .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num__price ¥17,000
-            .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num__like
-              =icon('fas', 'heart')
-              %span 6
-          %p.items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__tax (税込)
-      %section.items-in-user-profile__items-box-container__items-box-containt__item-box
-        =image_tag"https://static.mercdn.net/thumb/photos/m61971722031_1.jpg?1548297010", class:"items-in-user-profile__items-box-container__items-box-containt__item-box__item-image"
-        .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body
-          %h3.items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__name coach 60's ショルダーバッグ 黒
-          .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num
-            .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num__price ¥17,000
-            .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num__like
-              =icon('fas', 'heart')
-              %span 6
-          %p.items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__tax (税込)
-      %section.items-in-user-profile__items-box-container__items-box-containt__item-box
-        =image_tag"https://static.mercdn.net/thumb/photos/m61971722031_1.jpg?1548297010", class:"items-in-user-profile__items-box-container__items-box-containt__item-box__item-image"
-        .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body
-          %h3.items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__name coach 60's ショルダーバッグ 黒
-          .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num
-            .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num__price ¥17,000
-            .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num__like
-              =icon('fas', 'heart')
-              %span 6
-          %p.items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__tax (税込)
-      %section.items-in-user-profile__items-box-container__items-box-containt__item-box
-        =image_tag"https://static.mercdn.net/thumb/photos/m61971722031_1.jpg?1548297010", class:"items-in-user-profile__items-box-container__items-box-containt__item-box__item-image"
-        .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body
-          %h3.items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__name coach 60's ショルダーバッグ 黒
-          .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num
-            .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num__price ¥17,000
-            .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num__like
-              =icon('fas', 'heart')
-              %span 6
-          %p.items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__tax (税込)
-      %section.items-in-user-profile__items-box-container__items-box-containt__item-box
-        =image_tag"https://static.mercdn.net/thumb/photos/m61971722031_1.jpg?1548297010", class:"items-in-user-profile__items-box-container__items-box-containt__item-box__item-image"
-        .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body
-          %h3.items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__name coach 60's ショルダーバッグ 黒
-          .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num
-            .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num__price ¥17,000
-            .items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__items-box-num__like
-              =icon('fas', 'heart')
-              %span 6
-          %p.items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__tax (税込)
-
-
-
-= render './shared/app-banner';
-= render './shared/footer';
+.items-show
+  = render './shared/sidebar'
+  .items-show--container
+    .items-show--container--content
+      %h2.items-show--container--content__h2 出品した商品
+      %ul.items-show--container--content__tab
+        %li.active 出品中
+        %li 売却済
+      .items-show--container--content__area
+        - sold = 0
+        - selling = 0
+        - @items.each do |item|
+          - if item.status
+            - sold += 1
+          -else
+            - selling += 1
+        %ul.show
+          - if selling == 0
+            %li.item-not-found
+              商品はありません。
+          - @items.each do |item|
+            - if item.status != 1
+              = link_to "/users/items/#{item.id}" do
+                %li
+                  %figure
+                    - item.images.each do |image|
+                      = image_tag image
+                  .mypage-item-body
+                    .mypage-item-body__text
+                      = item.name
+                  = icon('fas', 'angle-right')
+        %ul
+          - if sold == 0
+            %li.item-not-found
+              商品はありません。
+          - @items.each do |item|
+            - if item.status
+              = link_to "/users/items/#{item.id}" do
+                %li
+                  %figure
+                    - item.images.each do |image|
+                      = image_tag image
+                  .mypage-item-body
+                    .mypage-item-body__text
+                      = item.name
+                  = icon('fas', 'angle-right')
+= render './shared/app-banner'
+= render './shared/footer'
+= render './shared/footer-sell-btn'

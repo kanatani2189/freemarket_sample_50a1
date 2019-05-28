@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   get 'users/logout/123456789'       => 'users#logout'
   get "items/search/123" => "items#search"
   # マイページ出品一覧（内田）
-  get 'users/items/1234'       => 'users#items_show'
+  get 'users/items/ichiran'       => 'users#items_show'
+  # マイページ出品一覧（内田）
+  get 'users/items/:item_id'       => 'users#item_show'
   # 商品購入画面（内田）
   get "items/buy/:item_id" => "items#buy"
 

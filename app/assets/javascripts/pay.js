@@ -54,7 +54,12 @@ document.addEventListener(
 );
 
 $(function(){
-  $('#buy-form-btn').on('click', function(){
+  $('#buy-form').on("click", '#buy-form-btn', function(e) {
+    e.preventDefault();
+    console.log("aaa")
+
+    $('#buy-form').submit();
+
     function sleep(waitMsec) {
       var startMsec = new Date();
       // 指定ミリ秒間だけループさせる
