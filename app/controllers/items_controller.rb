@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   # トップページ（内田）
   def index
+    @items = Item.all
     @item = Item.last(4)
   end
 
@@ -41,6 +42,13 @@ class ItemsController < ApplicationController
     end
   end
 
+  # def upload_image
+  #   @image_blob = create_blob(params[:image])
+  #   respond_to do |format|
+  #     format.json { @image_blob.id }
+  #   end
+  # end
+
 #  商品購入確認ページ（石川）
   def buy
   end
@@ -50,6 +58,10 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :description, :price, :condition, :size, :shipping_burden, :shipping_method, :estimated_date, :prefecture_id, :brand_id, {:user_ids => []}, images: [], parent_categories_attributes: [:large, :midium, :small, :item_id])
   end
 
+  # def uploaded_images
+  #   params[:item][:images].map{|id| ActiveStorage::Blob.find(id)} if params[:item][:images]
+  # end
+
   def update_item_params
     params.require(:item).permit(:name, :description, :price, :condition, :size, :shipping_burden, :shipping_method, :estimated_date, :prefecture_id, :brand_id, {:user_ids => []}, images: [], parent_categories_attributes: [:large, :midium, :small, :item_id, :_destroy, :id])
   end
@@ -57,5 +69,12 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
+
+  # def create_blob(uploading_file)
+  #   ActiveStorage::Blob.create_after_upload! \
+  #     io: uploading_file.open,
+  #     filename: uploading_file.original_filename,
+  #     content_type: uploading_file.content_type
+  # end
 
 end
