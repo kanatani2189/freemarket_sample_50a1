@@ -114,12 +114,19 @@
         position: relative;
         display: block;
         min-height: 48px;
-        padding: 16px;
         background: #fff;
         font-size:14px;
         color: #333;
         touch-action: manipulation;
         border-top: 1px solid #eee;
+        a{
+          display: block;
+          padding: 16px;
+          &:hover{
+            background-color: #c0c0c0;
+            font-weight: bold;
+          }
+        }
         i{
           position: absolute;
           top: 50%;
