@@ -14,12 +14,23 @@
             必須
         %p.item-main-image__box--upload
           最大10枚までアップロードできます
-      .item-main-image__box
-        = f.file_field :images, multiple: true, class: "item-main-image__file" do
-          %p.item-main-image__file--text
-            ドラッグアンドドロップ
-            %br
-            またはクリックしてファイルをアップロード
+      .item-main-image__content#aaa
+        .item-main-image__content__left
+        .item-main-image__content__right
+          .item-main-image__content__right__box
+            = f.label :images, class: "item-main-image__content__right__box__label" do
+              .item-main-image__content__right__box__label__content
+                %p.item-main-image__content__right__box__label__content--text
+                  ドラッグアンドドロップ
+                %p.item-main-image__content__right__box__label__content--text
+                  またはクリックしてファイルをアップロード
+              = f.file_field :images, multiple: true, class: "item-main-image__content__right__box__label__file"
+              -# = f.hidden_field :images , name: "item[images][]", value: 20, style: "display: none;", class: "item-images-input"
+      .item-main-image__bottom
+        .item-main-image__bottom__left
+          .item-main-image__bottom__left__top__image
+        .item_main-image__bottom__right
+
 
     .item-main-detail
       .item-main-detail__namebox
@@ -49,9 +60,9 @@
               .item-main-state__box__first_category__select
                 = p.collection_select :large, Large.all, :name, :name, {}, class: "item-main-state__box__category__select__name"
               .item-main-state__box__first_category__select
-                = p.collection_select :midium, Midium.all, :name, :name, {}, class: "item-main-state__box__category__select__name"
+                = p.collection_select :midium, Midium.all, :name, :name, {}, class: "item-main-state__box__category__select__name1"
               .item-main-state__box__first_category__select
-                = p.collection_select :small, Small.all, :name, :name, {}, class: "item-main-state__box__category__select__name"
+                = p.collection_select :small, Small.all, :name, :name, {}, class: "item-main-state__box__category__select__name2"
 
               = p.text_field :item_id, type: "hidden"
               
@@ -61,7 +72,7 @@
             %span.item-main-state__box__category--label--required
               必須
           .item-main-state__box__first_category__select
-            = f.select :size, options_for_select(["XXS以下"]), {}, { autofocus: 'true', class: "item-main-state__box__category__select__name", id: "first_category"}
+            = f.collection_select :size, Size.all, :name, :name, {}, class: "item-main-state__box__category__select__name"
         .item-main-state__box__category
           = f.label :size, class: "item-main-state__box__category--label" do
             ブランド
@@ -75,7 +86,7 @@
             %span.item-main-state__box__category--label--required
               必須
           .item-main-state__box__category__select
-            = f.select :condition, options_for_select(["新品、未使用", "未使用に近い", "目立った傷や汚れなし", "やや傷や汚れあり", "傷や汚れあり", "全体的に状態が悪い" ]), {}, { autofocus: 'true', class: "item-main-state__box__category__select__name"}
+            = f.collection_select :condition, Condition.all, :name, :name, {}, class: "item-main-state__box__category__select__name"
 
     .item-main-state
       .item-main-state__box
@@ -90,7 +101,7 @@
             %span.item-main-state__box__category--label--required
               必須
           .item-main-state__box__category__select
-            = f.select :shipping_burden, options_for_select(["送料込み（出品者負担）", "着払い（購入者負担）" ]), {}, { autofocus: 'true', class: "item-main-state__box__category__select__name"}
+            = f.collection_select :shipping_burden, Shipping_burden.all, :name, :name, {}, class: "item-main-state__box__category__select__name"
 
         .item-main-state__box__category
           = f.label :shipping_method, class: "item-main-state__box__category--label" do
@@ -98,7 +109,7 @@
             %span.item-main-state__box__category--label--required
               必須
           .item-main-state__box__category__select
-            = f.select :shipping_method, options_for_select(["らくらくメルカリ便" ]), {}, { autofocus: 'true', class: "item-main-state__box__category__select__name"}
+            = f.collection_select :shipping_method, Shipping_method.all, :name, :name, {}, class: "item-main-state__box__category__select__name"
 
         .item-main-state__box__category
           %label{for: "area_id", class: "item-main-state__box__category--label"}
@@ -114,7 +125,7 @@
             %span.item-main-state__box__category--label--required
               必須
           .item-main-state__box__category__select
-            = f.select :estimated_date, options_for_select(["1〜2日で発送", "2〜3日で発送", "4〜7日で発送" ]), {}, { autofocus: 'true', class: "item-main-state__box__category__select__name"}
+            = f.collection_select :estimated_date, Estimated_date.all, :name, :name, {}, class: "item-main-state__box__category__select__name"
           .item-main-state__box__category__select
 
     .item-main-price

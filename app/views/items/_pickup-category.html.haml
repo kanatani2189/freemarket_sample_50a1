@@ -7,7 +7,7 @@
       %section.main--pickup-container--items-container--items__item
         = link_to "/items/#{item.id}", method: :get do
           %figure.item-photo
-            - item.images.each do |image|
+            - item.images.find do |image|
               = image_tag image
           .item-body
             %h3.item-body__name 
@@ -33,7 +33,7 @@
       %section.main--pickup-container--items-container--items__item
         = link_to "#" do
           %figure.item-photo
-            - item.images.each do |image|
+            - item.images.find do |image|
               = image_tag image
           .item-body
             %h3.item-body__name 
@@ -58,7 +58,7 @@
       %section.main--pickup-container--items-container--items__item
         = link_to "#" do
           %figure.item-photo
-            - item.images.each do |image|
+            - item.images.find do |image|
               = image_tag image
           .item-body
             %h3.item-body__name 
@@ -83,7 +83,7 @@
       %section.main--pickup-container--items-container--items__item
         = link_to "#" do
           %figure.item-photo
-            - item.images.each do |image|
+            - item.images.find do |image|
               = image_tag image
           .item-body
             %h3.item-body__name 
@@ -98,3 +98,18 @@
   .main--pickup-container--items-container__view-all
     = link_to "#" do
       すべての商品を見る
+
+-# - num = 0
+-# - @items.each do |item|
+-#   - item.parent_categories.each do |category|
+-#     - if category.large == "レディース"
+-#       - num = num + 1
+-# - @items.each do |item|
+-#   - item.parent_categories.each do |category|
+-#     - if (category.large == "レディース") && (num <= 4) && (num >= 1)
+-#       - num = num - 1
+-#       - item.images.find do |image|
+-#         = image_tag image
+-#     - elsif (category.large == "レディース") && (num >= 5)
+-#       - num = num - 1
+
