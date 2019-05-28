@@ -1,4 +1,8 @@
-= render './shared/header'
+- if user_signed_in?
+  = render './shared/profile_header'
+- else
+  = render './shared/header'
+
 %main.main
   .swiper-container
     .swiper-wrapper
@@ -34,4 +38,3 @@
 = render './shared/footer-sell-btn'
 = render './shared/app-banner'
 = render './shared/footer'
-= link_to "ログアウト", destroy_user_session_path, method: :delete
