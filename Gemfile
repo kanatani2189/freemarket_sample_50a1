@@ -88,3 +88,5 @@ gem 'mini_magick'
 gem 'gretel'
 gem 'payjp'
 gem 'dotenv-rails'
+gem "aws-sdk-s3",require: false
+gem "kaminari"
