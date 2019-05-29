@@ -64,6 +64,7 @@ class ItemsController < ApplicationController
 #  商品購入確認ページ
   def buy
     @item = Item.find(params[:item_id])
+    @card = Card.find_by(user_id: current_user.id)
   end
 
 #  商品検索後ページ（山本）

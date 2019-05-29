@@ -64,17 +64,15 @@
           text-align: center;
 
           .is-higher-width-lazyloaded{
-            width: auto;
-            max-height: 148px;
+            width: 148px;
           }
         }
 
         .buy-item-name-bold{
           margin: 8px 0 0;
           font-size: 16px;
-          line-height: 1.5px;
+          line-height: 1.5;
           font-weight: 600;
-          height: 24px;
         }
 
         .buy-form{
@@ -95,12 +93,10 @@
             background: #ccc;
             margin: 16px 0 0;
             text-align: center;
-            
             .accordion-parent{
               text-align: center;
-
               .accordion-toggle{
-                padding: 16px;
+                padding: 12px;
                 font-size: inherit;
                 height: 48px;
               }
@@ -143,10 +139,8 @@
 
           .btn-default-btn-red-bold{
             margin: 16px 0 0;
-
             border: 1px solid $baseColor;
             background: $baseColor;
-
             color: #fff;
             display: block;
             width: 100%;
@@ -155,8 +149,20 @@
             font-weight: 600;
             font-size: 14px;
             padding: 0;
-
             cursor: pointer;
+          }
+          .not-buy-gray-btn{
+            margin: 16px 0 0;
+            border: 1px solid #888;
+            background: #888;
+            color: #fff;
+            display: block;
+            width: 100%;
+            line-height: 48px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: not-allowed;
           }
         }
       }

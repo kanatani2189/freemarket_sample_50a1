@@ -55,9 +55,7 @@ document.addEventListener(
 
 $(function(){
   $('#buy-form').on("click", '#buy-form-btn', function(e) {
-    e.preventDefault();
-    console.log("aaa")
-
+  e.preventDefault();
     $('#buy-form').submit();
 
     function sleep(waitMsec) {
