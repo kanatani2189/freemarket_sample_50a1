@@ -2,6 +2,8 @@
 
 .form-groups
   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    - if @snscredential.present?
+      = hidden_field_tag :snscredential, @snscredential.id 
     = devise_error_messages!
     .form-groups__top
       %h2.form-groups__top--text

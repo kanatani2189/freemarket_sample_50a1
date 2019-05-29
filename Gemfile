@@ -90,4 +90,9 @@ gem 'payjp'
 gem 'dotenv-rails'
 gem "aws-sdk-s3",require: false
 gem "kaminari"
+
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
 gem "ransack"
+
