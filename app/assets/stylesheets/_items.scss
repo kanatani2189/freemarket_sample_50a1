@@ -115,11 +115,33 @@
             .item-photo{
               padding: 0;
               margin: 0;
+              position: relative;
               img{
                 width: 100%;
                 height: 220px;
                 object-fit: cover;
                 vertical-align: bottom;
+              }
+              figcaption{
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                top: 0;
+                left: 0;
+                border-top: 50px solid $baseColor;
+                border-right: 50px solid transparent;
+                border-bottom: 50px solid transparent;
+                border-left: 50px solid $baseColor;
+                }
+                .item-sold-out-badge{
+                  position: absolute;
+                  top: 21px;
+                  left: 0;
+                  div{
+                    transform: rotate(-45deg);
+                    color: $whiteColor;
+                    font-size: 26px;
+                  }
               }
             }
             .item-body{

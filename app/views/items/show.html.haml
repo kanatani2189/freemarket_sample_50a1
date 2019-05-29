@@ -1,9 +1,8 @@
-= render './shared/profile_header';
+- if user_signed_in?
+  = render './shared/profile_header'
+- else
+  = render './shared/header'
 = render './shared/gratel';
-
-= form_with url: "/items/#{@item.id}", method: :delete, local: true, id: "item-delete-form", class: "item-delete-form" do |form|
-  .item-delete-form--container
-    = form.submit "削除する", id: "item-delete_submit", class: "item-delete-form--container__btn"
 
 .item-box-container
   %h1.item-box-container__item-name
@@ -12,7 +11,11 @@
     .item-box-container__item-main-containt__item-photo
       .item-box-container__item-main-containt__item-photo__owlcasual
         - @item.images.each do |image|
-          = image_tag image ,class:"item-box-container__item-main-containt__item-photo__owlcasual__owl-lazy" 
+          = image_tag image ,class:"item-box-container__item-main-containt__item-photo__owlcasual__owl-lazy"
+          - if @item.status
+            %figcaption
+            .item-sold-out-badge
+              %div SOLD
       .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots
         .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot
           .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out
@@ -30,8 +33,6 @@
           .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out
             - @item.images.each do |image|
               = image_tag image ,class:"item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out__dot-image"
-    -# .item-box-container__item-main-containt__sold-out-badge
-      -# .item-box-container__item-main-containt__sold-out-badge__font SOLD
     %table.item-box-container__item-main-containt__item-detail-table
       %tbody
         %tr 
@@ -110,8 +111,14 @@
     %span 円
     %span.item-box-container__item-price-box__item-tax （税込）
     %span.item-box-container__item-price-box__item-shipping-fee 送料込み
-    = link_to edit_item_path do
-      %span.item-box-container__item-buy-btn 商品を編集する
+    - unless @item.users[0].id == current_user.id
+      - if @item.status == 1
+        %span.item-sold-btn
+          売り切れました
+      - else
+        = link_to "/items/buy/#{@item.id}" do
+          %span.item-box-container__item-buy-btn 
+            購入画面へ進む
   .item-box-container__item-description
     %p.item-box-container__item-description__item-description-inner
       =@item.description

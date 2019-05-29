@@ -2,7 +2,7 @@
   .header
     .header--inner-upper
       %h1.header--inner-upper__logo
-        = link_to "#" do
+        = link_to root_path do
           = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?4194600336", alt: "merucari"
       .header--inner-upper--form
         .header--inner-upper--form__input-box
@@ -18,7 +18,7 @@
         = link_to "#" do
           = icon('fas', 'check')
           %span やることリスト
-        = link_to "#" do
+        = link_to "/users/#{current_user.id}" do
           = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png" 
           %span マイページ
 
