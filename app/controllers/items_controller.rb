@@ -31,10 +31,13 @@ class ItemsController < ApplicationController
 
  # 商品出品編集機能
   def edit
+    @item = Item.find(params[:id])
   end
 
   def update
-    @item.images.detach
+    if params[:item][:images]
+      @item.images.detach
+    end
     if @item.update(update_item_params)
       redirect_to root_path
     else
