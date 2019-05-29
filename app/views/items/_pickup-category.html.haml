@@ -3,26 +3,32 @@
     = link_to "#" do
       レディース 新着アイテム 
   .main--pickup-container--items-container--items
-    - @item.each do |item|
-      %section.main--pickup-container--items-container--items__item
-        = link_to "/items/#{item.id}", method: :get do
-          %figure.item-photo
-            - item.images.find do |image|
-              = image_tag image
-            - if item.status
-              %figcaption
-              .item-sold-out-badge
-                %div SOLD
-          .item-body
-            %h3.item-body__name 
-              = item.name
-            .item-body--num
-              .item-body--num__price 
-                = item.price
-              .item-body--num__favorite
-                = icon('far', 'heart')
-                %span 1000
-            %p (税込)
+    - num = 0
+    - @items.each do |item|
+      - item.parent_categories.each do |category|
+        - if category.large == "レディース" 
+          - num = num + 1
+    - @items.each do |item|
+      - item.parent_categories.each do |category|
+        - if (category.large == "レディース") && (num <= 4) && (num >= 1)
+          - num = num -1   
+          %section.main--pickup-container--items-container--items__item
+            = link_to "#" do
+              %figure.item-photo
+                - item.images.find do |images| 
+                  = image_tag images 
+              .item-body
+                %h3.item-body__name 
+                  = item.name
+                .item-body--num
+                  .item-body--num__price 
+                    = item.price
+                  .item-body--num__favorite
+                    = icon('far', 'heart')
+                    %span 1000
+                %p (税込)
+        - elsif (category.large == "レディース") && (num >= 5)
+          - num = num - 1
    
   .main--pickup-container--items-container__view-all
     = link_to "#" do
@@ -31,89 +37,107 @@
 %section.main--pickup-container--items-container
   %h3.main--pickup-container--items-container__name
     = link_to "#" do
-      メンズ 新着アイテム
+      メンズ 新着アイテム 
   .main--pickup-container--items-container--items
-    - @item.each do |item|
-      %section.main--pickup-container--items-container--items__item
-        = link_to "#" do
-          %figure.item-photo
-            - item.images.find do |image|
-              = image_tag image
-          .item-body
-            %h3.item-body__name 
-              = item.name
-            .item-body--num
-              .item-body--num__price 
-                = item.price
-              .item-body--num__favorite
-                = icon('far', 'heart')
-                %span 1000
-            %p (税込)
+    - num = 0
+    - @items.each do |item|
+      - item.parent_categories.each do |category|
+        - if category.large == "メンズ" 
+          - num = num + 1
+    - @items.each do |item|
+      - item.parent_categories.each do |category|
+        - if (category.large == "メンズ") && (num <= 4) && (num >= 1)
+          - num = num -1   
+          %section.main--pickup-container--items-container--items__item
+            = link_to "#" do
+              %figure.item-photo
+                - item.images.find do |images| 
+                  = image_tag images 
+              .item-body
+                %h3.item-body__name 
+                  = item.name
+                .item-body--num
+                  .item-body--num__price 
+                    = item.price
+                  .item-body--num__favorite
+                    = icon('far', 'heart')
+                    %span 1000
+                %p (税込)
+        - elsif (category.large == "メンズ") && (num >= 5)
+          - num = num - 1
+  .main--pickup-container--items-container__view-all
+    = link_to "#" do
+      すべての商品を見る
     
+%section.main--pickup-container--items-container
+  %h3.main--pickup-container--items-container__name
+    = link_to "#" do
+      ベビー・キッズ 新着アイテム 
+  .main--pickup-container--items-container--items
+    - num = 0
+    - @items.each do |item|
+      - item.parent_categories.each do |category|
+        - if category.large == "ベビー・キッズ" 
+          - num = num + 1
+    - @items.each do |item|
+      - item.parent_categories.each do |category|
+        - if (category.large == "ベビー・キッズ") && (num <= 4) && (num >= 1)
+          - num = num -1   
+          %section.main--pickup-container--items-container--items__item
+            = link_to "#" do
+              %figure.item-photo
+                - item.images.find do |images| 
+                  = image_tag images 
+              .item-body
+                %h3.item-body__name 
+                  = item.name
+                .item-body--num
+                  .item-body--num__price 
+                    = item.price
+                  .item-body--num__favorite
+                    = icon('far', 'heart')
+                    %span 1000
+                %p (税込)
+        - elsif (category.large == "ベビー・キッズ") && (num >= 5)
+          - num = num - 1
   .main--pickup-container--items-container__view-all
     = link_to "#" do
       すべての商品を見る
 %section.main--pickup-container--items-container
   %h3.main--pickup-container--items-container__name
     = link_to "#" do
-      ベビー・キッズ 新着アイテム
+      コスメ・香水・美容 新着アイテム 
   .main--pickup-container--items-container--items
-    - @item.each do |item|
-      %section.main--pickup-container--items-container--items__item
-        = link_to "#" do
-          %figure.item-photo
-            - item.images.find do |image|
-              = image_tag image
-          .item-body
-            %h3.item-body__name 
-              = item.name
-            .item-body--num
-              .item-body--num__price 
-                = item.price
-              .item-body--num__favorite
-                = icon('far', 'heart')
-                %span 1000
-            %p (税込)
-
-  .main--pickup-container--items-container__view-all
-    = link_to "#" do
-      すべての商品を見る
-%section.main--pickup-container--items-container
-  %h3.main--pickup-container--items-container__name
-    = link_to "#" do
-      コスメ・香水・美容 新着アイテム
-  .main--pickup-container--items-container--items
-    - @item.each do |item|
-      %section.main--pickup-container--items-container--items__item
-        = link_to "#" do
-          %figure.item-photo
-            - item.images.find do |image|
-              = image_tag image
-          .item-body
-            %h3.item-body__name 
-              = item.name
-            .item-body--num
-              .item-body--num__price 
-                = item.price
-              .item-body--num__favorite
-                = icon('far', 'heart')
-                %span 1000
-            %p (税込)
+    - num = 0
+    - @items.each do |item|
+      - item.parent_categories.each do |category|
+        - if category.large == "コスメ・香水・美容" 
+          - num = num + 1
+    - @items.each do |item|
+      - item.parent_categories.each do |category|
+        - if (category.large == "コスメ・香水・美容") && (num <= 4) && (num >= 1)
+          - num = num -1   
+          %section.main--pickup-container--items-container--items__item
+            = link_to "#" do
+              %figure.item-photo
+                - item.images.find do |images| 
+                  = image_tag images 
+              .item-body
+                %h3.item-body__name 
+                  = item.name
+                .item-body--num
+                  .item-body--num__price 
+                    = item.price
+                  .item-body--num__favorite
+                    = icon('far', 'heart')
+                    %span 1000
+                %p (税込)
+        - elsif (category.large == "コスメ・香水・美容") && (num >= 5)
+          - num = num - 1
   .main--pickup-container--items-container__view-all
     = link_to "#" do
       すべての商品を見る
 
--# - num = 0
--# - @items.each do |item|
--#   - item.parent_categories.each do |category|
--#     - if category.large == "レディース"
--#       - num = num + 1
--# - @items.each do |item|
--#   - item.parent_categories.each do |category|
--#     - if (category.large == "レディース") && (num <= 4) && (num >= 1)
--#       - num = num - 1
--#       - item.images.find do |image|
--#         = image_tag image
--#     - elsif (category.large == "レディース") && (num >= 5)
--#       - num = num - 1
 
+
+   
