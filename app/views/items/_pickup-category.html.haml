@@ -9,6 +9,10 @@
           %figure.item-photo
             - item.images.find do |image|
               = image_tag image
+            - if item.status
+              %figcaption
+              .item-sold-out-badge
+                %div SOLD
           .item-body
             %h3.item-body__name 
               = item.name

@@ -1,0 +1,52 @@
+= render './shared/profile_header'
+= render './shared/gratel'
+
+.items-show
+  = render './shared/sidebar'
+  .items-show--container
+    .items-show--container--content
+      %h2.items-show--container--content__h2 出品した商品
+      %ul.items-show--container--content__tab
+        %li.active 出品中
+        %li 売却済
+      .items-show--container--content__area
+        - sold = 0
+        - selling = 0
+        - @items.each do |item|
+          - if item.status
+            - sold += 1
+          -else
+            - selling += 1
+        %ul.show
+          - if selling == 0
+            %li.item-not-found
+              商品はありません。
+          - @items.each do |item|
+            - if item.status != 1
+              = link_to "/users/items/#{item.id}" do
+                %li
+                  %figure
+                    - item.images.each do |image|
+                      = image_tag image
+                  .mypage-item-body
+                    .mypage-item-body__text
+                      = item.name
+                  = icon('fas', 'angle-right')
+        %ul
+          - if sold == 0
+            %li.item-not-found
+              商品はありません。
+          - @items.each do |item|
+            - if item.status
+              = link_to "/users/items/#{item.id}" do
+                %li
+                  %figure
+                    - item.images.each do |image|
+                      = image_tag image
+                  .mypage-item-body
+                    .mypage-item-body__text
+                      = item.name
+                  = icon('fas', 'angle-right')
+= render './shared/app-banner'
+= render './shared/footer'
+= render './shared/footer-sell-btn'

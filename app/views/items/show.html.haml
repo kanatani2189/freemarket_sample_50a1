@@ -1,9 +1,8 @@
-= render './shared/profile_header';
+- if user_signed_in?
+  = render './shared/profile_header'
+- else
+  = render './shared/header'
 = render './shared/gratel';
-
-= form_with url: "/items/#{@item.id}", method: :delete, local: true, id: "item-delete-form", class: "item-delete-form" do |form|
-  .item-delete-form--container
-    = form.submit "削除する", id: "item-delete_submit", class: "item-delete-form--container__btn"
 
 .item-box-container
   %h1.item-box-container__item-name
@@ -109,8 +108,14 @@
     %span 円
     %span.item-box-container__item-price-box__item-tax （税込）
     %span.item-box-container__item-price-box__item-shipping-fee 送料込み
-    = link_to edit_item_path do
-      %span.item-box-container__item-buy-btn 商品を編集する
+    - unless @item.users[0].id == current_user.id
+      - if @item.status == 1
+        %span.item-sold-btn
+          売り切れました
+      - else
+        = link_to "/items/buy/#{@item.id}" do
+          %span.item-box-container__item-buy-btn 
+            購入画面へ進む
   .item-box-container__item-description
     %p.item-box-container__item-description__item-description-inner
       =@item.description

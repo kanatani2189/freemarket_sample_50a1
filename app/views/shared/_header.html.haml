@@ -12,14 +12,9 @@
               = icon('fas', 'search')
     .header--inner-lower
       %nav.header--inner-lower--left
-        = link_to "#" do
-          = icon('fas', 'list-ul')
-          %span カテゴリーから探す
-        = link_to "#" do
-          = icon('fas', 'tags')
-          %span ブランドから探す
+        = render "./shared/header-category-list"
       .header--inner-lower__right
-        = link_to new_user_session_path, class: "btn-red header-btn" do
-          ログイン
-        = link_to new_user_path, class: "header-signup header-btn" do
+        = link_to new_user_path, class: "btn-red header-btn" do
           新規会員登録
+        = link_to new_user_session_path, class: "header-signup header-btn" do
+          ログイン
