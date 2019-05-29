@@ -64,6 +64,12 @@ class ItemsController < ApplicationController
     @q = Item.search(params[:q])
     @item = @q.result(distinct: true).order("created_at DESC").page(params[:page]).per(8)
   end
+  
+  # category-page "items/category/123" (石川)
+  def category
+    @items = Item.all
+    @aaa = params[:date].to_i
+  end
 
   private
   def item_params
