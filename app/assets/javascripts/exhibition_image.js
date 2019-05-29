@@ -85,6 +85,7 @@ $(function(){
         tmp[0].setAttribute("id", id_number);
         reader.onload = function(e){
           if (num <= 4) {
+            // console.log(num);
           test = test - 120;
           $('.item-main-image__content__left').css('display', 'block');
           $('.item-main-image__content__right').css('width', test + 'px');
@@ -93,6 +94,7 @@ $(function(){
           $('.item-main-image__content__left').append(html2);
           $(`#${id_number2}`).prepend(img);
         } else if (num === 5) {
+          console.log(num);
           test = test - 120;
           $('.item-main-image__content__left').css('display', 'block');
           $('.item-main-image__content__right').css('width', test + 'px');
@@ -195,9 +197,10 @@ $(function(){
 
     // 削除処理（編集時）
     $( '.item-main-image__content__left__top__li__button--delete').on('click', function(){
+        console.log(num);
         var text = $(this).parent().attr("id");
         $(`#${text}`).parent().parent().remove();
-        num = num - 1
+        num = 0
         id_number = 0;
         id_number2 = 100;
         id_number3 = 1000;
@@ -205,6 +208,10 @@ $(function(){
     })
 
     // ドラッグ&ドロップ
+    
+    $(window).on('load',function(){
+    var url = location.href;
+    if (url === "http://localhost:3000/items/new" || url.match(/edit/)) {
     var drag_number = 0;
     var target = document.getElementById("aaa");
     target.addEventListener('dragover', function (e) {
@@ -243,5 +250,7 @@ $(function(){
       }
         reader.readAsDataURL(e.dataTransfer.files[0]);
     });
+    }
+  });
 
 });

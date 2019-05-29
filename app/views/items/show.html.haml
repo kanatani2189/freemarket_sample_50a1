@@ -10,29 +10,26 @@
   .item-box-container__item-main-containt
     .item-box-container__item-main-containt__item-photo
       .item-box-container__item-main-containt__item-photo__owlcasual
-        - @item.images.each do |image|
-          = image_tag image ,class:"item-box-container__item-main-containt__item-photo__owlcasual__owl-lazy"
-          - if @item.status
-            %figcaption
-            .item-sold-out-badge
-              %div SOLD
+        = image_tag @item.images.first, class:"item-box-container__item-main-containt__item-photo__owlcasual__owl-lazy" 
       .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots
         .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot
           .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out
-            - @item.images.each do |image|
-              = image_tag image ,class:"item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out__dot-image"
+            - if @item.images.first(2).length == 2
+              = image_tag @item.images.first(2).last, class:"item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out__dot-image"
         .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot
           .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out
-            - @item.images.each do |image|
-              = image_tag image ,class:"item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out__dot-image"
+            - if @item.images.first(3).length == 3
+              = image_tag @item.images.first(3).last ,class:"item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out__dot-image"
         .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot
           .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out
-            - @item.images.each do |image|
-              = image_tag image ,class:"item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out__dot-image"
+            - if @item.images.first(4).length == 4
+              = image_tag @item.images.first(4).last ,class:"item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out__dot-image"
         .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot
           .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out
-            - @item.images.each do |image|
-              = image_tag image ,class:"item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out__dot-image"
+            - if @item.images.first(5).length == 5
+              = image_tag @item.images.first(5).last ,class:"item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out__dot-image"
+    -# .item-box-container__item-main-containt__sold-out-badge
+      -# .item-box-container__item-main-containt__sold-out-badge__font SOLD
     %table.item-box-container__item-main-containt__item-detail-table
       %tbody
         %tr 

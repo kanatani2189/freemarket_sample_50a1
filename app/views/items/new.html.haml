@@ -17,14 +17,14 @@
       .item-main-image__content#aaa
         .item-main-image__content__left
         .item-main-image__content__right
-          .item-main-image__content__right__box
-            = f.label :images, class: "item-main-image__content__right__box__label" do
-              .item-main-image__content__right__box__label__content
-                %p.item-main-image__content__right__box__label__content--text
+          = f.label :images, class: "item-main-image__content__right__label" do
+            .item-main-image__content__right__label__box
+              .item-main-image__content__right__label__box__content
+                %p.item-main-image__content__right__label__box__content--text
                   ドラッグアンドドロップ
-                %p.item-main-image__content__right__box__label__content--text
+                %p.item-main-image__content__right__label__box__content--text
                   またはクリックしてファイルをアップロード
-              = f.file_field :images, multiple: true, class: "item-main-image__content__right__box__label__file"
+              = f.file_field :images, multiple: true, class: "item-main-image__content__right__label__box__file"
               -# = f.hidden_field :images , name: "item[images][]", value: 20, style: "display: none;", class: "item-images-input"
       .item-main-image__bottom
         .item-main-image__bottom__left
@@ -58,11 +58,11 @@
           .item-main-state__box__first_category__select
             = f.fields_for :parent_categories do |p|
               .item-main-state__box__first_category__select
-                = p.collection_select :large, Large.all, :name, :name, {}, class: "item-main-state__box__category__select__name"
+                = p.collection_select :large, Large.all, :name, :name, {}, class: "item-main-state__box__category__select__name", id: "item-main-state__box__category__select__name"
+              .item-main-state__box__first_category__select#item-main-state__box__first_category__select1
+                = p.collection_select :midium, Midium.all, :name, :name, {}, class: "item-main-state__box__category__select__name1", id: "item-main-state__box__category__select__name1"
               .item-main-state__box__first_category__select
-                = p.collection_select :midium, Midium.all, :name, :name, {}, class: "item-main-state__box__category__select__name1"
-              .item-main-state__box__first_category__select
-                = p.collection_select :small, Small.all, :name, :name, {}, class: "item-main-state__box__category__select__name2"
+                = p.collection_select :small, Small.all, :name, :name, {}, class: "item-main-state__box__category__select__name2", id: "item-main-state__box__category__select__name2"
 
               = p.text_field :item_id, type: "hidden"
               
@@ -181,3 +181,4 @@
             もどる
 
 = render './shared/registration-footer';
+
