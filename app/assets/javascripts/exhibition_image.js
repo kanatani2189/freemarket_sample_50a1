@@ -200,7 +200,7 @@ $(function(){
         console.log(num);
         var text = $(this).parent().attr("id");
         $(`#${text}`).parent().parent().remove();
-        num = 0
+        num = 0;
         id_number = 0;
         id_number2 = 100;
         id_number3 = 1000;
@@ -208,7 +208,6 @@ $(function(){
     })
 
     // ドラッグ&ドロップ
-    
     $(window).on('load',function(){
     var url = location.href;
     if (url === "http://localhost:3000/items/new" || url.match(/edit/)) {
