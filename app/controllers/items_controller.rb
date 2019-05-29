@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :card_get, only: [:buy]
 
   # トップページ（内田）
-  def index
+  def index 
     @items = Item.all
     @item = Item.last(4)
   end
