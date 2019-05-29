@@ -26,6 +26,12 @@ crumb :logout_user do
   parent :users
 end
 
+# users#items_show
+crumb :users_items_ichiran do 
+  link "出品した商品 - 出品中", users_items_ichiran_path
+  parent :users
+end
+
 # cards#index
 crumb :cards do 
   link "支払い方法", cards_path
@@ -36,6 +42,20 @@ end
 crumb :new_cards do 
   link "クレジットカード情報入力", new_card_path
   parent :cards
+end
+
+# items#show
+crumb :item do |name|
+  @item = Item.find(params[:id])
+  link @item.name, item_path
+  parent :root
+end
+
+# items#search
+crumb :items_search_123 do |name|
+  @items = Item.where("name LIKE(?)", "%#{params[:keyword]}%").order("created_at DESC").page(params[:page]).per(8)
+  link params["keyword"], items_search_123_path
+  parent :root
 end
 
 # items#category
