@@ -5,7 +5,6 @@
   display: flex;
   position:relative;
   z-index:9;
-  
   li {
     padding-right:10px;
     height: 44px;
@@ -27,7 +26,6 @@
       }
     }
   }
-
   li ul{
     width: 220px;
     background:$whiteColor;
@@ -37,9 +35,6 @@
     height: 0;
     padding: 0;
     opacity: 0;
-    
-    
-    
     a {
       display:block;
     }
@@ -52,7 +47,6 @@
     opacity: 1;
     
   }
-  
   &-brand :hover &-first {
     top: 50px;
     visibility: visible;
@@ -60,14 +54,12 @@
     height: auto;
     opacity: 1;
   }
-  
   li ul li{
     margin: 0;
     padding: 0;
     width: 100%;
     display: block;  
   }
-  
   &-first-list{
     display: block;
     width: 100%;
@@ -76,35 +68,28 @@
     padding-top: 5px;
     }
   }
-  
   &-first-list :hover{
     background:$baseColor;
     display: block;
     color: #fff;
   }
 }  
-h2{
-  width: 800px;
-
-
+.h2-category{
+  width: 200px;
   .header--inner-lower--left-content-second{
     height: 0;
     padding: 0;
     opacity: 0;
-    
-    
     &-list{
       width: 100%;
       height: 44px;
       display: inline;
       font-size: 12px;
       font-weight: bold;
-
       a{
       padding-left: 15px;
       padding-top: 5px;
       display:block;
-
         &:hover{
           color: #fff;
           background:$baseColor;

@@ -61,6 +61,7 @@ class ItemsController < ApplicationController
   # category-page "items/category/123" (石川)
   def category
     @items = Item.all
+    @aaa = params[:date].to_i
   end
 
   private
