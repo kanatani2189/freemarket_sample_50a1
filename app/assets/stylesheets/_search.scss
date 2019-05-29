@@ -7,6 +7,123 @@
     width: 280px;
     margin: 0 40px 0 0;
     display: inline-block;
+    &__sort{
+      .form-group{
+        &__select-wrap{
+          select{
+            background:#fff;
+            height: 48px;
+            padding: 0 16px;
+            border: 1px solid #ccc;
+            width: 88%; 
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+          }
+          .fas{
+            position:absolute;
+            top: 15px;
+            left:260px;
+          }
+        }
+      }
+    }
+    &__main{
+      margin: 40px 0 0;
+      padding: 16px;
+      display: block;
+      position: static;
+      background: #fff;
+      h3{
+        font-size: 16px;
+        display: block;
+        font-weight: bold;
+      }
+      .form-group{
+        margin: 24px 0 0;
+        .fas{
+          color: #888;
+        }
+        .font{
+          font-size: 14px;
+          font-weight: 600;
+        }
+        input{
+          height: 48px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background:#fff;
+          line-height:1.5;
+          font-size: 16px;
+          margin: 8px 0 0;
+          width: 75%;
+        }
+        select{
+          height: 48px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background:#fff;
+          line-height:1.5;
+          font-size: 16px;
+          margin: 8px 0 0;
+          width: 75%;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+        }
+        .fa-chevron-down{
+          position:absolute;
+          top:300px;
+          left: 235px;
+        }
+        .price-box{
+          width:80%;
+
+          .max-box{
+            width: 45%;
+          }
+          .min-box{
+            width: 45%;
+          }
+        }
+      }
+    }
+    .cover{
+      background: #fff;
+      .button-box{
+        height:90px;
+        width:80%;
+        margin: 0 auto;
+        background-color: #fff;
+        padding-top:40px;
+        .reset-button{
+          float: left;
+          width: 45%;
+          background: #aaa;
+          border: 1px solid #aaa;
+          color: #fff;
+          display: block;
+          line-height: 48px;
+          font-size: 14px;
+          text-align: center;
+          cursor:pointer;
+        }
+        .complete-button{
+          float: right;
+          width: 45%;
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
+          display: block;
+          line-height: 48px;
+          font-size:14px;
+          text-align: center;
+          cursor:pointer;
+        }
+      }
+    }
   }
   &__content{
     width: 700px;
@@ -90,3 +207,4 @@
     height: 30px;
   }
 }
+
