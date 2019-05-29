@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   get "items/search/123" => "items#search"
   get "items/search/456" => "items#search_item"
 
-  get "items/category/:date" => "items#category"
   # マイページ出品一覧（内田）
   get 'users/items/ichiran'       => 'users#items_show'
   # マイページ出品一覧（内田）
