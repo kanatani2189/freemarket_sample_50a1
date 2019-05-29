@@ -16,6 +16,10 @@
       - breadcrumb :logout_user
       = breadcrumbs separator: " &rsaquo; " 
 
+    - elsif controller.controller_name == "users"  && controller.action_name == "items_show"
+      - breadcrumb :users_items_ichiran
+      = breadcrumbs separator: " &rsaquo; "
+
     - elsif controller.controller_name == "cards"  && controller.action_name == "index"
       - breadcrumb :cards
       = breadcrumbs separator: " &rsaquo; " 
@@ -24,10 +28,17 @@
       - breadcrumb :new_cards
       = breadcrumbs separator: " &rsaquo; " 
 
+    - elsif controller.controller_name == "items"  && controller.action_name == "show"
+      - breadcrumb :item
+      = breadcrumbs separator: " &rsaquo; " 
+
+    - elsif controller.controller_name == "items"  && controller.action_name == "search"
+      - breadcrumb :items_search_123
+      = breadcrumbs separator: " &rsaquo; " 
+
     - elsif controller.controller_name == "items"  && controller.action_name == "category" && Large.all[@params_id][:name] == "カテゴリー一覧"
       - breadcrumb :items
       = breadcrumbs separator: " &rsaquo; " 
-
 
     - elsif controller.controller_name == "items"  && controller.action_name == "category" && Large.all[@params_id][:name] == "レディース"
       - breadcrumb :items_ladies
