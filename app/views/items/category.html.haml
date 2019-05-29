@@ -1,17 +1,32 @@
+<<<<<<< Updated upstream
 = render './shared/profile_header';
 - @items.find do |item|
   - item.parent_categories.find do |category|
     - if category.large == Large.all[@params_id][:name]
+=======
+- if user_signed_in?
+  = render './shared/profile_header'
+- else
+  = render './shared/header'
+- @items.find do |item|
+  - item.parent_categories.find do |category|
+    - if category.large == Large.all[@aaa][:name]
+>>>>>>> Stashed changes
       = render './shared/gratel';
 
 %section.category-container
   %h3.category-container__name
+<<<<<<< Updated upstream
     = Large.all[@params_id][:name]
+=======
+    = Large.all[@aaa][:name]
+>>>>>>> Stashed changes
     の商品一覧
   .category-container--items-container--items
     - num = 0
     - @items.each do |item|
       - item.parent_categories.each do |category|
+<<<<<<< Updated upstream
         - if category.large == Large.all[@params_id][:name]
           - num = num + 1
     - @items.each do |item|
@@ -23,6 +38,23 @@
               %figure.item-photo
                 - item.images.find do |images|
                   = image_tag images 
+=======
+        - if category.large == Large.all[@aaa][:name]
+          - num = num + 1
+    - @items.each do |item|
+      - item.parent_categories.each do |category|
+        - if (category.large == Large.all[@aaa][:name]) && (num <= 5) && (num >= 1)
+          - num = num -1   
+          %section.category-container--items-container--items__item
+            = link_to "/items/#{item.id}" do
+              %figure.item-photo
+                - item.images.find do |images|
+                  = image_tag images
+                - if item.status
+                  %figcaption
+                  .item-sold-out-badge
+                    %div SOLD
+>>>>>>> Stashed changes
               .item-body
                 %h3.item-body__name 
                   = item.name
@@ -33,13 +65,18 @@
                     = icon('far', 'heart')
                     %span 1000
                 %p (税込)
+<<<<<<< Updated upstream
         - elsif (category.large == Large.all[@params_id][:name]) && (num >= 6)
+=======
+        - elsif (category.large == Large.all[@aaa][:name]) && (num >= 6)
+>>>>>>> Stashed changes
           - num = num - 1
 %section.category-container
   .category-container--items-container--items
     - num = 0
     - @items.each do |item|
       - item.parent_categories.each do |category|
+<<<<<<< Updated upstream
         - if category.large == Large.all[@params_id][:name]
           - num = num + 1
     - @items.each do |item|
@@ -48,6 +85,16 @@
           - num = num -1   
           %section.category-container--items-container--items__item
             = link_to "#" do
+=======
+        - if category.large == Large.all[@aaa][:name]
+          - num = num + 1
+    - @items.each do |item|
+      - item.parent_categories.each do |category|
+        - if (category.large == Large.all[@aaa][:name]) && (num <= 10) && (num >= 6)
+          - num = num -1   
+          %section.category-container--items-container--items__item
+            = link_to "/items/#{item.id}" do
+>>>>>>> Stashed changes
               %figure.item-photo
                 - item.images.find do |images|
                   = image_tag images 
@@ -61,13 +108,18 @@
                     = icon('far', 'heart')
                     %span 1000
                 %p (税込)
+<<<<<<< Updated upstream
         - elsif (category.large == Large.all[@params_id][:name]) && (num >= 11)
+=======
+        - elsif (category.large == Large.all[@aaa][:name]) && (num >= 11)
+>>>>>>> Stashed changes
           - num = num - 1
 %section.category-container
   .category-container--items-container--items
     - num = 0
     - @items.each do |item|
       - item.parent_categories.each do |category|
+<<<<<<< Updated upstream
         - if category.large == Large.all[@params_id][:name]
           - num = num + 1
     - @items.each do |item|
@@ -76,6 +128,16 @@
           - num = num -1   
           %section.category-container--items-container--items__item
             = link_to "#" do
+=======
+        - if category.large == Large.all[@aaa][:name]
+          - num = num + 1
+    - @items.each do |item|
+      - item.parent_categories.each do |category|
+        - if (category.large == Large.all[@aaa][:name]) && (num <= 15) && (num >= 11)
+          - num = num -1   
+          %section.category-container--items-container--items__item
+            = link_to "/items/#{item.id}" do
+>>>>>>> Stashed changes
               %figure.item-photo
                 - item.images.find do |images|
                   = image_tag images 
@@ -89,7 +151,11 @@
                     = icon('far', 'heart')
                     %span 1000
                 %p (税込)
+<<<<<<< Updated upstream
         - elsif (category.large == Large.all[@params_id][:name]) && (num >= 16)
+=======
+        - elsif (category.large == Large.all[@aaa][:name]) && (num >= 16)
+>>>>>>> Stashed changes
           - num = num - 1
 .pagenation
 = render './shared/footer-sell-btn'

@@ -7,8 +7,7 @@
     %section.buy-content-buy-item
       .buy-content-inner
         %h3.buy-item-image
-          - @item.images.each do |image|
-            = image_tag image, class: "is-higher-width-lazyloaded"
+          = image_tag @item.images.first, class: "is-higher-width-lazyloaded"
         %p.buy-item-name-bold
           = @item.name
         = form_with url: "/cards/pay/#{@item.id}", name: "buy-form", id: "buy-form", class: "buy-form" do |form|

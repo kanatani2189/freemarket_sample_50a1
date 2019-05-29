@@ -108,14 +108,22 @@
     %span 円
     %span.item-box-container__item-price-box__item-tax （税込）
     %span.item-box-container__item-price-box__item-shipping-fee 送料込み
-    - unless @item.users[0].id == current_user.id
-      - if @item.status == 1
-        %span.item-sold-btn
-          売り切れました
-      - else
-        = link_to "/items/buy/#{@item.id}" do
-          %span.item-box-container__item-buy-btn 
-            購入画面へ進む
+    - if current_user
+      - unless @item.users[0].id == current_user.id
+        - if @item.status == 1
+          %span.item-sold-btn
+            売り切れました
+        - else
+          = link_to "/items/buy/#{@item.id}" do
+            %span.item-box-container__item-buy-btn 
+              購入画面へ進む
+    - elsif @item.status == 1
+      %span.item-sold-btn
+        売り切れました
+    - else
+      = link_to new_user_session_path do
+        %span.item-box-container__item-buy-btn 
+          購入画面へ進む
   .item-box-container__item-description
     %p.item-box-container__item-description__item-description-inner
       =@item.description
