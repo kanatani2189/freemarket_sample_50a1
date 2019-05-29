@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   # マイページプロフィール画面（山本）
   def show
+    
   end
 
   # 新規登録画面（西田）

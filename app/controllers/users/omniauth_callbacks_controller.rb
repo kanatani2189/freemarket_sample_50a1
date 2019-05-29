@@ -11,23 +11,19 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def callback_for(provider)
-    @user = User.find_or_create_from_auth(request.env["omniauth.auth"])
-    # binding.pry
+    user_info = User.find_or_create_from_auth(request.env["omniauth.auth"])
+    @user = user_info[:user]
+    @snscredential = user_info[:snscredential]
+      
     if @user.persisted?
-      sign_in_and_redirect @user, event: :authentication #after_sign_in_path_forと同じパス
+      sign_in_and_redirect @user, event: :authentication 
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
     else
-      session["devise.#{provider}_data"] = request.env["omniauth.auth"].except("extra")
-      # binding.pry
-      # render template: 'devise/registrations/new'
-      redirect_to new_user_registration_url
+      render template: 'devise/registrations/new'  
     end
   end
 
-  # The path used when OmniAuth fails
-  # def after_omniauth_failure_path_for(scope)
-  #   super(scope)
-  # end
+
   def failure
     redirect_to root_path and return
   end

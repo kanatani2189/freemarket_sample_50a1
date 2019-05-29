@@ -25,12 +25,10 @@ class User < ApplicationRecord
     uid = auth.uid
     provider = auth.provider
     snscredential = SnsCredential.where(uid: uid, provider: provider).first
-    # binding.pry
+
     if snscredential.present?
       user = User.where(id: snscredential.user_id).first
-      # binding.pry
     else
-      # user = self.find_or_create_by(email: auth.info.email) do |user|
       user = User.where(email: auth.info.email).first
       if user.present?
           SnsCredential.create(
@@ -38,20 +36,20 @@ class User < ApplicationRecord
           provider: provider,
           user_id: user.id
           )
-          binding.pry
-      else
-        user = User.new(
-          nickname: auth.info.name,
-          email:    auth.info.email,
-          password: Devise.friendly_token[0, 20],
-          )
-          SnsCredential.create(
-            uid: uid,
-            provider: provider,
-          )
-        binding.pry
-      end
+          
+        else
+          user = User.new(
+            nickname: auth.info.name,
+            email:    auth.info.email,
+            password: Devise.friendly_token[0, 20],
+            )
+          snscredential = SnsCredential.create(
+              uid: uid,
+              provider: provider,
+            )
+          
+        end
     end
-    return user
-  end 
+    return {user: user, snscredential: snscredential}
+  end
 end
