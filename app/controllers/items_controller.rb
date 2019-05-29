@@ -15,9 +15,13 @@ class ItemsController < ApplicationController
 
  # 商品出品ページ（西田）
   def new
-    @item = Item.new
-    @item.users << current_user
-    @item.parent_categories.build
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    else
+      @item = Item.new
+      @item.users << current_user
+      @item.parent_categories.build
+    end
   end
   
   def create
