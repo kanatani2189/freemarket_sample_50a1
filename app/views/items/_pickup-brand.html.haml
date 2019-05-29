@@ -1,224 +1,135 @@
 %section.main--pickup-container--items-container
   %h3.main--pickup-container--items-container__name
     = link_to "#" do
-      シャネル 新着アイテム
+      シャネル 新着アイテム 
   .main--pickup-container--items-container--items
-    %section.main--pickup-container--items-container--items__item
-      = link_to "#" do
-        %figure.item-photo
-          = image_tag "https://static.mercdn.net/thumb/photos/m31987549883_1.jpg?1557114161"
-        .item-body
-          %h3.item-body__name ブランド　ブランドブランド　ブランドブランド　ブランドブランド　ブランドブランド　ブランド
-          .item-body--num
-            .item-body--num__price ¥ 500
-            .item-body--num__favorite
-              = icon('far', 'heart')
-              %span 1000
-          %p (税込)
-    %section.main--pickup-container--items-container--items__item
-      = link_to "#" do
-        %figure.item-photo
-          = image_tag "https://static.mercdn.net/thumb/photos/m31987549883_1.jpg?1557114161"
-        .item-body
-          %h3.item-body__name ギンガムチェック スカート
-          .item-body--num
-            .item-body--num__price ¥ 500
-            .item-body--num__favorite
-              = icon('far', 'heart')
-              %span 1000
-          %p (税込)
-    %section.main--pickup-container--items-container--items__item
-      = link_to "#" do
-        %figure.item-photo
-          = image_tag "https://static.mercdn.net/thumb/photos/m31987549883_1.jpg?1557114161"
-        .item-body
-          %h3.item-body__name ギンガムチェック スカートギンガムギンガムギンガムギンガムギンガム
-          .item-body--num
-            .item-body--num__price ¥ 500
-            .item-body--num__favorite
-              = icon('far', 'heart')
-              %span 1000
-          %p (税込)
-    %section.main--pickup-container--items-container--items__item
-      = link_to "#" do
-        %figure.item-photo
-          = image_tag "https://static.mercdn.net/thumb/photos/m31987549883_1.jpg?1557114161"
-        .item-body
-          %h3.item-body__name ギンガムチェック スカート
-          .item-body--num
-            .item-body--num__price ¥ 500
-            .item-body--num__favorite
-              = icon('far', 'heart')
-              %span 1000
-          %p (税込)
+    - num = 0
+    - @items.each do |item|
+      - item.parent_categories.each do |category|
+        - if item.brand_id == 2 
+          - num = num + 1
+    - @items.each do |item|
+      - if (item.brand_id == 2) && (num <= 4) && (num >= 1)
+        - num = num -1   
+        %section.main--pickup-container--items-container--items__item
+          = link_to "#" do
+            %figure.item-photo
+              - item.images.find do |images| 
+                = image_tag images 
+            .item-body
+              %h3.item-body__name 
+                = item.name
+              .item-body--num
+                .item-body--num__price 
+                  = item.price
+                .item-body--num__favorite
+                  = icon('far', 'heart')
+                  %span 1000
+              %p (税込)
+      - elsif (item.brand_id == 2) && (num >= 5)
+        - num = num - 1
   .main--pickup-container--items-container__view-all
     = link_to "#" do
       すべての商品を見る
+
 %section.main--pickup-container--items-container
   %h3.main--pickup-container--items-container__name
     = link_to "#" do
-      ルイ ヴィトン 新着アイテム
+      ルイ ヴィトン 新着アイテム 
   .main--pickup-container--items-container--items
-    %section.main--pickup-container--items-container--items__item
-      = link_to "#" do
-        %figure.item-photo
-          = image_tag "https://static.mercdn.net/thumb/photos/m31987549883_1.jpg?1557114161"
-        .item-body
-          %h3.item-body__name ギンガムチェック スカートギンガムチェック スカートギンガムチェック スカート
-          .item-body--num
-            .item-body--num__price ¥ 500
-            .item-body--num__favorite
-              = icon('far', 'heart')
-              %span 1000
-          %p (税込)
-    %section.main--pickup-container--items-container--items__item
-      = link_to "#" do
-        %figure.item-photo
-          = image_tag "https://static.mercdn.net/thumb/photos/m31987549883_1.jpg?1557114161"
-        .item-body
-          %h3.item-body__name ギンガムチェック スカート
-          .item-body--num
-            .item-body--num__price ¥ 500
-            .item-body--num__favorite
-              = icon('far', 'heart')
-              %span 1000
-          %p (税込)
-    %section.main--pickup-container--items-container--items__item
-      = link_to "#" do
-        %figure.item-photo
-          = image_tag "https://static.mercdn.net/thumb/photos/m31987549883_1.jpg?1557114161"
-        .item-body
-          %h3.item-body__name ギンガムチェック スカートギンガムギンガムギンガムギンガムギンガム
-          .item-body--num
-            .item-body--num__price ¥ 500
-            .item-body--num__favorite
-              = icon('far', 'heart')
-              %span 1000
-          %p (税込)
-    %section.main--pickup-container--items-container--items__item
-      = link_to "#" do
-        %figure.item-photo
-          = image_tag "https://static.mercdn.net/thumb/photos/m31987549883_1.jpg?1557114161"
-        .item-body
-          %h3.item-body__name ギンガムチェック スカート
-          .item-body--num
-            .item-body--num__price ¥ 500
-            .item-body--num__favorite
-              = icon('far', 'heart')
-              %span 1000
-          %p (税込)
+    - num = 0
+    - @items.each do |item|
+      - item.parent_categories.each do |category|
+        - if item.brand_id == 4 
+          - num = num + 1
+    - @items.each do |item|
+      - if (item.brand_id == 4) && (num <= 4) && (num >= 1)
+        - num = num -1   
+        %section.main--pickup-container--items-container--items__item
+          = link_to "#" do
+            %figure.item-photo
+              - item.images.find do |images| 
+                = image_tag images 
+            .item-body
+              %h3.item-body__name 
+                = item.name
+              .item-body--num
+                .item-body--num__price 
+                  = item.price
+                .item-body--num__favorite
+                  = icon('far', 'heart')
+                  %span 1000
+              %p (税込)
+      - elsif (item.brand_id == 4) && (num >= 5)
+        - num = num - 1
   .main--pickup-container--items-container__view-all
     = link_to "#" do
       すべての商品を見る
+
 %section.main--pickup-container--items-container
   %h3.main--pickup-container--items-container__name
     = link_to "#" do
-      シュプリーム 新着アイテム
+      シュプリーム 新着アイテム 
   .main--pickup-container--items-container--items
-    %section.main--pickup-container--items-container--items__item
-      = link_to "#" do
-        %figure.item-photo
-          = image_tag "https://static.mercdn.net/thumb/photos/m31987549883_1.jpg?1557114161"
-        .item-body
-          %h3.item-body__name ギンガムチェック スカートギンガムチェック スカートギンガムチェック スカート
-          .item-body--num
-            .item-body--num__price ¥ 500
-            .item-body--num__favorite
-              = icon('far', 'heart')
-              %span 1000
-          %p (税込)
-    %section.main--pickup-container--items-container--items__item
-      = link_to "#" do
-        %figure.item-photo
-          = image_tag "https://static.mercdn.net/thumb/photos/m31987549883_1.jpg?1557114161"
-        .item-body
-          %h3.item-body__name ギンガムチェック スカート
-          .item-body--num
-            .item-body--num__price ¥ 500
-            .item-body--num__favorite
-              = icon('far', 'heart')
-              %span 1000
-          %p (税込)
-    %section.main--pickup-container--items-container--items__item
-      = link_to "#" do
-        %figure.item-photo
-          = image_tag "https://static.mercdn.net/thumb/photos/m31987549883_1.jpg?1557114161"
-        .item-body
-          %h3.item-body__name ギンガムチェック スカートギンガムギンガムギンガムギンガムギンガム
-          .item-body--num
-            .item-body--num__price ¥ 500
-            .item-body--num__favorite
-              = icon('far', 'heart')
-              %span 1000
-          %p (税込)
-    %section.main--pickup-container--items-container--items__item
-      = link_to "#" do
-        %figure.item-photo
-          = image_tag "https://static.mercdn.net/thumb/photos/m31987549883_1.jpg?1557114161"
-        .item-body
-          %h3.item-body__name ギンガムチェック スカート
-          .item-body--num
-            .item-body--num__price ¥ 500
-            .item-body--num__favorite
-              = icon('far', 'heart')
-              %span 1000
-          %p (税込)
+    - num = 0
+    - @items.each do |item|
+      - item.parent_categories.each do |category|
+        - if item.brand_id == 5 
+          - num = num + 1
+    - @items.each do |item|
+      - if (item.brand_id == 5) && (num <= 4) && (num >= 1)
+        - num = num -1   
+        %section.main--pickup-container--items-container--items__item
+          = link_to "#" do
+            %figure.item-photo
+              - item.images.find do |images| 
+                = image_tag images 
+            .item-body
+              %h3.item-body__name 
+                = item.name
+              .item-body--num
+                .item-body--num__price 
+                  = item.price
+                .item-body--num__favorite
+                  = icon('far', 'heart')
+                  %span 1000
+              %p (税込)
+      - elsif (item.brand_id == 5) && (num >= 5)
+        - num = num - 1
   .main--pickup-container--items-container__view-all
     = link_to "#" do
       すべての商品を見る
+
 %section.main--pickup-container--items-container
   %h3.main--pickup-container--items-container__name
     = link_to "#" do
-      ナイキ 新着アイテム
+      ナイキ 新着アイテム 
   .main--pickup-container--items-container--items
-    %section.main--pickup-container--items-container--items__item
-      = link_to "#" do
-        %figure.item-photo
-          = image_tag "https://static.mercdn.net/thumb/photos/m31987549883_1.jpg?1557114161"
-        .item-body
-          %h3.item-body__name ギンガムチェック スカートギンガムチェック スカートギンガムチェック スカート
-          .item-body--num
-            .item-body--num__price ¥ 500
-            .item-body--num__favorite
-              = icon('far', 'heart')
-              %span 1000
-          %p (税込)
-    %section.main--pickup-container--items-container--items__item
-      = link_to "#" do
-        %figure.item-photo
-          = image_tag "https://static.mercdn.net/thumb/photos/m31987549883_1.jpg?1557114161"
-        .item-body
-          %h3.item-body__name ギンガムチェック スカート
-          .item-body--num
-            .item-body--num__price ¥ 500
-            .item-body--num__favorite
-              = icon('far', 'heart')
-              %span 1000
-          %p (税込)
-    %section.main--pickup-container--items-container--items__item
-      = link_to "#" do
-        %figure.item-photo
-          = image_tag "https://static.mercdn.net/thumb/photos/m31987549883_1.jpg?1557114161"
-        .item-body
-          %h3.item-body__name ギンガムチェック スカートギンガムギンガムギンガムギンガムギンガム
-          .item-body--num
-            .item-body--num__price ¥ 500
-            .item-body--num__favorite
-              = icon('far', 'heart')
-              %span 1000
-          %p (税込)
-    %section.main--pickup-container--items-container--items__item
-      = link_to "#" do
-        %figure.item-photo
-          = image_tag "https://static.mercdn.net/thumb/photos/m31987549883_1.jpg?1557114161"
-        .item-body
-          %h3.item-body__name ギンガムチェック スカート
-          .item-body--num
-            .item-body--num__price ¥ 500
-            .item-body--num__favorite
-              = icon('far', 'heart')
-              %span 1000
-          %p (税込)
+    - num = 0
+    - @items.each do |item|
+      - if item.brand_id == 3
+        - num = num + 1
+    - @items.each do |item|
+      - if (item.brand_id == 3) && (num <= 4) && (num >= 1)
+        - num = num -1   
+        %section.main--pickup-container--items-container--items__item
+          = link_to "#" do
+            %figure.item-photo
+              - item.images.find do |images| 
+                = image_tag images 
+            .item-body
+              %h3.item-body__name 
+                = item.name
+              .item-body--num
+                .item-body--num__price 
+                  = item.price
+                .item-body--num__favorite
+                  = icon('far', 'heart')
+                  %span 1000
+              %p (税込)
+      - elsif (item.brand_id == 3) && (num >= 5)
+        - num = num - 1
   .main--pickup-container--items-container__view-all
     = link_to "#" do
       すべての商品を見る
+

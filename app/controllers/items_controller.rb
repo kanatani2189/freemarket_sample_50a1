@@ -68,6 +68,7 @@ class ItemsController < ApplicationController
 #  商品購入確認ページ
   def buy
     @item = Item.find(params[:item_id])
+    @card = Card.find_by(user_id: current_user.id)
   end
 
 #  商品検索後ページ（山本）
@@ -85,7 +86,7 @@ class ItemsController < ApplicationController
   # category-page "items/category/123" (石川)
   def category
     @items = Item.all
-    @aaa = params[:date].to_i
+    @params_id = params[:date].to_i
   end
 
   private

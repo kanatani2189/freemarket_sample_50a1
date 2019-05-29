@@ -7,8 +7,7 @@
     %section.buy-content-buy-item
       .buy-content-inner
         %h3.buy-item-image
-          - @item.images.each do |image|
-            = image_tag image, class: "is-higher-width-lazyloaded"
+          = image_tag @item.images.first, class: "is-higher-width-lazyloaded"
         %p.buy-item-name-bold
           = @item.name
         = form_with url: "/cards/pay/#{@item.id}", name: "buy-form", id: "buy-form", class: "buy-form" do |form|
@@ -29,7 +28,11 @@
                   = "¥#{@item.price}"
           %p.has-error-text
             配送先と支払い方法の入力を完了してください。
-          = form.submit "購入する",class: "btn-default-btn-red-bold buy-form-btn", id: "buy-form-btn"
+          - if @card
+            = form.submit "購入する",class: "btn-default-btn-red-bold buy-form-btn", id: "buy-form-btn"
+          - else
+            .not-buy-gray-btn
+              購入する
 
     %section.buy-content-buy-user-info
       .buy-content-inner

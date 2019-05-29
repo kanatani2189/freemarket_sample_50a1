@@ -133,15 +133,15 @@
                 border-bottom: 50px solid transparent;
                 border-left: 50px solid $baseColor;
                 }
-                .item-sold-out-badge{
-                  position: absolute;
-                  top: 21px;
-                  left: 0;
-                  div{
-                    transform: rotate(-45deg);
-                    color: $whiteColor;
-                    font-size: 26px;
-                  }
+              .item-sold-out-badge{
+                position: absolute;
+                top: 21px;
+                left: 0;
+                div{
+                  transform: rotate(-45deg);
+                  color: $whiteColor;
+                  font-size: 26px;
+                }
               }
             }
             .item-body{

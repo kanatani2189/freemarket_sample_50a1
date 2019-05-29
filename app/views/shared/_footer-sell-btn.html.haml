@@ -1,3 +1,8 @@
-= link_to new_item_path, class: "footer-sell-btn" do
-  %div 出品
-  = icon('fas', 'camera')
+- if user_signed_in?
+  = link_to new_item_path, class: "footer-sell-btn" do
+    %div 出品
+    = icon('fas', 'camera')
+- else
+  = link_to new_user_session_path, class: "footer-sell-btn" do
+    %div 出品
+    = icon('fas', 'camera')

@@ -26,7 +26,7 @@
               = link_to "/users/items/#{item.id}" do
                 %li
                   %figure
-                    - item.images.each do |image|
+                    - item.images.first(1).each do |image|
                       = image_tag image
                   .mypage-item-body
                     .mypage-item-body__text
