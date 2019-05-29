@@ -14,12 +14,37 @@
             必須
         %p.item-main-image__box--upload
           最大10枚までアップロードできます
-      .item-main-image__box
-        = f.file_field :images, multiple: true, class: "item-main-image__file" do
-          %p.item-main-image__file--text
-            ドラッグアンドドロップ
-            %br
-            またはクリックしてファイルをアップロード
+      .item-main-image__content#aaa
+        .item-main-image__content__left
+          - if @item.images.attached?
+            - id_number2 = 100
+            - id_number3 = 1000
+            - @item.images.each do |image|
+              - id_number2 = id_number2 + 1
+              - id_number3 = id_number3 + 1
+              %ul.item-main-image__content__left__top
+                %li.item-main-image__content__left__top__li
+                  %figure.item-main-image__content__left__top__li__figure{id: "#{id_number2}"}
+                    = image_tag image, class: "item-main-image__content__left__top__li__figure__image"
+                  .item-main-image__content__left__top__li__button{id: "#{id_number3}"}
+                    %p.item-main-image__content__left__top__li__button--edit
+                      編集
+                    %p.item-main-image__content__left__top__li__button--delete
+                      削除
+
+        .item-main-image__content__right
+          .item-main-image__content__right__box
+            = f.label :images, class: "item-main-image__content__right__box__label" do
+              .item-main-image__content__right__box__label__content
+                %p.item-main-image__content__right__box__label__content--text
+                  ドラッグアンドドロップ
+                %p.item-main-image__content__right__box__label__content--text
+                  またはクリックしてファイルをアップロード
+              = f.file_field :images, multiple: true, class: "item-main-image__content__right__box__label__file"
+      .item-main-image__bottom
+        .item-main-image__bottom__left
+        .item_main-image__bottom__right
+
 
     .item-main-detail
       .item-main-detail__namebox
@@ -27,13 +52,13 @@
           商品名
           %span.item-main-detail__namebox__label--required
             必須
-        = f.text_field :name, placeholder: "商品名（必須40文字まで）", type: "text", value: "", class: "item-main-detail__namebox__name"
+        = f.text_field :name, placeholder: "商品名（必須40文字まで）", type: "text", value: @item.name, class: "item-main-detail__namebox__name"
       .item-main-detail__description
         = f.label :description, class: "item-main-detail__description__label" do
           商品の説明
           %span.item-main-detail__description__label--required
             必須
-        = f.text_area :description, placeholder: "商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", type: "text", value: "", class: "item-main-detail__description__textarea"
+        = f.text_area :description, placeholder: "商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", type: "text", value: @item.description, class: "item-main-detail__description__textarea"
 
     .item-main-state
       .item-main-state__box
@@ -49,9 +74,9 @@
               .item-main-state__box__first_category__select
                 = p.collection_select :large, Large.all, :name, :name, {}, class: "item-main-state__box__category__select__name"
               .item-main-state__box__first_category__select
-                = p.collection_select :midium, Midium.all, :name, :name, {}, class: "item-main-state__box__category__select__name"
+                = p.collection_select :midium, Midium.all, :name, :name, {}, class: "item-main-state__box__category__select__name1"
               .item-main-state__box__first_category__select
-                = p.collection_select :small, Small.all, :name, :name, {}, class: "item-main-state__box__category__select__name"
+                = p.collection_select :small, Small.all, :name, :name, {}, class: "item-main-state__box__category__select__name2"
 
               = p.text_field :item_id, type: "hidden"
               
@@ -61,7 +86,7 @@
             %span.item-main-state__box__category--label--required
               必須
           .item-main-state__box__first_category__select
-            = f.select :size, options_for_select(["XXS以下"]), {}, { autofocus: 'true', class: "item-main-state__box__category__select__name", id: "first_category"}
+            = f.collection_select :size, Size.all, :name, :name, {}, class: "item-main-state__box__category__select__name"
         .item-main-state__box__category
           = f.label :size, class: "item-main-state__box__category--label" do
             ブランド
@@ -75,7 +100,7 @@
             %span.item-main-state__box__category--label--required
               必須
           .item-main-state__box__category__select
-            = f.select :condition, options_for_select(["新品、未使用", "未使用に近い", "目立った傷や汚れなし", "やや傷や汚れあり", "傷や汚れあり", "全体的に状態が悪い" ]), {}, { autofocus: 'true', class: "item-main-state__box__category__select__name"}
+            = f.collection_select :condition, Condition.all, :name, :name, {}, class: "item-main-state__box__category__select__name"
 
     .item-main-state
       .item-main-state__box
@@ -90,7 +115,7 @@
             %span.item-main-state__box__category--label--required
               必須
           .item-main-state__box__category__select
-            = f.select :shipping_burden, options_for_select(["送料込み（出品者負担）", "着払い（購入者負担）" ]), {}, { autofocus: 'true', class: "item-main-state__box__category__select__name"}
+            = f.collection_select :shipping_burden, Shipping_burden.all, :name, :name, {}, class: "item-main-state__box__category__select__name"
 
         .item-main-state__box__category
           = f.label :shipping_method, class: "item-main-state__box__category--label" do
@@ -98,7 +123,7 @@
             %span.item-main-state__box__category--label--required
               必須
           .item-main-state__box__category__select
-            = f.select :shipping_method, options_for_select(["らくらくメルカリ便" ]), {}, { autofocus: 'true', class: "item-main-state__box__category__select__name"}
+            = f.collection_select :shipping_method, Shipping_method.all, :name, :name, {}, class: "item-main-state__box__category__select__name"
 
         .item-main-state__box__category
           %label{for: "area_id", class: "item-main-state__box__category--label"}
@@ -114,7 +139,7 @@
             %span.item-main-state__box__category--label--required
               必須
           .item-main-state__box__category__select
-            = f.select :estimated_date, options_for_select(["1〜2日で発送", "2〜3日で発送", "4〜7日で発送" ]), {}, { autofocus: 'true', class: "item-main-state__box__category__select__name"}
+            = f.collection_select :estimated_date, Estimated_date.all, :name, :name, {}, class: "item-main-state__box__category__select__name"
           .item-main-state__box__category__select
 
     .item-main-price
@@ -133,7 +158,7 @@
         .item-main-price__top--input
           %span.item-yen
             ¥
-          = f.number_field :price, placeholder: "例)", type: "text", value: "", class: "item_example"
+          = f.number_field :price, placeholder: "例)", type: "text", value: @item.price, class: "item_example"
       .item-main-price__center
         %p.item-main-price__center--fee
           販売手数料(10%)
@@ -163,7 +188,7 @@
           = link_to "#", class: "item-main-product__box--text--link" do
             加盟店規約
           に同意したことになります。
-        = f.submit "出品する", class: "item-main-product__box--btn"
+        = f.submit "編集する", class: "item-main-product__box--btn"
 
         .item-main-product__box__return
           %button{type: "submit", class: "item-main-product__box__return--btn"}

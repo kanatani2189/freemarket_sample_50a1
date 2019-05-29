@@ -85,11 +85,12 @@
             overflow: hidden;
             border-radius: 50%;
             width:32px;
+            vertical-align: bottom;
           }
           span{
             font-size: 14px;
             margin-left: 10px;
-            
+            margin: 0;
           }
         }
       }

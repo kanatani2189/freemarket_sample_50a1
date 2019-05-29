@@ -19,4 +19,16 @@ class UsersController < ApplicationController
   # ログアウト（内田）
   def logout
   end
+
+  # マイページ出品一覧（内田）
+  def items_show
+    @user = User.find(current_user.id)
+    @items = @user.items.all
+  end
+
+  # マイページ出品個別（内田）
+  def item_show
+    @user = User.find(current_user.id)
+    @item = @user.items.find(params[:item_id])
+  end
 end

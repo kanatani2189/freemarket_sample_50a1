@@ -68,7 +68,7 @@
             %option タイヤのサイズ
             %option スキーのサイズ
             %option スノーボードのサイズ
-          -# =icon("fas","chevron-down")
+          =icon("fas","chevron-down")
         .form-group
           %label
             =icon('fas', 'database')
@@ -85,17 +85,16 @@
           -#   %option 10000~30000
           -#   %option 30000~50000
           -#   %option 50000~
+          -# =icon("fas","chevron-down")
         .cover
           .button-box
             .reset-button クリア
             = f.submit "完了",class:'complete-button'
-
-
   .search-container__content
     .search-container__content__items-box-container
       %h2.search-result-head 検索結果 
       .items-box-content
-      -@items.each do |item|
+      -@item.each do |item|
         .items-box-content__items-box
           = link_to item_path(item), method: :get do
             .items-box-photo
@@ -112,7 +111,7 @@
                   %span 14
               %p.items-box-body__items-box-tax (税込)
   .search-container__page
-    -# =paginate(@items)
+    -# =paginate(@item)
 = render './shared/footer-sell-btn';
 = render './shared/app-banner';
 = render './shared/footer';
