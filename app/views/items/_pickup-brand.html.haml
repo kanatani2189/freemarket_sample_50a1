@@ -6,29 +6,28 @@
     - num = 0
     - @items.each do |item|
       - item.parent_categories.each do |category|
-        - if category.large == "シャネル" 
+        - if item.brand_id == 2 
           - num = num + 1
     - @items.each do |item|
-      - item.parent_categories.each do |category|
-        - if (category.large == "シャネル") && (num <= 4) && (num >= 1)
-          - num = num -1   
-          %section.main--pickup-container--items-container--items__item
-            = link_to "#" do
-              %figure.item-photo
-                - item.images.find do |images| 
-                  = image_tag images 
-              .item-body
-                %h3.item-body__name 
-                  = item.name
-                .item-body--num
-                  .item-body--num__price 
-                    = item.price
-                  .item-body--num__favorite
-                    = icon('far', 'heart')
-                    %span 1000
-                %p (税込)
-        - elsif (category.large == "シャネル") && (num >= 5)
-          - num = num - 1
+      - if (item.brand_id == 2) && (num <= 4) && (num >= 1)
+        - num = num -1   
+        %section.main--pickup-container--items-container--items__item
+          = link_to "#" do
+            %figure.item-photo
+              - item.images.find do |images| 
+                = image_tag images 
+            .item-body
+              %h3.item-body__name 
+                = item.name
+              .item-body--num
+                .item-body--num__price 
+                  = item.price
+                .item-body--num__favorite
+                  = icon('far', 'heart')
+                  %span 1000
+              %p (税込)
+      - elsif (item.brand_id == 2) && (num >= 5)
+        - num = num - 1
   .main--pickup-container--items-container__view-all
     = link_to "#" do
       すべての商品を見る
@@ -41,29 +40,28 @@
     - num = 0
     - @items.each do |item|
       - item.parent_categories.each do |category|
-        - if category.large == "ルイ ヴィトン" 
+        - if item.brand_id == 4 
           - num = num + 1
     - @items.each do |item|
-      - item.parent_categories.each do |category|
-        - if (category.large == "ルイ ヴィトン") && (num <= 4) && (num >= 1)
-          - num = num -1   
-          %section.main--pickup-container--items-container--items__item
-            = link_to "#" do
-              %figure.item-photo
-                - item.images.find do |images| 
-                  = image_tag images 
-              .item-body
-                %h3.item-body__name 
-                  = item.name
-                .item-body--num
-                  .item-body--num__price 
-                    = item.price
-                  .item-body--num__favorite
-                    = icon('far', 'heart')
-                    %span 1000
-                %p (税込)
-        - elsif (category.large == "ルイ ヴィトン") && (num >= 5)
-          - num = num - 1
+      - if (item.brand_id == 4) && (num <= 4) && (num >= 1)
+        - num = num -1   
+        %section.main--pickup-container--items-container--items__item
+          = link_to "#" do
+            %figure.item-photo
+              - item.images.find do |images| 
+                = image_tag images 
+            .item-body
+              %h3.item-body__name 
+                = item.name
+              .item-body--num
+                .item-body--num__price 
+                  = item.price
+                .item-body--num__favorite
+                  = icon('far', 'heart')
+                  %span 1000
+              %p (税込)
+      - elsif (item.brand_id == 4) && (num >= 5)
+        - num = num - 1
   .main--pickup-container--items-container__view-all
     = link_to "#" do
       すべての商品を見る
@@ -76,29 +74,28 @@
     - num = 0
     - @items.each do |item|
       - item.parent_categories.each do |category|
-        - if category.large == "シュプリーム" 
+        - if item.brand_id == 5 
           - num = num + 1
     - @items.each do |item|
-      - item.parent_categories.each do |category|
-        - if (category.large == "シュプリーム") && (num <= 4) && (num >= 1)
-          - num = num -1   
-          %section.main--pickup-container--items-container--items__item
-            = link_to "#" do
-              %figure.item-photo
-                - item.images.find do |images| 
-                  = image_tag images 
-              .item-body
-                %h3.item-body__name 
-                  = item.name
-                .item-body--num
-                  .item-body--num__price 
-                    = item.price
-                  .item-body--num__favorite
-                    = icon('far', 'heart')
-                    %span 1000
-                %p (税込)
-        - elsif (category.large == "シュプリーム") && (num >= 5)
-          - num = num - 1
+      - if (item.brand_id == 5) && (num <= 4) && (num >= 1)
+        - num = num -1   
+        %section.main--pickup-container--items-container--items__item
+          = link_to "#" do
+            %figure.item-photo
+              - item.images.find do |images| 
+                = image_tag images 
+            .item-body
+              %h3.item-body__name 
+                = item.name
+              .item-body--num
+                .item-body--num__price 
+                  = item.price
+                .item-body--num__favorite
+                  = icon('far', 'heart')
+                  %span 1000
+              %p (税込)
+      - elsif (item.brand_id == 5) && (num >= 5)
+        - num = num - 1
   .main--pickup-container--items-container__view-all
     = link_to "#" do
       すべての商品を見る
@@ -110,30 +107,28 @@
   .main--pickup-container--items-container--items
     - num = 0
     - @items.each do |item|
-      - item.parent_categories.each do |category|
-        - if category.large == "ナイキ" 
-          - num = num + 1
+      - if item.brand_id == 3
+        - num = num + 1
     - @items.each do |item|
-      - item.parent_categories.each do |category|
-        - if (category.large == "ナイキ") && (num <= 4) && (num >= 1)
-          - num = num -1   
-          %section.main--pickup-container--items-container--items__item
-            = link_to "#" do
-              %figure.item-photo
-                - item.images.find do |images| 
-                  = image_tag images 
-              .item-body
-                %h3.item-body__name 
-                  = item.name
-                .item-body--num
-                  .item-body--num__price 
-                    = item.price
-                  .item-body--num__favorite
-                    = icon('far', 'heart')
-                    %span 1000
-                %p (税込)
-        - elsif (category.large == "ナイキ") && (num >= 5)
-          - num = num - 1
+      - if (item.brand_id == 3) && (num <= 4) && (num >= 1)
+        - num = num -1   
+        %section.main--pickup-container--items-container--items__item
+          = link_to "#" do
+            %figure.item-photo
+              - item.images.find do |images| 
+                = image_tag images 
+            .item-body
+              %h3.item-body__name 
+                = item.name
+              .item-body--num
+                .item-body--num__price 
+                  = item.price
+                .item-body--num__favorite
+                  = icon('far', 'heart')
+                  %span 1000
+              %p (税込)
+      - elsif (item.brand_id == 3) && (num >= 5)
+        - num = num - 1
   .main--pickup-container--items-container__view-all
     = link_to "#" do
       すべての商品を見る

@@ -10,7 +10,11 @@
   .item-box-container__item-main-containt
     .item-box-container__item-main-containt__item-photo
       .item-box-container__item-main-containt__item-photo__owlcasual
-        = image_tag @item.images.first, class:"item-box-container__item-main-containt__item-photo__owlcasual__owl-lazy" 
+        = image_tag @item.images.first, class:"item-box-container__item-main-containt__item-photo__owlcasual__owl-lazy"
+        - if @item.status
+          %figcaption
+          .item-sold-out-badge
+            %div SOLD
       .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots
         .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot
           .item-box-container__item-main-containt__item-photo__owlcasual__owl-dots__owl-dot__out
@@ -362,8 +366,6 @@
               =icon('fas', 'heart')
               %span 6
           %p.items-in-user-profile__items-box-container__items-box-containt__item-box__items-box-body__tax (税込)
-
-
 
 = render './shared/app-banner';
 = render './shared/footer';
