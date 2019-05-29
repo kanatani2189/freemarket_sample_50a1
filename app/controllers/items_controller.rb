@@ -4,7 +4,8 @@ class ItemsController < ApplicationController
 
   # トップページ（内田）
   def index
-
+    @items = Item.all
+    @item = Item.last(4)
   end
 
  # 商品詳細ページ（山本）
@@ -80,7 +81,7 @@ class ItemsController < ApplicationController
   # category-page "items/category/123" (石川)
   def category
     @items = Item.all
-    @aaa = params[:date].to_i
+    @params_id = params[:date].to_i
   end
 
   private
