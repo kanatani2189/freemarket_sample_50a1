@@ -66,6 +66,19 @@ class ItemsController < ApplicationController
 #  商品検索後ページ（山本）
   def search
     @items = Item.where("name LIKE(?)", "%#{params[:keyword]}%").order("created_at DESC").page(params[:page]).per(8)
+    @q = Item.ransack(params[:q])
+    @item = @q.result(distinct: true)
+  end
+
+  def search_item
+    @q = Item.search(params[:q])
+    @item = @q.result(distinct: true).order("created_at DESC").page(params[:page]).per(8)
+  end
+  
+  # category-page "items/category/123" (石川)
+  def category
+    @items = Item.all
+    @aaa = params[:date].to_i
   end
 
   private
@@ -119,6 +132,10 @@ class ItemsController < ApplicationController
   #     io: uploading_file.open,
   #     filename: uploading_file.original_filename,
   #     content_type: uploading_file.content_type
+  # end
+
+  # def search_params
+  #   params.require(:q).permit(:price_gteq,:name_cont)
   # end
 
 end
