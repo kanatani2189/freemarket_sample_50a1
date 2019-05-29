@@ -28,7 +28,7 @@
         .form-box
           = f.email_field :email, placeholder: "メールアドレス", type: "text", value: "", class: "form-box--input"
         .form-box
-          = f.password_field :password, placeholder: "パスワード", type: "text", value: "", class: "form-box--input"
+          = f.password_field :password, placeholder: "パスワード", type: "text", value: "", class: "form-box--input", id: "password_login"
         = f.submit "ログイン", class: "form-btn" do
           ログイン
         = link_to "#", class: "form-link" do
