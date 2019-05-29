@@ -120,6 +120,15 @@ ActiveRecord::Schema.define(version: 2019_05_27_114934) do
     t.index ["parent_category_id"], name: "index_small_categories_on_parent_category_id"
   end
 
+  create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
+  end
+
   create_table "user_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "item_id", null: false
@@ -163,6 +172,7 @@ ActiveRecord::Schema.define(version: 2019_05_27_114934) do
   add_foreign_key "midium_categories", "parent_categories"
   add_foreign_key "parent_categories", "items"
   add_foreign_key "small_categories", "parent_categories"
+  add_foreign_key "sns_credentials", "users"
   add_foreign_key "user_items", "items"
   add_foreign_key "user_items", "users"
 end
