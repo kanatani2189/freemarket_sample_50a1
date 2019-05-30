@@ -103,6 +103,7 @@
         width: auto;
         height: 330px;
         display: flex;
+        flex-direction: row-reverse;
         &__item{
           margin: 0 0 0 20px;
           width: 213px;

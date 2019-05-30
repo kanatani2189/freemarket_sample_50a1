@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
 
   # トップページ（内田）
   def index
-    @items = Item.order("created_at DESC")
+    @items = Item.all
     @item = Item.last(4)
   end
 

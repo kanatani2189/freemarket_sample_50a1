@@ -28,12 +28,11 @@
       }
     }
     &--items{
-      width: 184px;
       height: 300px;
       display: flex;
       &__item{
         margin: 0 0 0 20px;
-        width: 213px;
+        width: 184px;
         height: 300px;
         background: $whiteColor;
         a{
