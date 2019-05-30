@@ -4,17 +4,17 @@
 .search-container
   .search-container__side
     = search_form_for(@q, url:items_search_456_path) do |f|
-      .search-container__side__sort
-        .form-group
-          .form-group__select-wrap
-            %select
-              %option 並び替え
-              %option 価格の安い順
-              %option 価格の高い順
-              %option 出品の古い順
-              %option 出品の新しい順
-              -# %option いいねの多い順
-            =icon("fas","chevron-down")
+      -# .search-container__side__sort
+      -#   .form-group
+      -#     .form-group__select-wrap
+      -#       %select
+      -#         %option 並び替え
+      -#         %option 価格の安い順
+      -#         %option 価格の高い順
+      -#         %option 出品の古い順
+      -#         %option 出品の新しい順
+      -#         %option いいねの多い順
+      -#       =icon("fas","chevron-down")
       .search-container__side__main
         %h3 詳細検索
         .form-group
@@ -22,52 +22,35 @@
             =icon('fas', 'plus')
             %span.font キーワードを検索する
           = f.search_field :name_cont, placeholder: "例）値下げ"
-        .form-group
-          %label
-            =icon('fas', 'list')
-            %span.font カテゴリーを選択する
-          %select
-            %option すべて
-            %option レディース
-            %option ベビー・キッズ
-            %option インテリア・住まい・小物
-            %option 本・音楽・ゲーム
-            %option おもちゃ・ホビー・グッズ
-            %option コスメ・香水・美容
-            %option 家電・スマホ・カメラ
-            %option スポーツ・レジャー
-            %option ハンドメイド
-            %option チケット
-            %option 自動車・オートバイ
-            %option その他
-          =icon("fas","chevron-down")
+        -# .form-group
+        -#   %label
+        -#     =icon('fas', 'list')
+        -#     %span.font カテゴリーを選択する
+        -#   %select
+        -#     %option すべて
+        -#     %option レディース
+        -#     %option ベビー・キッズ
+        -#     %option インテリア・住まい・小物
+        -#     %option 本・音楽・ゲーム
+        -#     %option おもちゃ・ホビー・グッズ
+        -#     %option コスメ・香水・美容
+        -#     %option 家電・スマホ・カメラ
+        -#     %option スポーツ・レジャー
+        -#     %option ハンドメイド
+        -#     %option チケット
+        -#     %option 自動車・オートバイ
+        -#     %option その他
+          -# =icon("fas","chevron-down")
         .form-group
           %label
             =icon('fas', 'backspace')
             %span.font ブランド名から探す
-          = f.radio_button :brand_id_eq, '', {:checked => true}
-          = f.radio_button :brand_id_eq, 1
-          = f.radio_button :brand_id_eq, 2
+          = f.collection_select :brand_id_eq, Brand.all, :id, :name,:include_blank => '指定なし'
         .form-group
           %label
             =icon('fas', 'square')
             %span.font サイズを指定する
-          %select
-            %option 選択してください
-            %option 洋服のサイズ
-            %option メンズ服のサイズ
-            %option レディーズ服のサイズ
-            %option スカートのサイズ
-            %option キッズ服のサイズ
-            %option ベビー・キッズのサイズ
-            %option ベビー服のサイズ
-            %option テレビのサイズ
-            %option カメラレンズのサイズ
-            %option オートバイのサイズ
-            %option ヘルメットのサイズ
-            %option タイヤのサイズ
-            %option スキーのサイズ
-            %option スノーボードのサイズ
+          = f.collection_select :size_eq, Size.all, :name, :name,:include_blank => '指定なし'
           -# =icon("fas","chevron-down")
         .form-group
           %label
@@ -77,20 +60,57 @@
             = f.number_field :price_gteq,placeholder: "¥Min",class:"min-box"
             %span ~
             = f.number_field :price_lt,placeholder: "¥Max",class:"max-box"
-          -# %select
-          -#   %option 選択してください
-          -#   %option 300~1000
-          -#   %option 1000~5000
-          -#   %option 5000~10000
-          -#   %option 10000~30000
-          -#   %option 30000~50000
-          -#   %option 50000~
+        .form-groups
+          %label
+            =icon('fas', 'star')
+            %span.font 商品の状態
+            .condition-boxes
+              .condition-box
+                = f.radio_button :condition_eq,"新品、未使用"||"未使用に近い"||"目立った傷は汚れなし"||"傷や汚れあり"||"全体的に状態が悪い"
+                %span 全選択
+              .condition-box
+                = f.radio_button :condition_eq,"新品、未使用"
+                %span 新品、未使用
+                = f.radio_button :condition_eq,"未使用に近い"
+                %span 未使用に近い
+              .condition-box
+                = f.radio_button :condition_eq,"目立った傷は汚れなし"
+                %span 目立った傷は汚れなし
+                = f.radio_button :condition_eq,"傷や汚れあり"
+                %span 傷や汚れあり
+              .condition-box
+                = f.radio_button :condition_eq,"全体的に状態が悪い"
+                %span 全体的に状態が悪い
+        .form-groups
+          %label
+            =icon('fas', 'car')
+            %span.font 配送料の負担
+            .condition-boxes
+              .condition-box
+                = f.radio_button :shipping_burden_eq,"送料込み（出品者負担）"||"着払い（購入者負担）"
+                %span 全選択
+                = f.radio_button :shipping_burden_eq,"送料込み（出品者負担）"
+                %span 送料込み（出品者負担）
+              .condition-box
+                = f.radio_button :shipping_burden_eq,"着払い（購入者負担）"
+                %span 着払い（購入者負担）
+        .form-groups
+          %label
+            =icon('fas', 'square')
+            %span.font 販売状況
+            .condition-boxes
+              .condition-box
+                .condition-box
+                = f.radio_button :status_eq, ''||1
+                %span 販売中と売り切れ
+                -# = f.radio_button :status_eq, ''
+                -# %span 販売中
+                = f.radio_button :status_eq, 1
+                %span 売り切れ
         .cover
           .button-box
             .reset-button クリア
             = f.submit "完了",class:'complete-button'
-
-
   .search-container__content
     .search-container__content__items-box-container
       %h2.search-result-head 検索結果 
@@ -101,6 +121,10 @@
             .items-box-photo
               -item.images.first(1).each do |image|
                 =image_tag image
+              - if item.status
+                %figcaption
+                .item-sold-out-badge
+                  %div SOLD 
             .items-box-body
               %h3.items-box-body__items-box-name 
                 =item.name
@@ -112,7 +136,7 @@
                   %span 14
               %p.items-box-body__items-box-tax (税込)
   .search-container__page
-    -# =paginate(@items)
+    =paginate(@items)
 = render './shared/footer-sell-btn';
 = render './shared/app-banner';
 = render './shared/footer';

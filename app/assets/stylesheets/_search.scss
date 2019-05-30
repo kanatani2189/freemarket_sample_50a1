@@ -2,7 +2,7 @@
   position: relative;
   margin: 40px auto 0;
   width: 1030px;
-  height:1000px;
+  height:1500px;
   &__side{
     width: 280px;
     margin: 0 40px 0 0;
@@ -89,6 +89,19 @@
           }
         }
       }
+      .form-groups{
+        margin: 40px 0 0;
+        width:260px;
+        .condition-boxes{
+          .condition-box{
+            font-size:14px;
+            input{
+              margin-left:10px;
+              margin-bottom: 10px;
+            }
+          }
+        }
+      }
     }
     .cover{
       background: #fff;
@@ -154,8 +167,29 @@
               right: 0;
               bottom: 0;
               left: 0;
-              z-index: 1;
+              // z-index: 1;
               width: 100%;
+            }
+            figcaption{
+              position: absolute;
+              width: 100px;
+              height: 100px;
+              top: 0;
+              left: 0;
+              border-top: 50px solid $baseColor;
+              border-right: 50px solid transparent;
+              border-bottom: 50px solid transparent;
+              border-left: 50px solid $baseColor;
+              }
+            .item-sold-out-badge{
+              position: absolute;
+              top: 21px;
+              left: 0;
+              div{
+                transform: rotate(-45deg);
+                color: $whiteColor;
+                font-size: 26px;
+              }
             }
           }
           .items-box-body{
