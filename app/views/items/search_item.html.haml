@@ -1,6 +1,7 @@
-= render './shared/header';
-= render './shared/gratel';
-
+- if user_signed_in?
+  = render './shared/profile_header'
+- else
+  = render './shared/header'
 .search-container
   .search-container__side
     = search_form_for(@q, url:items_search_456_path) do |f|
