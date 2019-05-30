@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
  # 商品詳細ページ（山本）
   def show
     @item = Item.find(params[:id])
-    @comments = Comment.all
+    @comments = Comment.where("item_id = #{params[:id]}")
   end
 
  # 商品出品ページ（西田）
