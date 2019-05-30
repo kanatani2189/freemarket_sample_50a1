@@ -7,6 +7,8 @@ Rails.application.routes.draw do
  
   root 'items#index'
   resources :items, only: [:index, :new, :show, :create, :edit, :update, :destroy, ]
+  # コメント機能
+  post 'items/:item_id' => "items#comment"
   resources :users, only: [:index, :show, :new, :edit]
   # get "items/buy/123456789" =>"items#buy" /cards/buyに変更
   # ログアウトページ（内田）

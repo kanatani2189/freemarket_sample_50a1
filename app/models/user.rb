@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :user_items
   has_many :items, through: :user_items
   has_many :sns_credentials
+  has_many :comments
 
   validates :nickname, presence: true, length: { maximum: 20 }
   validates :email, presence: true, uniqueness: true
