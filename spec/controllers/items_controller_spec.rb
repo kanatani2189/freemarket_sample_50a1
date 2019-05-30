@@ -35,5 +35,12 @@ describe ItemsController do
       expect(response).to render_template :search
     end
   end
+
+  describe 'GET #search_item' do
+    it "renders the :search_item template" do
+      get :search_item
+      expect(response).to render_template :search_123
+    end
+  end
 end
 
