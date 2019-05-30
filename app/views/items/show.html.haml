@@ -146,76 +146,36 @@
 .item-detail-message
   .item-detail-message__message-containt
     %ul.item-detail-message__message-containt__message-items
-      %li.item-detail-message__message-containt__message-items__message
-        .item-detail-message__message-containt__message-items__message__message-user
-          .item-detail-message__message-containt__message-items__message__message-user__unknown
-            =image_tag"//www-mercari-jp.akamaized.net/assets/img/common/common/user-icon.svg?392987640", class:"item-detail-message__message-containt__message-items__message__message-user__unknown__image"
-        .item-detail-message__message-containt__message-items__message__message-body
-          .item-detail-message__message-containt__message-items__message__message-body__text 出品者がコメントを削除しました
-          .item-detail-message__message-containt__message-items__message__message-body__icons
-            %span.item-detail-message__message-containt__message-items__message__message-body__icons__time 199日前
-          =icon('fas', 'play')
-      %li.item-detail-message__message-containt__message-items__message
-        .item-detail-message__message-containt__message-items__message__message-user
-          .item-detail-message__message-containt__message-items__message__message-user__unknown
-            =image_tag"//www-mercari-jp.akamaized.net/assets/img/common/common/user-icon.svg?392987640", class:"item-detail-message__message-containt__message-items__message__message-user__unknown__image"
-        .item-detail-message__message-containt__message-items__message__message-body
-          .item-detail-message__message-containt__message-items__message__message-body__text 出品者がコメントを削除しました
-          .item-detail-message__message-containt__message-items__message__message-body__icons
-            %span.item-detail-message__message-containt__message-items__message__message-body__icons__time 199日前
-          =icon('fas', 'play')
-      %li.item-detail-message__message-containt__message-items__message
-        .item-detail-message__message-containt__message-items__message__message-user
-          .item-detail-message__message-containt__message-items__message__message-user__unknown
-            =image_tag"//www-mercari-jp.akamaized.net/assets/img/common/common/user-icon.svg?392987640", class:"item-detail-message__message-containt__message-items__message__message-user__unknown__image"
-        .item-detail-message__message-containt__message-items__message__message-body
-          .item-detail-message__message-containt__message-items__message__message-body__text 出品者がコメントを削除しました
-          .item-detail-message__message-containt__message-items__message__message-body__icons
-            %span.item-detail-message__message-containt__message-items__message__message-body__icons__time 199日前
-          =icon('fas', 'play')
-      %li.item-detail-message__message-containt__message-items__message
-        .item-detail-message__message-containt__message-items__message__message-user
-          .item-detail-message__message-containt__message-items__message__message-user__unknown
-            =image_tag"//static.mercdn.net/images/member_photo_noimage_thumb.png", class:"item-detail-message__message-containt__message-items__message__message-user__unknown__image"
-        .item-detail-message__message-containt__message-items__message__message-body
-          .item-detail-message__message-containt__message-items__message__message-body__text はじめまして。ずっと、気になっているのですが・・・こちらのバッグの『多少の汚れ』とは、パッと見る限り、目立たない程度なのですか？皮の白いところは画像でわかるのですが、全体の感じがわからなかったので、質問してみました。
-          .item-detail-message__message-containt__message-items__message__message-body__icons
-            %span.item-detail-message__message-containt__message-items__message__message-body__icons__time 179日前
-          =icon('fas', 'play')
-      %li.item-detail-message__message-containt__message-items__message
-        .item-detail-message__message-containt__message-items__message__message-user
-          .item-detail-message__message-containt__message-items__message__message-user__unknown
-            =image_tag"//static.mercdn.net/thumb/members/387561164.jpg?1553790005", class:"item-detail-message__message-containt__message-items__message__message-user__unknown__image"
-        .item-detail-message__message-containt__message-items__message__message-body
-          .item-detail-message__message-containt__message-items__message__message-body__text 
-          おまたせしました。
-          %br
-          先ほど確認しましたところ、画像にある底部に若干の汚れが見られる程度で、後はそれといって汚れはございませんでした。
-          %br
-          よろしくお願いします。
-          .item-detail-message__message-containt__message-items__message__message-body__icons
-            %span.item-detail-message__message-containt__message-items__message__message-body__icons__time 177日前
-          =icon('fas', 'play')
-      %li.item-detail-message__message-containt__message-items__message
-        .item-detail-message__message-containt__message-items__message__message-user
-          .item-detail-message__message-containt__message-items__message__message-user__unknown
-            =image_tag"//static.mercdn.net/images/member_photo_noimage_thumb.png", class:"item-detail-message__message-containt__message-items__message__message-user__unknown__image"
-        .item-detail-message__message-containt__message-items__message__message-body
-          .item-detail-message__message-containt__message-items__message__message-body__text 
-          ありがとうございます。
-          %br
-          購入したいなと思います。
-          .item-detail-message__message-containt__message-items__message__message-body__icons
-            %span.item-detail-message__message-containt__message-items__message__message-body__icons__time 177日前
-          =icon('fas', 'play')
+      - @comments.each do |comment|
+        %li.item-detail-message__message-containt__message-items__message
+          .item-detail-message__message-containt__message-items__message__message-user
+            .item-detail-message__message-containt__message-items__message__message-user__unknown
+              =image_tag"//www-mercari-jp.akamaized.net/assets/img/common/common/user-icon.svg?392987640", class:"item-detail-message__message-containt__message-items__message__message-user__unknown__image"
+              %span
+                = comment.user.nickname
+          .item-detail-message__message-containt__message-items__message__message-body
+            .item-detail-message__message-containt__message-items__message__message-body__text 
+              = comment.comment
+            .item-detail-message__message-containt__message-items__message__message-body__icons
+              %span.item-detail-message__message-containt__message-items__message__message-body__icons__time
+                = comment.created_at.strftime('%Y/%m/%d')
+            =icon('fas', 'play')
+
+
   .item-detail-message__message-containt
     .item-detail-message__message-containt__message-form
       %p.item-detail-message__message-containt__message-form__message
         相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      %text_area.item-detail-message__message-containt__message-form__form-default
-      %button.item-detail-message__message-containt__message-form__button-default 
-        %span.item-detail-message__message-containt__message-form__button-default__font
-          売り切れのためコメントできません
+      - if current_user
+        = form_with url: "/items/#{@item.id}", name: "comment-form", id: "comment-form", class: "comment-form" do |form|
+          = form.text_area :comment, value: "", class: "item-detail-message__message-containt__message-form__form-default"
+          = form.submit "コメントする", class: "comment_submit"
+      - else
+        %text_area.item-detail-message__message-containt__message-form__form-default
+        %button.item-detail-message__message-containt__message-form__button-default.comment_submit
+          %span.item-detail-message__message-containt__message-form__button-default__font
+            コメントする
+
 .item-link
   .item-link__prev
     = link_to "#" do

@@ -2,6 +2,12 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :update, :destroy]
   before_action :card_get, only: [:buy]
 
+  # コメント
+    def comment
+      @comment = Comment.create(comment: params[:comment], user_id: current_user.id, item_id: params[:item_id])
+      render :js => "window.location = '/items/#{params[:item_id]}'"
+    end
+
   # トップページ（内田）
   def index
     @items = Item.all
@@ -11,6 +17,7 @@ class ItemsController < ApplicationController
  # 商品詳細ページ（山本）
   def show
     @item = Item.find(params[:id])
+    @comments = Comment.all
   end
 
  # 商品出品ページ（西田）
