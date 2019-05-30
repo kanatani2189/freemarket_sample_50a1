@@ -10,8 +10,8 @@ class ItemsController < ApplicationController
 
   # トップページ（内田）
   def index
-    @items = Item.all
-    @item = Item.last(4)
+    @items = Item.order("created_at DESC")
+    @item = Item.first(4)
   end
 
  # 商品詳細ページ（山本）
