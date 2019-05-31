@@ -17,7 +17,7 @@
           必須
         .form-groups__bottom-box--input
           = f.text_field :nickname, placeholder: "例）メルカリ太郎", type: "text", class: "form-groups__bottom-box--input-nickname"
-
+        
       .form-groups__bottom-box
         = f.label :email, class: "form-groups__bottom-box--text" do
           メールアドレス
@@ -25,22 +25,22 @@
           必須
         .form-groups__bottom-box--input
           = f.email_field :email, placeholder: "PC・携帯どちらでも可", type: "text", class: "form-groups__bottom-box--input-nickname"
+      - unless @snscredential.present?
+        .form-groups__bottom-box
+          = f.label :password, class: "form-groups__bottom-box--text" do
+            パスワード
+          %span.form-groups__bottom-box--require
+            必須
+          .form-groups__bottom-box--input
+            = f.password_field :password, placeholder: "6文字以上", type: "text", class: "form-groups__bottom-box--input-nickname", id: "password"
 
-      .form-groups__bottom-box
-        = f.label :password, class: "form-groups__bottom-box--text" do
-          パスワード
-        %span.form-groups__bottom-box--require
-          必須
-        .form-groups__bottom-box--input
-          = f.password_field :password, placeholder: "6文字以上", type: "text", class: "form-groups__bottom-box--input-nickname", id: "password"
-
-      .form-groups__bottom-box
-        = f.label :password, class: "form-group__bottom-box--text" do
-          パスワード（確認）
-        %span.form-groups__bottom-box--require
-          必須
-        .form-groups__bottom-box--input
-          = f.password_field :password_confirmation, placeholder: "6文字以上", type: "text", class: "form-groups__bottom-box--input-nickname", id: "password_confirmation"
+        .form-groups__bottom-box
+          = f.label :password, class: "form-group__bottom-box--text" do
+            パスワード（確認）
+          %span.form-groups__bottom-box--require
+            必須
+          .form-groups__bottom-box--input
+            = f.password_field :password_confirmation, placeholder: "6文字以上", type: "text", class: "form-groups__bottom-box--input-nickname", id: "password_confirmation"
 
       .form-groups__bottom-box
         %h3.identification
